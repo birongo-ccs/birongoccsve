@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>BIRONGO · DJs & PRODUCTORES</title>
+    
+    <!-- FONTS & ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: white;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 0.9rem;
+            color: #ffffff80;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* ===== FILTROS ===== */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #ffffff30;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: white;
+            background: white;
+            color: black;
+        }
+
+        /* ===== ARTISTAS GRID ===== */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .artists-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        .artist-card {
+            background: #111;
+            border: none;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
+        }
+
+        .artist-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .artist-image i {
+            font-size: 4rem;
+            color: #ffffff20;
+        }
+
+        .artist-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            gap: 1rem;
+        }
+
+        .artist-card:hover .artist-overlay {
+            opacity: 1;
+        }
+
+        .artist-overlay a {
+            color: white;
+            font-size: 1.8rem;
+            transition: transform 0.2s ease;
+        }
+
+        .artist-overlay a:hover {
+            transform: scale(1.2);
+        }
+
+        .artist-overlay .fa-spotify:hover {
+            color: #1DB954;
+        }
+
+        .artist-overlay .fa-youtube:hover {
+            color: #ff0000;
+        }
+
+        .artist-overlay .fa-instagram:hover {
+            color: #e4405f;
+        }
+
+        .artist-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .artist-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .artist-info p {
+            color: #ffffff60;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .artist-tags {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 0.3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .artist-tags span {
+            background: #ffffff10;
+            color: #ffffff80;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+        }
+
+        /* ===== BOTONES ===== */
+        .btn {
+            background: transparent;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <h1>DJs & PRODUCTORES</h1>
+            <div class="subtitle">
+                <i class="fas fa-headphones-alt"></i>
+                <span>LA CREW DE BIRONGO</span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </div>
+
+        <!-- ===== FILTROS (opcional) ===== -->
+        <div class="filters">
+            <button class="filter-btn active">TODOS</button>
+            <button class="filter-btn">DJs</button>
+            <button class="filter-btn">PRODUCTORES</button>
+            <button class="filter-btn">MC's</button>
+        </div>
+
+        <!-- ===== GRID DE ARTISTAS ===== -->
+        <div class="artists-grid">
+            <!-- ARTISTA 1 - ALOCATE -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/7sUyHjHdewixq7IrenI03o" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@alocate" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/alocate" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>ALOCATE</h3>
+                    <p>DJ · Productor</p>
+                    <div class="artist-tags">
+                        <span>Techno</span>
+                        <span>House</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 2 - HERESICKA -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/2xRaiN53HUcrbyqJbZiobg" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@heresicka" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/heresicka" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>HERESICKA</h3>
+                    <p>DJ · Live Set</p>
+                    <div class="artist-tags">
+                        <span>Electro</span>
+                        <span>Break</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 3 - SIRDIAMND -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/5QOEir4O0VWvh2C1PSIXpk" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@sirdiamnd" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/sirdiamnd" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>SIRDIAMND</h3>
+                    <p>Productor</p>
+                    <div class="artist-tags">
+                        <span>Deep House</span>
+                        <span>Ambient</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 4 - VITICO -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/3YlpT6Mi4sDSva5gbFr098" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@vitico" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/vitico" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>VITICO</h3>
+                    <p>DJ · Productor</p>
+                    <div class="artist-tags">
+                        <span>Tech House</span>
+                        <span>Minimal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 5 - DESTRO5 -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/5J93iXfPaLAag5wPRoHIjz" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@destro5" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/destro5" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>DESTRO5</h3>
+                    <p>DJ</p>
+                    <div class="artist-tags">
+                        <span>UK Garage</span>
+                        <span>Break</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 6 - DE LA TRINIDAD -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/5ZDwQ9rN1DjNqqXDr9cDw6" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@delatrinidad" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/delatrinidad" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>DE LA TRINIDAD</h3>
+                    <p>MC · Productor</p>
+                    <div class="artist-tags">
+                        <span>Hip Hop</span>
+                        <span>Rap</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 7 - LPZ -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/689mBwz2RoGOChmYyOpXnW" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@lpz" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/lpz" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>LPZ</h3>
+                    <p>Productor</p>
+                    <div class="artist-tags">
+                        <span>Experimental</span>
+                        <span>IDM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 8 - GERARD VALERA -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/4We0e10I4cXJtCeGnkouq8" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@gerardvalera" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/gerardvalera" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>GERARD VALERA</h3>
+                    <p>DJ</p>
+                    <div class="artist-tags">
+                        <span>House</span>
+                        <span>Disco</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 9 - KURGANS -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/0yjfe423duXcL5To8EgxLP" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@kurgans" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/kurgans" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>KURGANS</h3>
+                    <p>Productor</p>
+                    <div class="artist-tags">
+                        <span>Techno</span>
+                        <span>Industrial</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTISTA 10 - TREBOLL -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="https://open.spotify.com/intl-es/artist/0I7ZCWHk7Env1UykgGVYNX" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@treboll" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/treboll" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>TREBOLL</h3>
+                    <p>DJ</p>
+                    <div class="artist-tags">
+                        <span>Break</span>
+                        <span>UKG</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Puedes seguir agregando más artistas con la misma estructura -->
+        </div>
+
+        <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
+        <div class="nav-links">
+            <a href="index.html" class="btn">
+                <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
+            </a>
+            <a href="entradas.html" class="btn">
+                <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
+            </a>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
+        </footer>
+    </div>
+
+    <!-- ===== JAVASCRIPT (para filtros) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const artistCards = document.querySelectorAll('.artist-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remover active de todos
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Agregar active al clickeado
+                    this.classList.add('active');
+                    
+                    const filter = this.textContent.trim();
+                    
+                    // Aquí puedes implementar lógica de filtrado
+                    // Por ahora solo es visual
+                });
+            });
+            
+            // Seguridad para enlaces externos
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
+</body>
+</html>
