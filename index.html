@@ -23,10 +23,9 @@
             color: #ffffff;
             line-height: 1.6;
             font-size: 16px;
-            position: relative;
         }
 
-        /* Fondo sutil con gradientes */
+        /* Fondo sutil */
         body::before {
             content: '';
             position: fixed;
@@ -40,7 +39,6 @@
             z-index: -1;
         }
 
-        /* ===== CONTAINER ===== */
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -59,12 +57,12 @@
             font-weight: 700;
         }
 
-        /* ===== HEADER SECTION ===== */
+        /* ===== HEADER ===== */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
             padding: 2rem 0;
-            border-bottom: 2px solid #ffffff20;
+            border-bottom: 1px solid #ffffff20;
         }
 
         @media (min-width: 768px) {
@@ -74,18 +72,26 @@
             }
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 15vw, 10rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 0.9;
-            color: white;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(255,255,255,0.3);
-            margin-bottom: 1rem;
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
         }
 
-        .hero .tagline {
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        .tagline {
             font-size: 0.9rem;
             color: #ffffff80;
             display: flex;
@@ -98,12 +104,12 @@
         }
 
         @media (min-width: 768px) {
-            .hero .tagline {
+            .tagline {
                 font-size: 1.2rem;
             }
         }
 
-        .hero .tagline i {
+        .tagline i {
             color: white;
             opacity: 0.5;
         }
@@ -112,7 +118,7 @@
         .feed-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
             margin: 2rem 0;
         }
 
@@ -127,7 +133,7 @@
         /* ===== CARDS ===== */
         .card {
             background: #0a0a0a;
-            border: 1px solid #ffffff20;
+            border: none;
             padding: 1.5rem;
             transition: all 0.3s ease;
         }
@@ -138,17 +144,12 @@
             }
         }
 
-        .card:hover {
-            border-color: #ffffff60;
-            box-shadow: 0 20px 40px -20px rgba(255,255,255,0.2);
-        }
-
         .card h2 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             padding-bottom: 0.8rem;
-            border-bottom: 2px solid #ffffff20;
+            border-bottom: 1px solid #ffffff20;
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -170,22 +171,10 @@
             font-size: 1.8rem;
         }
 
-        /* ===== YOUTUBE VIDEOS ===== */
-        .youtube-videos {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
+        /* ===== YOUTUBE SECTION ===== */
         .video-embed {
-            border: 1px solid #ffffff20;
             overflow: hidden;
             transition: all 0.3s ease;
-        }
-
-        .video-embed:hover {
-            border-color: white;
-            box-shadow: 0 0 30px rgba(255,255,255,0.1);
         }
 
         .video-embed iframe {
@@ -195,88 +184,74 @@
             border: none;
         }
 
-        .video-embed p {
+        .video-info {
+            margin-top: 1rem;
             padding: 0.8rem;
             background: #080808;
-            border-top: 1px solid #ffffff10;
+        }
+
+        .video-info p {
             font-weight: 600;
-            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .video-embed p i {
+        .video-info i {
             color: #ffffff60;
         }
 
-        /* ===== EVENTO DESTACADO ===== */
-        .evento-destacado {
-            margin-bottom: 1rem;
-        }
-
-        .evento-destacado-link {
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-
-        .evento-destacado-item {
+        /* ===== EVENTO ===== */
+        .evento-item {
             background: #111;
-            border: 1px solid #ffffff20;
             padding: 1.5rem;
             display: flex;
             gap: 1.5rem;
             align-items: flex-start;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
         }
 
         @media (max-width: 600px) {
-            .evento-destacado-item {
+            .evento-item {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
         }
 
-        .evento-destacado-item:hover {
-            border-color: white;
+        .evento-item:hover {
+            background: #1a1a1a;
             transform: translateX(5px);
-            box-shadow: -10px 10px 30px -15px rgba(255,255,255,0.2);
         }
 
-        .evento-destacado-icon {
+        .evento-icon {
             flex-shrink: 0;
             width: 80px;
             height: 80px;
             background: linear-gradient(145deg, #1a1a1a, #000);
-            border: 2px solid #ffffff30;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
         }
 
-        .evento-destacado-item:hover .evento-destacado-icon {
-            border-color: white;
+        .evento-item:hover .evento-icon {
+            transform: scale(1.05);
         }
 
-        .evento-destacado-icon i {
+        .evento-icon i {
             font-size: 2.5rem;
             color: #ffffff40;
             transition: all 0.3s ease;
         }
 
-        .evento-destacado-item:hover .evento-destacado-icon i {
-            color: white;
-            transform: scale(1.1);
+        .evento-item:hover .evento-icon i {
+            color: #fff;
         }
 
-        .evento-destacado-content {
-            flex: 1;
-        }
-
-        .evento-destacado-header {
+        .evento-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -286,43 +261,36 @@
         }
 
         @media (max-width: 600px) {
-            .evento-destacado-header {
+            .evento-header {
                 justify-content: center;
             }
         }
 
-        .evento-destacado-header h3 {
+        .evento-header h3 {
             font-size: 1.3rem;
             margin: 0;
         }
 
-        .evento-destacado-date {
+        .evento-date {
             color: #ffffff60;
             font-size: 0.85rem;
             padding: 0.2rem 0.8rem;
             background: #ffffff10;
-            border-radius: 20px;
         }
 
-        .evento-destacado-artista {
+        .evento-artista {
             color: #ffffff80;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
 
-        .evento-destacado-artista i {
-            color: #ffffff60;
-            margin-right: 0.3rem;
-        }
-
-        .evento-destacado-desc {
+        .evento-desc {
             color: #ffffff90;
             font-size: 1rem;
             margin-bottom: 1rem;
-            line-height: 1.4;
         }
 
-        .evento-destacado-meta {
+        .evento-meta {
             display: flex;
             gap: 1.5rem;
             margin-bottom: 1.2rem;
@@ -331,77 +299,68 @@
         }
 
         @media (max-width: 600px) {
-            .evento-destacado-meta {
+            .evento-meta {
                 justify-content: center;
             }
         }
 
-        .evento-destacado-meta i {
-            margin-right: 0.3rem;
-        }
-
-        .evento-destacado-btn {
+        .evento-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: white;
+            color: #fff;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             padding: 0.5rem 1rem;
-            border: 1px solid #ffffff30;
+            background: #1a1a1a;
             transition: all 0.2s ease;
         }
 
-        .evento-destacado-item:hover .evento-destacado-btn {
-            background: white;
-            color: black;
-            border-color: white;
+        .evento-item:hover .evento-btn {
+            background: #fff;
+            color: #000;
         }
 
-        /* ===== ARTISTAS GRID CON SPOTIFY ===== */
-        .artists-embed-grid {
+        /* ===== ARTISTAS GRID ===== */
+        .artists-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
             margin-bottom: 2rem;
-            transition: all 0.3s ease;
         }
 
         @media (min-width: 600px) {
-            .artists-embed-grid {
+            .artists-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (min-width: 992px) {
-            .artists-embed-grid {
+            .artists-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (min-width: 1400px) {
-            .artists-embed-grid {
+            .artists-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
 
-        .artist-embed-item {
-            background: #0a0a0a;
-            border: 2px solid #ffffff20;
+        .artist-item {
+            background: #111;
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.4s ease;
-            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
         }
 
-        .artist-embed-item:hover {
-            border-color: #1DB954;
+        .artist-item:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px -15px rgba(29, 185, 84, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(29, 185, 84, 0.3);
         }
 
-        .artist-embed-item iframe {
+        .artist-item iframe {
             width: 100%;
             height: 380px;
             display: block;
@@ -409,28 +368,113 @@
             border-radius: 16px;
         }
 
-        /* Artistas ocultos para ver más */
+        /* Artistas ocultos */
         .hidden-artist {
             display: none;
         }
 
         .hidden-artist.showing {
             display: block;
-            animation: fadeInUp 0.5s ease forwards;
+            animation: fadeIn 0.5s ease forwards;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SPOTIFY PLAYLISTS ===== */
+        .spotify-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .spotify-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
         }
 
-        /* ===== BOTÓN VER MÁS ===== */
+        .spotify-item {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .spotify-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+        }
+
+        .spotify-item iframe {
+            display: block;
+            background: #0a0a0a;
+        }
+
+        /* ===== BOTONES ===== */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .btn-group {
+                flex-direction: row;
+                gap: 2rem;
+                margin: 3rem 0 2rem;
+            }
+        }
+
+        .btn {
+            background: transparent;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            .btn {
+                padding: 1rem 3rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-youtube {
+            background: #ff0000;
+            border-color: #ff0000;
+        }
+
+        .btn-spotify {
+            background: #1DB954;
+            border-color: #1DB954;
+        }
+
+        .btn-spotify:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* ===== VER MÁS BUTTON ===== */
         .ver-mas-btn {
             background: transparent;
             border: 2px solid #1DB954;
@@ -450,7 +494,7 @@
 
         .ver-mas-btn:hover {
             background: #1DB954;
-            color: black;
+            color: #000;
             transform: translateY(-3px);
             box-shadow: 0 10px 30px -10px #1DB954;
         }
@@ -464,86 +508,41 @@
             transform: rotate(180deg);
         }
 
-        /* ===== SPOTIFY PLAYLISTS ===== */
-        .spotify-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+        /* ===== UTILITY ===== */
+        .text-center {
+            text-align: center;
         }
 
-        @media (min-width: 768px) {
-            .spotify-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
+        .mt-2 {
+            margin-top: 1.5rem;
         }
 
-        .spotify-item {
-            transition: all 0.3s ease;
-            border: 1px solid #ffffff20;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .spotify-item:hover {
-            border-color: #1DB954;
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
-        }
-
-        .spotify-item iframe {
-            display: block;
-            background: #0a0a0a;
-        }
-
-        /* ===== BOTONES DIRECTOS ===== */
-        .direct-links {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        @media (min-width: 600px) {
-            .direct-links {
-                flex-direction: row;
-                gap: 2rem;
-                margin: 3rem 0 2rem;
-            }
-        }
-
-        .btn-social {
-            background: transparent;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid white;
+        .more-link {
+            color: #fff;
             text-decoration: none;
-            color: white;
-            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .more-link:hover {
             gap: 0.8rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
-        @media (min-width: 768px) {
-            .btn-social {
-                padding: 1rem 3rem;
-                font-size: 0.9rem;
-            }
+        .divider {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ffffff20;
+            text-align: center;
         }
 
-        .btn-social:hover {
-            background: white;
-            color: black;
-        }
-
-        .btn-social:hover i {
-            color: black;
+        .artists-total {
+            text-align: center;
+            padding: 1rem 0;
         }
 
         /* ===== FOOTER ===== */
@@ -559,7 +558,6 @@
         @media (min-width: 768px) {
             footer {
                 margin-top: 5rem;
-                font-size: 0.9rem;
             }
         }
 
@@ -567,340 +565,234 @@
             color: #ffffff60;
             margin: 0 0.5rem;
         }
-
-        /* ===== UTILITY ===== */
-        .more-events {
-            margin-top: 1.5rem;
-            text-align: center;
-            padding-top: 1rem;
-            border-top: 1px solid #ffffff20;
-        }
-
-        .more-events a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .more-events a:hover {
-            gap: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .artists-total {
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        /* ===== LOGO IMAGEN ===== */
-.logo-image {
-    max-width: 80%;
-    height: auto;
-    margin: 0 auto 1rem;
-    display: block;
-}
-
-@media (min-width: 768px) {
-    .logo-image {
-        max-width: 60%;
-    }
-}
-
-@media (min-width: 992px) {
-    .logo-image {
-        max-width: 50%;
-    }
-}
     </style>
 </head>
 <body>
     <div class="container">
         <!-- ===== HEADER ===== -->
-<div class="hero">
-    <!-- IMAGEN LOGO (REEMPLAZA EL TEXTO) -->
-    <img src="img/Logo birongo.jpg" 
-         alt="BIRONGO" 
-         class="logo-image">
-    
-    <div class="tagline">
-        <i class="fas fa-headphones-alt"></i>
-        <span>DJs · PRODUCTORES · CARACAS</span>
-        <i class="fas fa-sliders-h"></i>
-    </div>
-</div>
+        <div class="hero">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            <div class="tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span>DJs · PRODUCTORES · CARACAS</span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </div>
 
         <!-- ===== MAIN CONTENT GRID ===== -->
         <div class="feed-grid">
-            <!-- COLUMNA YOUTUBE CON ACTUALIZACIÓN AUTOMÁTICA -->
-<div class="card">
-    <h2><i class="fab fa-youtube"></i> ÚLTIMO LIVE SET</h2>
-    
-    <!-- Contenedor del video (se actualiza solo) -->
-    <div id="latest-video-container" class="video-embed">
-        <!-- Mensaje de carga mientras se obtiene el video -->
-        <div style="padding: 2rem; text-align: center; color: #ffffff60;">
-            <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
-            <p>Cargando el último video de Birongo...</p>
-        </div>
-    </div>
-    
-    <!-- Información del video (se actualiza automáticamente) -->
-    <div class="video-info" id="video-info" style="display: none; margin-top: 1rem;">
-        <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
-    </div>
-    
-    <!-- Enlace al canal (siempre visible) -->
-    <div style="margin-top: 1.5rem; text-align: center;">
-        <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-social" style="background: #ff0000; border-color: #ff0000;">
-            <i class="fab fa-youtube"></i> VER CANAL COMPLETO
-    </a>
-    </div>
-</div>
-
-<!-- ===== JAVASCRIPT PARA YOUTUBE API (CON TUS DATOS) ===== -->
-<script>
-    // ✅ DATOS CONFIGURADOS CORRECTAMENTE
-    const API_KEY = 'AIzaSyCcxMvPyq3inDZ3Q-HGADJODcSRdu0d5Oc';
-    const CHANNEL_ID = 'UC7ldTCX19wJGwK6NM6EL9gw';
-    
-    // Función para obtener el último video del canal
-    async function loadLatestVideo() {
-        const container = document.getElementById('latest-video-container');
-        
-        try {
-            console.log('🔍 Buscando último video de Birongo...');
-            
-            // Hacer la pregunta a YouTube
-            const response = await fetch(
-                `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1&type=video`
-            );
-            
-            if (!response.ok) {
-                throw new Error(`Error ${response.status}: ${response.statusText}`);
-            }
-            
-            const data = await response.json();
-            
-            if (!data.items || data.items.length === 0) {
-                throw new Error('No se encontraron videos en el canal');
-            }
-            
-            // Obtener el video más reciente
-            const video = data.items[0];
-            const videoId = video.id.videoId;
-            const videoTitle = video.snippet.title;
-            
-            console.log('✅ Video encontrado:', videoTitle);
-            
-            // Actualizar la página con el video
-            container.innerHTML = `
-                <iframe src="https://www.youtube-nocookie.com/embed/${videoId}" 
-                        title="${videoTitle}" 
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen></iframe>
-            `;
-            
-            // Mostrar el título del video
-            document.getElementById('video-title').textContent = videoTitle;
-            document.getElementById('video-info').style.display = 'block';
-            
-        } catch (error) {
-            console.error('❌ Error cargando video:', error);
-            container.innerHTML = `
-                <div style="padding: 2rem; text-align: center; color: #ff0000; border: 1px solid #ff000030;">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem;"></i>
-                    <p>Error al cargar el último video.</p>
-                    <p style="font-size: 0.8rem; color: #ff000060;">${error.message}</p>
-                    <a href="https://www.youtube.com/@birongocaracas" target="_blank" style="margin-top: 1rem; background: #ff0000; border-color: #ff0000; padding: 0.5rem 1rem; display: inline-block; text-decoration: none; color: white; border: 2px solid white;">
-                        <i class="fab fa-youtube"></i> VER CANAL DIRECTAMENTE
+            <!-- COLUMNA YOUTUBE (ACTUALIZACIÓN AUTOMÁTICA) -->
+            <div class="card">
+                <h2><i class="fab fa-youtube"></i> ÚLTIMO LIVE SET</h2>
+                
+                <div id="latest-video-container" class="video-embed">
+                    <div style="padding: 2rem; text-align: center; color: #ffffff60;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
+                        <p>Cargando el último video de Birongo...</p>
+                    </div>
+                </div>
+                
+                <div class="video-info" id="video-info" style="display: none;">
+                    <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn btn-youtube">
+                        <i class="fab fa-youtube"></i> VER CANAL COMPLETO
                     </a>
                 </div>
-            `;
-        }
-    }
-    
-    // Cargar el video cuando la página esté lista
-    document.addEventListener('DOMContentLoaded', loadLatestVideo);
-</script>
-    
-    <!-- NUEVO BOTÓN DE ENTRADAS -->
-    <div style="margin-top: 1.5rem; text-align: center;">
-        <a href="entradas.html" class="btn-social" style="border-color: white; background: transparent;">
-            <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
-        </a>
-    </div>
-    
-    <div class="more-events">
-        <a href="https://www.instagram.com/birongoccs/" target="_blank">
-            <i class="fas fa-arrow-right"></i> MÁS EN @birongoccs
-        </a>
-    </div>
-</div>
+            </div>
 
-            <!-- FULL WIDTH: ARTISTS SECTION WITH SPOTIFY EMBEDS -->
+            <!-- COLUMNA EVENTO -->
+            <div class="card">
+                <h2><i class="fas fa-calendar-alt"></i> EVENTO · BIRONGO LIVE</h2>
+                
+                <a href="https://www.instagram.com/p/DR2QeLgjj9u/" target="_blank" class="evento-item">
+                    <div class="evento-icon">
+                        <i class="fas fa-headphones-alt"></i>
+                    </div>
+                    <div>
+                        <div class="evento-header">
+                            <h3>BIRONGO LIVE</h3>
+                            <span class="evento-date">13 Dic 2025</span>
+                        </div>
+                        <div class="evento-artista"><i class="fas fa-user"></i> @birongoccs</div>
+                        <p class="evento-desc">From 100 to 200 bpm · La Quinta Bar</p>
+                        <div class="evento-meta">
+                            <span><i class="far fa-heart"></i> 1k</span>
+                            <span><i class="far fa-comment"></i> 200</span>
+                        </div>
+                        <div class="evento-btn"><i class="fab fa-instagram"></i> VER EN INSTAGRAM</div>
+                    </div>
+                </a>
+                
+                <div class="text-center mt-2">
+                    <a href="entradas.html" class="btn">
+                        <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
+                    </a>
+                </div>
+                
+                <div class="divider">
+                    <a href="https://www.instagram.com/birongoccs/" target="_blank" class="more-link">
+                        <i class="fas fa-arrow-right"></i> MÁS EN @birongoccs
+                    </a>
+                </div>
+            </div>
+
+            <!-- ARTISTAS -->
             <div class="card" style="grid-column: 1 / -1;">
                 <h2><i class="fas fa-users"></i> DJ PRODUCER - BIRONGO</h2>
                 
-                <div class="artists-embed-grid" id="artistsGrid">
-                    <!-- VISIBLE ARTISTS (8) -->
-                    <div class="artist-embed-item visible-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/5QOEir4O0VWvh2C1PSIXpk?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                <div class="artists-grid" id="artistsGrid">
+                    <div class="artist-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5QOEir4O0VWvh2C1PSIXpk" loading="lazy" height="380"></iframe>
+                    </div>
+                    <div class="artist-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/2xRaiN53HUcrbyqJbZiobg" loading="lazy" height="380"></iframe>
+                    </div>
+                    <div class="artist-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5J93iXfPaLAag5wPRoHIjz" loading="lazy" height="380"></iframe>
+                    </div>
+                    <div class="artist-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5ZDwQ9rN1DjNqqXDr9cDw6" loading="lazy" height="380"></iframe>
+                    </div>
+                    <div class="artist-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/689mBwz2RoGOChmYyOpXnW" loading="lazy" height="380"></iframe>
+                    </div>
+                    <div class="artist-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/4We0e10I4cXJtCeGnkouq8" loading="lazy" height="380"></iframe>
+                    </div>
+                    <div class="artist-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/0yjfe423duXcL5To8EgxLP" loading="lazy" height="380"></iframe>
                     </div>
                     
-                    <div class="artist-embed-item visible-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/2xRaiN53HUcrbyqJbZiobg?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    <div class="artist-item hidden-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/0I7ZCWHk7Env1UykgGVYNX" loading="lazy" height="380"></iframe>
                     </div>
-                                                         
-                    <div class="artist-embed-item visible-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/5J93iXfPaLAag5wPRoHIjz?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    <div class="artist-item hidden-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5JWeruMJutO9RbOYPS3OqZ" loading="lazy" height="380"></iframe>
                     </div>
-                    
-                    <div class="artist-embed-item visible-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/5ZDwQ9rN1DjNqqXDr9cDw6?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
-                    </div>
-                    
-                    <div class="artist-embed-item visible-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/689mBwz2RoGOChmYyOpXnW?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
-                    </div>
-                    
-                    <div class="artist-embed-item visible-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/4We0e10I4cXJtCeGnkouq8?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
-                    </div>
-                    
-                    <div class="artist-embed-item visible-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/0yjfe423duXcL5To8EgxLP?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
-                    </div>
-                    
-                    <!-- HIDDEN ARTISTS (MORE) -->
-                    <div class="artist-embed-item hidden-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/0I7ZCWHk7Env1UykgGVYNX?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
-                    </div>
-                    
-                    <div class="artist-embed-item hidden-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/5JWeruMJutO9RbOYPS3OqZ?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
-                    </div>
-                    
-                    <div class="artist-embed-item hidden-artist">
-                        <iframe src="https://open.spotify.com/embed/artist/7r0FHBhhkVztsTzH7hNFMB?utm_source=generator" 
-                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    <div class="artist-item hidden-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/7r0FHBhhkVztsTzH7hNFMB" loading="lazy" height="380"></iframe>
                     </div>
                 </div>
                 
-                <!-- Show More Button -->
-                <div class="artists-total">
+                <div class="text-center">
                     <button id="verMasBtn" class="ver-mas-btn">
                         <i class="fas fa-plus-circle"></i> VER MÁS ARTISTAS
                     </button>
                 </div>
             </div>
 
-            <!-- FULL WIDTH: SPOTIFY PLAYLISTS -->
+            <!-- PLAYLISTS SPOTIFY -->
             <div class="card" style="grid-column: 1 / -1;">
                 <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO SOUND</h2>
                 
                 <div class="spotify-grid">
                     <div class="spotify-item">
-                        <iframe style="border-radius:12px" 
-                                src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator" 
-                                width="100%" height="152" frameborder="0" allowfullscreen="" 
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                                loading="lazy"></iframe>
+                        <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo" loading="lazy" height="152"></iframe>
                     </div>
-                    
                     <div class="spotify-item">
-                        <iframe style="border-radius:12px" 
-                                src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo?utm_source=generator" 
-                                width="100%" height="152" frameborder="0" allowfullscreen="" 
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                                loading="lazy"></iframe>
+                        <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" loading="lazy" height="152"></iframe>
                     </div>
-                    
                     <div class="spotify-item">
-                        <iframe style="border-radius:12px" 
-                                src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD?utm_source=generator" 
-                                width="100%" height="152" frameborder="0" allowfullscreen="" 
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                                loading="lazy"></iframe>
+                        <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" loading="lazy" height="152"></iframe>
                     </div>
-                    
                     <div class="spotify-item">
-                        <iframe style="border-radius:12px" 
-                                src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk?utm_source=generator" 
-                                width="100%" height="152" frameborder="0" allowfullscreen="" 
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                                loading="lazy"></iframe>
+                        <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" loading="lazy" height="152"></iframe>
                     </div>
                 </div>
                 
-                <div style="margin-top: 2rem; text-align: center;">
-                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-social" style="background: #1DB954; border-color: #1DB954;">
+                <div class="text-center mt-2">
+                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn btn-spotify">
                         <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
                     </a>
                 </div>
             </div>
-        </div> <!-- END feed-grid -->
+        </div>
 
-        <!-- ===== DIRECT BUTTONS ===== -->
-        <div class="direct-links">
-            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-social">
-                <i class="fab fa-instagram"></i> Instagram @birongoccs
+        <!-- ===== BOTONES DIRECTOS ===== -->
+        <div class="btn-group">
+            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn">
+                <i class="fab fa-instagram"></i> Instagram
             </a>
-            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-social">
-                <i class="fab fa-youtube"></i> YouTube @birongocaracas
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn">
+                <i class="fab fa-youtube"></i> YouTube
             </a>
         </div>
 
         <!-- ===== FOOTER ===== -->
         <footer>
-            <p><i class="fas fa-bolt"></i> Birongo · Caracas · 2025 <i class="fas fa-bolt"></i></p>
+            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
         </footer>
     </div>
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
+        // Configuración YouTube API
+        const API_KEY = 'AIzaSyCcxMvPyq3inDZ3Q-HGADJODcSRdu0d5Oc';
+        const CHANNEL_ID = 'UC7ldTCX19wJGwK6NM6EL9gw';
+        
+        async function loadLatestVideo() {
+            const container = document.getElementById('latest-video-container');
+            
+            try {
+                const response = await fetch(
+                    `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1&type=video`
+                );
+                
+                if (!response.ok) throw new Error(`Error ${response.status}`);
+                
+                const data = await response.json();
+                
+                if (!data.items || data.items.length === 0) {
+                    throw new Error('No hay videos');
+                }
+                
+                const video = data.items[0];
+                const videoId = video.id.videoId;
+                const videoTitle = video.snippet.title;
+                
+                container.innerHTML = `
+                    <iframe src="https://www.youtube-nocookie.com/embed/${videoId}" 
+                            title="${videoTitle}" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                `;
+                
+                document.getElementById('video-title').textContent = videoTitle;
+                document.getElementById('video-info').style.display = 'block';
+                
+            } catch (error) {
+                container.innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: #ff0000;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem;"></i>
+                        <p>Error al cargar el video</p>
+                        <a href="https://www.youtube.com/@birongocaracas" target="_blank" 
+                           style="margin-top: 1rem; background: #ff0000; border: 2px solid white; padding: 0.5rem 1rem; display: inline-block; text-decoration: none; color: white;">
+                            <i class="fab fa-youtube"></i> VER CANAL
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // Ver más artistas
         document.addEventListener('DOMContentLoaded', function() {
-            // Show more artists functionality
+            loadLatestVideo();
+            
             const verMasBtn = document.getElementById('verMasBtn');
             const hiddenArtists = document.querySelectorAll('.hidden-artist');
             
             if (verMasBtn) {
                 verMasBtn.addEventListener('click', function() {
-                    hiddenArtists.forEach(artist => {
-                        artist.classList.add('showing');
-                    });
-                    
-                    this.innerHTML = '<i class="fas fa-check-circle"></i> TODOS LOS ARTISTAS VISIBLES';
+                    hiddenArtists.forEach(artist => artist.classList.add('showing'));
+                    this.innerHTML = '<i class="fas fa-check-circle"></i> TODOS VISIBLES';
                     this.style.opacity = '0.7';
-                    this.style.cursor = 'default';
                     this.disabled = true;
                 });
             }
             
-            // External links security
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
