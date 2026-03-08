@@ -230,6 +230,31 @@
             padding: 0.2rem 0.5rem;
         }
 
+        /* Tarjeta especial para Dorkas */
+        .artist-card.dorkas {
+            border: 2px solid #ff69b4;
+            position: relative;
+        }
+
+        .artist-card.dorkas::before {
+            content: '✨ DESTACADA';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff69b4;
+            color: black;
+            font-size: 0.6rem;
+            padding: 0.2rem 0.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            z-index: 10;
+        }
+
+        .artist-card.dorkas:hover {
+            border-color: #ff69b4;
+            box-shadow: 0 20px 40px -15px #ff69b4;
+        }
+
         /* ===== BOTONES ===== */
         .btn {
             background: transparent;
@@ -353,27 +378,7 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 4 - VITICO -->
-            <div class="artist-card">
-                <div class="artist-image">
-                    <i class="fas fa-user"></i>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/3YlpT6Mi4sDSva5gbFr098" target="_blank"><i class="fab fa-spotify"></i></a>
-                        <a href="https://youtube.com/@vitico" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://instagram.com/vitico" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>VITICO</h3>
-                    <p>DJ · Productor</p>
-                    <div class="artist-tags">
-                        <span>Tech House</span>
-                        <span>Minimal</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ARTISTA 5 - DESTRO5 -->
+            <!-- ARTISTA 4 - DESTRO5 -->
             <div class="artist-card">
                 <div class="artist-image">
                     <i class="fas fa-user"></i>
@@ -393,7 +398,7 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 6 - DE LA TRINIDAD -->
+            <!-- ARTISTA 5 - DE LA TRINIDAD -->
             <div class="artist-card">
                 <div class="artist-image">
                     <i class="fas fa-user"></i>
@@ -413,7 +418,7 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 7 - LPZ -->
+            <!-- ARTISTA 6 - LPZ -->
             <div class="artist-card">
                 <div class="artist-image">
                     <i class="fas fa-user"></i>
@@ -433,7 +438,7 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 8 - GERARD VALERA -->
+            <!-- ARTISTA 7 - GERARD VALERA -->
             <div class="artist-card">
                 <div class="artist-image">
                     <i class="fas fa-user"></i>
@@ -453,7 +458,7 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 9 - KURGANS -->
+            <!-- ARTISTA 8 - KURGANS -->
             <div class="artist-card">
                 <div class="artist-image">
                     <i class="fas fa-user"></i>
@@ -473,7 +478,7 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 10 - TREBOLL -->
+            <!-- ARTISTA 9 - TREBOLL -->
             <div class="artist-card">
                 <div class="artist-image">
                     <i class="fas fa-user"></i>
@@ -493,16 +498,33 @@
                 </div>
             </div>
 
+            <!-- ARTISTA 10 - DORKAS (NUEVA - DESTACADA) -->
+            <div class="artist-card dorkas">
+                <div class="artist-image">
+                    <i class="fas fa-user"></i>
+                    <div class="artist-overlay">
+                        <a href="#" target="_blank"><i class="fab fa-spotify"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="artist-info">
+                    <h3>DORKAS</h3>
+                    <p>DJ · Productora</p>
+                    <div class="artist-tags">
+                        <span>House</span>
+                        <span>Techno</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Puedes seguir agregando más artistas con la misma estructura -->
         </div>
 
-        <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
+        <!-- ===== BOTÓN DE NAVEGACIÓN (SOLO VOLVER AL INICIO) ===== -->
         <div class="nav-links">
             <a href="index.html" class="btn">
                 <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
-            </a>
-            <a href="entradas.html" class="btn">
-                <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
             </a>
         </div>
 
