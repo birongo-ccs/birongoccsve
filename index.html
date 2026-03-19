@@ -202,44 +202,56 @@
             color: #ffffff60;
         }
 
-/* ===== SPOTIFY PLAYLISTS MEJORADO ===== */
-.spotify-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0; /* Elimina el gap para que queden pegadas */
-    margin: -1rem -1rem -1rem -1rem; /* Expande hacia los bordes de la tarjeta */
-}
+        /* ===== SPOTIFY ===== */
+        .featured-spotify {
+            margin-bottom: 1rem;
+        }
 
-@media (min-width: 768px) {
-    .spotify-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0;
-    }
-}
+        .featured-spotify iframe {
+            width: 100%;
+            height: 352px;
+            border-radius: 12px;
+            background: #0a0a0a;
+            border: 1px solid #ffffff20;
+        }
 
-.spotify-item {
-    transition: all 0.3s ease;
-    overflow: hidden;
-    line-height: 0;
-    border: none;
-}
+        /* ===== SPOTIFY PLAYLISTS MEJORADO ===== */
+        .spotify-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            margin: -1rem -1rem -1rem -1rem;
+        }
 
-.spotify-item iframe {
-    display: block;
-    width: 100%;
-    height: 152px; /* Mantiene la altura original */
-    border: none;
-    background: #0a0a0a;
-    vertical-align: bottom;
-    border-radius: 0; /* Elimina bordes redondeados */
-}
+        @media (min-width: 768px) {
+            .spotify-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0;
+            }
+        }
 
-/* Hover effect sutil */
-.spotify-item:hover {
-    transform: scale(1.01);
-    z-index: 2;
-    box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
-}
+        .spotify-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            line-height: 0;
+            border: none;
+        }
+
+        .spotify-item iframe {
+            display: block;
+            width: 100%;
+            height: 152px;
+            border: none;
+            background: #0a0a0a;
+            vertical-align: bottom;
+            border-radius: 0;
+        }
+
+        .spotify-item:hover {
+            transform: scale(1.01);
+            z-index: 2;
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+        }
 
         /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
@@ -444,39 +456,39 @@
                 </div>
             </div>
 
-            <!-- TARJETA 4: PLAYLISTS -->
-            <div class="card">
-                <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO</h2>
+            <!-- TARJETA 4: PLAYLISTS (MEJORADA) -->
+            <div class="card" style="padding: 1rem 0 0 0; overflow: hidden;">
+                <h2 style="padding: 0 1.5rem 0.8rem 1.5rem; margin-bottom: 0;"><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO</h2>
                 
                 <div class="spotify-grid">
                     <div class="spotify-item">
                         <iframe src="https://open.spotify.com/embed/playlist/0hSN6Ur1m0NVe1K711UyIW" 
                                 loading="lazy" 
                                 height="152" 
-                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                                style="display: block; width: 100%; border: none;"></iframe>
                     </div>
                     <div class="spotify-item">
                         <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" 
                                 loading="lazy" 
                                 height="152"
-                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                                style="display: block; width: 100%; border: none;"></iframe>
                     </div>
                     <div class="spotify-item">
                         <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" 
                                 loading="lazy" 
                                 height="152"
-                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                                style="display: block; width: 100%; border: none;"></iframe>
                     </div>
                     <div class="spotify-item">
                         <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" 
                                 loading="lazy" 
                                 height="152"
-                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                                style="display: block; width: 100%; border: none;"></iframe>
                     </div>
                 </div>
                 
-                <!-- BOTÓN SPOTIFY -->
-                <div class="text-center mt-2">
+                <!-- BOTÓN SPOTIFY (fuera del grid, con padding normal) -->
+                <div style="padding: 1.5rem; text-align: center;">
                     <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
                         <i class="fab fa-spotify"></i> TODAS LAS PLAYLIST
                     </a>
@@ -502,8 +514,8 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Configuración YouTube API
-        const API_KEY = 'AIzaSyCcxMvPyq3inDZ3Q-HGADJODcSRdu0d5Oc';
+        // ⚠️⚠️⚠️ IMPORTANTE: REEMPLAZA ESTO CON TU NUEVA API KEY ⚠️⚠️⚠️
+        const API_KEY = 'AIzaSyCcxMvPyq3inDZ3Q-HGADJODcSRdu0d5Oc'; // ← CAMBIA ESTA LÍNEA
         const CHANNEL_ID = 'UC7ldTCX19wJGwK6NM6EL9gw';
         
         async function loadLatestVideo() {
