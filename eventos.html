@@ -263,85 +263,57 @@
             transform: translateX(5px);
         }
 
-        /* ===== GALERÍA UNIFORME (4:5) ===== */
-        .galeria-titulo {
-            text-align: center;
-            margin: 4rem 0 2rem;
-            font-size: 2rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #ffffff90;
-        }
+       /* ===== GALERÍA MEJORADA (MÁS GRANDE) ===== */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0 5rem;
+}
 
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0 4rem;
-        }
+@media (min-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
 
-        @media (min-width: 768px) {
-            .galeria-grid {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                gap: 1.5rem;
-            }
-        }
+@media (min-width: 1200px) {
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2.5rem;
+    }
+}
 
-        .galeria-item {
-            aspect-ratio: 4/5;
-            background: #111;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid #ffffff20;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
+.galeria-item {
+    aspect-ratio: 4/5;
+    background: #111;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ffffff30;
+    transition: all 0.4s ease;
+    width: 100%;
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5);
+}
 
-        .galeria-item:hover {
-            transform: scale(1.02);
-            border-color: white;
-            box-shadow: 0 20px 30px -15px rgba(255,255,255,0.3);
-            z-index: 5;
-        }
+.galeria-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: white;
+    box-shadow: 0 25px 40px -15px rgba(255,255,255,0.3);
+    z-index: 10;
+}
 
-        .galeria-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
 
-        .galeria-item iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.5rem;
-            opacity: 0.9;
-            text-shadow: 0 0 20px rgba(0,0,0,0.7);
-            transition: all 0.3s ease;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .galeria-item:hover .play-icon {
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .instagram-icon {
-            color: #e4405f;
-        }
-
-        .youtube-icon {
-            color: #ff0000;
-        }
+.galeria-item:hover img {
+    transform: scale(1.05);
+}
 
         /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
@@ -444,74 +416,90 @@
             </div>
         </div>
 
-        <!-- ===== GALERÍA DE FOTOS Y VIDEOS (4:5) ===== -->
-        <h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
+<!-- ===== GALERÍA DE FOTOS Y VIDEOS ===== -->
+<h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
 
-        <div class="galeria-grid">
-            <!-- Foto 1 - Destroxtreboll -->
-            <div class="galeria-item" style="transform: rotate(90deg);">
-                <img src="IMG_8628.jpg" 
-                     alt="Destroxtreboll - Birongo Live" 
-                     onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/666666?text=DESTROXTREBOLL'"
-                     style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
+<div class="galeria-grid">
+    <!-- IMAGEN 1 -->
+    <div class="galeria-item">
+        <img src="IMG_8628.jpg" 
+             alt="Birongo Live - Momento 1" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+1'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
 
-            <!-- Video 1 - Google Drive -->
-            <div class="galeria-item" style="aspect-ratio: 4/5;">
-                <img src="IMG_8698.jpg" 
-                     alt="Trinidad - Birongo Live" 
-                     onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/666666?text=DESTROXTREBOLL'"
-                     style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
-            
-            <!-- Foto 2 - LPZ -->
-            <div class="galeria-item" style="aspect-ratio: 4/5;">
-                <img src="eventos/WhatsApp Image 2026-03-09 at 1.50.58 PM (1).jpeg" 
-                     alt="LPZ - Birongo Live" 
-                     onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/666666?text=LPZ'"
-                     style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
-            
-            <!-- Video 2 - Google Drive -->
-            <div class="galeria-item" style="aspect-ratio: 4/5; background: #111;">
-                <iframe src="https://drive.google.com/file/d/1b0SuHh3ZkLAyBVwV0JgIFzYrae08ZDZh/preview" 
-                        width="100%" 
-                        height="100%" 
-                        style="border: none; display: block;"
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen="true"
-                        loading="lazy">
-                </iframe>
-            </div>
-            
-            <!-- Foto 3 - De La Trinidad -->
-            <div class="galeria-item" style="aspect-ratio: 4/5;">
-                <img src="eventos/WhatsApp Image 2026-03-09 at 1.51.00 PM.jpeg" 
-                     alt="De La Trinidad - Birongo Live" 
-                     onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/666666?text=DE+LA+TRINIDAD'"
-                     style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
-            
-            <!-- Video 3 - Google Drive -->
-            <div class="galeria-item" style="aspect-ratio: 4/5; background: #111;">
-                <iframe src="https://drive.google.com/file/d/1FvfVsmdMkZBXBd5XVWm0MK9VZ9R8YhnD/preview" 
-                        width="100%" 
-                        height="100%" 
-                        style="border: none; display: block;"
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen="true"
-                        loading="lazy">
-                </iframe>
-            </div>
-            
-            <!-- Foto 5 - La Quinta 5 -->
-            <div class="galeria-item" style="aspect-ratio: 4/5;">
-                <img src="eventos/WhatsApp Image 2026-03-09 at 1.51.00 PM (1).jpeg" 
-                     alt="Birongo Live - Foto 5" 
-                     onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/666666?text=FOTO+5'"
-                     style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
-        </div>
+    <!-- IMAGEN 2 -->
+    <div class="galeria-item">
+        <img src="IMG_8629.jpg" 
+             alt="Birongo Live - Momento 2" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+2'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 3 -->
+    <div class="galeria-item">
+        <img src="IMG_8698.jpg" 
+             alt="Birongo Live - Momento 3" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+3'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 4 -->
+    <div class="galeria-item">
+        <img src="IMG_8731.jpg" 
+             alt="Birongo Live - Momento 4" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+4'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 5 -->
+    <div class="galeria-item">
+        <img src="IMG_8756.jpg" 
+             alt="Birongo Live - Momento 5" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+5'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 6 -->
+    <div class="galeria-item">
+        <img src="IMG_8764.jpg" 
+             alt="Birongo Live - Momento 6" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+6'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 7 -->
+    <div class="galeria-item">
+        <img src="IMG_8818.jpg" 
+             alt="Birongo Live - Momento 7" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+7'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 8 -->
+    <div class="galeria-item">
+        <img src="IMG_8829.jpg" 
+             alt="Birongo Live - Momento 8" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+8'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 9 -->
+    <div class="galeria-item">
+        <img src="IMG_8834.jpg" 
+             alt="Birongo Live - Momento 9" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+9'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    
+    <!-- IMAGEN 10 -->
+    <div class="galeria-item">
+        <img src="IMG_8868.jpg" 
+             alt="Birongo Live - Momento 10" 
+             onerror="this.src='https://via.placeholder.com/500x625/1a1a1a/666666?text=BIRONGO+10'"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+</div>
 
         <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
         <div class="nav-links">
