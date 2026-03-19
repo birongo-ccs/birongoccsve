@@ -85,6 +85,69 @@
             flex-wrap: wrap;
             text-transform: uppercase;
             letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== MENÚ DE NAVEGACIÓN ===== */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 1rem 0 2rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item {
+            color: #ffffff80;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: white;
+        }
+
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .nav-menu {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-item {
+                font-size: 0.9rem;
+                padding: 0.3rem 0;
+            }
         }
 
         /* ===== TARJETA DE EVENTO ===== */
@@ -382,47 +445,56 @@
                 <span>LA QUINTA BAR · 2025</span>
                 <i class="fas fa-sliders-h"></i>
             </div>
+            
+            <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">INICIO</a>
+                <a href="eventos.html" class="nav-item active">EVENTOS</a>
+                <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
+                <a href="entradas.html" class="nav-item">ENTRADAS</a>
+                <a href="contacto.html" class="nav-item">CONTACTO</a>
+            </div>
         </div>
 
-      <!-- ===== EVENTO (PASADO) ===== -->
-<div class="evento-unico">
-    <div class="evento-card">
-        <!-- VIDEO DE YOUTUBE CON BADGE DE PASADO -->
-        <div class="evento-imagen" style="background: #000; display: flex; align-items: center; justify-content: center; position: relative;">
-            <span class="evento-badge">PASADO</span>
-            <iframe src="https://www.youtube-nocookie.com/embed/4cY4nagN-zw?si=Fy8TtU_RMqtq6p9f" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen
-                    style="width: 100%; height: 100%; aspect-ratio: 16/9;">
-            </iframe>
+        <!-- ===== EVENTO (PASADO) ===== -->
+        <div class="evento-unico">
+            <div class="evento-card">
+                <!-- VIDEO DE YOUTUBE CON BADGE DE PASADO -->
+                <div class="evento-imagen" style="background: #000; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <span class="evento-badge">PASADO</span>
+                    <iframe src="https://www.youtube-nocookie.com/embed/4cY4nagN-zw?si=Fy8TtU_RMqtq6p9f" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen
+                            style="width: 100%; height: 100%; aspect-ratio: 16/9;">
+                    </iframe>
+                </div>
+                <div class="evento-contenido">
+                    <div class="evento-titulo">
+                        <h3>BIRONGO LIVE</h3>
+                        <span class="evento-fecha"><i class="far fa-calendar"></i> 13 DIC 2025</span>
+                    </div>
+                    <div class="evento-lugar">
+                        <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
+                    </div>
+                    <p class="evento-descripcion">
+                        From 100 to 200 bpm: La diferencia está como tú te muevas. 
+                        Una noche histórica con lo mejor de la electrónica caraqueña en la Quinta Bar.
+                    </p>
+                    <div class="evento-artistas">
+                        <span class="evento-artista-tag">DESTROXTREBOLL</span>
+                        <span class="evento-artista-tag">GERALD VALERA</span>
+                        <span class="evento-artista-tag">HERESICKA</span>
+                        <span class="evento-artista-tag">LPZ</span>
+                        <span class="evento-artista-tag">SIRDIAMND</span>
+                        <span class="evento-artista-tag">DE LA TRINIDAD</span>
+                        <span class="evento-artista-tag">DORKAS</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="evento-contenido">
-            <div class="evento-titulo">
-                <h3>BIRONGO LIVE</h3>
-                <span class="evento-fecha"><i class="far fa-calendar"></i> 13 DIC 2025</span>
-            </div>
-            <div class="evento-lugar">
-                <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
-            </div>
-            <p class="evento-descripcion">
-                From 100 to 200 bpm: La diferencia está como tú te muevas. 
-                Una noche histórica con lo mejor de la electrónica caraqueña en la Quinta Bar.
-            </p>
-            <div class="evento-artistas">
-                <span class="evento-artista-tag">DESTROXTREBOLL</span>
-                <span class="evento-artista-tag">GERALD VALERA</span>
-                <span class="evento-artista-tag">HERESICKA</span>
-                <span class="evento-artista-tag">LPZ</span>
-                <span class="evento-artista-tag">SIRDIAMND</span>
-                <span class="evento-artista-tag">DE LA TRINIDAD</span>
-                <span class="evento-artista-tag">DORKAS</span>
-            </div>
-        </div>
-    </div>
-</div>
 
         <!-- ===== GALERÍA DE FOTOS ===== -->
         <h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
