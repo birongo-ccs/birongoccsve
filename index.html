@@ -202,148 +202,52 @@
             color: #ffffff60;
         }
 
-        /* ===== SECCIÓN SPOTIFY MEJORADA ===== */
+        /* ===== SPOTIFY ===== */
+        .featured-spotify {
+            margin-bottom: 1rem;
+        }
 
-/* Tarjeta destacada */
-.featured-spotify {
-    background: linear-gradient(145deg, #0f0f0f, #030303);
-    border: 1px solid #1DB95430;
-}
+        .featured-spotify iframe {
+            width: 100%;
+            height: 352px;
+            border-radius: 12px;
+            background: #0a0a0a;
+            border: 1px solid #ffffff20;
+        }
 
-.featured-playlist {
-    margin-top: 1rem;
-}
+        .spotify-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
 
-.featured-playlist-content {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
+        @media (min-width: 768px) {
+            .spotify-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
 
-@media (max-width: 768px) {
-    .featured-playlist-content {
-        flex-direction: column;
-    }
-}
+        .spotify-item {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            line-height: 0;
+        }
 
-.featured-info {
-    flex: 1;
-}
+        .spotify-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+        }
 
-.featured-info h3 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #1DB954;
-}
-
-@media (max-width: 768px) {
-    .featured-info h3 {
-        font-size: 1.5rem;
-    }
-}
-
-.featured-desc {
-    color: #ffffff90;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-.featured-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-.featured-tags .tag {
-    background: #1DB95420;
-    color: #1DB954;
-    padding: 0.3rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    border: 1px solid #1DB95440;
-}
-
-.featured-stats {
-    display: flex;
-    gap: 2rem;
-    color: #ffffff60;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.featured-stats i {
-    color: #1DB954;
-    margin-right: 0.3rem;
-}
-
-.featured-image {
-    flex: 0 0 200px;
-}
-
-@media (max-width: 768px) {
-    .featured-image {
-        flex: 0 0 auto;
-        width: 200px;
-        margin: 0 auto;
-    }
-}
-
-.featured-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px -10px #1DB954;
-    border: 2px solid #1DB954;
-}
-
-/* Botón de Spotify personalizado */
-.btn-tactile.btn-spotify {
-    background: #1DB954;
-    border-color: #1DB954;
-    color: black;
-}
-
-.btn-tactile.btn-spotify:hover {
-    background: transparent;
-    color: white;
-}
-
-/* Grid de playlists existente */
-.spotify-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .spotify-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-}
-
-.spotify-item {
-    transition: all 0.3s ease;
-    border-radius: 12px;
-    overflow: hidden;
-    background: transparent;
-    line-height: 0;
-}
-
-.spotify-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
-}
-
-.spotify-item iframe {
-    display: block;
-    width: 100%;
-    border: none;
-    background: #0a0a0a;
-    vertical-align: bottom;
-}
+        .spotify-item iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            background: #0a0a0a;
+            vertical-align: bottom;
+            border-radius: 12px;
+        }
 
         /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
@@ -480,29 +384,29 @@
 
         <!-- ===== MAIN CONTENT (VERTICAL) ===== -->
         <div class="main-content">
-           <!-- TARJETA 1: YOUTUBE (con tamaño controlado) -->
-<div class="card" style="display: flex; flex-direction: column; align-items: center;">
-    <h2 style="width: 100%;"><i class="fab fa-youtube"></i> VIDEO SET MAS RECIENTE</h2>
-    
-    <div style="max-width: 800px; width: 100%; margin: 0 auto;">
-        <div id="latest-video-container" class="video-embed">
-            <div style="padding: 2rem; text-align: center; color: #ffffff60;">
-                <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
-                <p>Cargando el último video de Birongo...</p>
+            <!-- TARJETA 1: YOUTUBE -->
+            <div class="card" style="display: flex; flex-direction: column; align-items: center;">
+                <h2 style="width: 100%;"><i class="fab fa-youtube"></i> VIDEO SET MAS RECIENTE</h2>
+                
+                <div style="max-width: 800px; width: 100%; margin: 0 auto;">
+                    <div id="latest-video-container" class="video-embed">
+                        <div style="padding: 2rem; text-align: center; color: #ffffff60;">
+                            <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
+                            <p>Cargando el último video de Birongo...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-info" id="video-info" style="display: none;">
+                        <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
+                    </div>
+                    
+                    <div class="text-center mt-2">
+                        <a href="https://www.youtube.com/@birongocaracas/videos" target="_blank" class="btn-tactile">
+                            <i class="fab fa-youtube"></i> TODOS LOS VIDEOS SET
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="video-info" id="video-info" style="display: none;">
-            <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
-        </div>
-        
-        <div class="text-center mt-2">
-            <a href="https://www.youtube.com/@birongocaracas/videos" target="_blank" class="btn-tactile">
-                <i class="fab fa-youtube"></i> TODOS LOS VIDEOS SET
-            </a>
-        </div>
-    </div>
-</div>
 
             <!-- TARJETA 2: EVENTOS -->
             <div class="card">
@@ -532,55 +436,71 @@
                 </div>
             </div>
 
-<!-- ===== SECCIÓN SPOTIFY ===== -->
+            <!-- TARJETA 3: BIRONGO RECOMMENDATIONS -->
+            <div class="card">
+                <h2><i class="fab fa-spotify"></i> BIRONGO RECOMMENDATIONS</h2>
+                
+                <div class="featured-spotify">
+                    <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator" 
+                            width="100%" 
+                            height="352" 
+                            frameBorder="0" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                            loading="lazy"
+                            style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;">
+                    </iframe>
+                </div>
+            </div>
 
-<!-- TARJETA 1: BIRONGO RECOMMENDATIONS (DESTACADA) -->
-<div class="card">
-    <h2><i class="fab fa-spotify"></i> BIRONGO RECOMMENDATIONS</h2>
-    
-    <div class="featured-spotify">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-</div>
+            <!-- TARJETA 4: PLAYLISTS -->
+            <div class="card">
+                <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO</h2>
+                
+                <div class="spotify-grid">
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/0hSN6Ur1m0NVe1K711UyIW" 
+                                loading="lazy" 
+                                height="152" 
+                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" 
+                                loading="lazy" 
+                                height="152"
+                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" 
+                                loading="lazy" 
+                                height="152"
+                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" 
+                                loading="lazy" 
+                                height="152"
+                                style="border-radius: 12px; display: block; width: 100%; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                </div>
+                
+                <!-- BOTÓN SPOTIFY -->
+                <div class="text-center mt-2">
+                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
+                        <i class="fab fa-spotify"></i> TODAS LAS PLAYLIST
+                    </a>
+                </div>
+            </div>
+        </div>
 
-<!-- TARJETA 2: PLAYLISTS · BIRONGO SOUND -->
-<div class="card">
-    <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO </h2>
-    
-    <div class="spotify-grid">
-        <div class="spotify-item">
-            <iframe src="https://open.spotify.com/playlist/0hSN6Ur1m0NVe1K711UyIW?si=i1iag35QT1eeoqKv35UJKw" 
-                    loading="lazy" 
-                    height="152" 
-                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        <!-- ===== BOTONES DIRECTOS ===== -->
+        <div class="btn-group-tactile">
+            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-tactile">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
         </div>
-        <div class="spotify-item">
-            <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" 
-                    loading="lazy" 
-                    height="152"
-                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
-        </div>
-        <div class="spotify-item">
-            <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" 
-                    loading="lazy" 
-                    height="152"
-                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
-        </div>
-        <div class="spotify-item">
-            <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" 
-                    loading="lazy" 
-                    height="152"
-                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
-        </div>
-    </div>
-    
-    <!-- BOTÓN SPOTIFY -->
-    <div class="text-center mt-2">
-        <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
-            <i class="fab fa-spotify"></i> TODAS LAS PLAYLIST
-        </a>
-    </div>
-</div>
 
         <!-- ===== FOOTER ===== -->
         <footer>
