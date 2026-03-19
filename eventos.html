@@ -263,17 +263,17 @@
             transform: translateX(5px);
         }
 
-/* ===== GALERÍA ESTILO ORIGINAL (PARA VERTICALES) ===== */
+        /* ===== GALERÍA ESTILO ORIGINAL (SEPARACIÓN ELEGANTE) ===== */
 .galeria-original {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 3rem;
     margin: 3rem 0 5rem;
 }
 
 .galeria-item-original {
     width: 100%;
-    max-width: 500px; /* Ancho controlado para que no choquen */
+    max-width: 1000px;
     margin: 0 auto;
     background: #111;
     border: 1px solid #ffffff30;
@@ -298,25 +298,21 @@
     transform: scale(1.01);
 }
 
-/* Para pantallas grandes, más espacio pero mismo ancho */
+/* Para pantallas grandes, centrado más elegante */
 @media (min-width: 1200px) {
     .galeria-original {
-        gap: 3.5rem;
+        gap: 4rem;
     }
     
     .galeria-item-original {
-        max-width: 600px; /* Un poquito más grande en pantallas grandes */
+        max-width: 900px;
     }
 }
 
-/* Para móvil, que se vea bien */
+/* Para móvil, que se vea bien sin espacios excesivos */
 @media (max-width: 768px) {
     .galeria-original {
         gap: 2rem;
-    }
-    
-    .galeria-item-original {
-        max-width: 95%; /* Casi todo el ancho en móvil */
     }
 }
     </style>
@@ -379,94 +375,84 @@
 <h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
 
 <div class="galeria-original">
-    <!-- IMAGEN 1 (corregida rotación) -->
+    <!-- IMAGEN 1 -->
     <div class="galeria-item-original">
         <img src="IMG_8628.jpg" 
              alt="Birongo Live - Momento 1" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+1'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block; transform: rotate(180deg);">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+1'"
+             loading="lazy">
     </div>
 
     <!-- IMAGEN 2 -->
     <div class="galeria-item-original">
         <img src="IMG_8629.jpg" 
              alt="Birongo Live - Momento 2" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+2'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+2'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 3 -->
     <div class="galeria-item-original">
         <img src="IMG_8698.jpg" 
              alt="Birongo Live - Momento 3" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+3'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+3'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 4 -->
     <div class="galeria-item-original">
         <img src="IMG_8731.jpg" 
              alt="Birongo Live - Momento 4" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+4'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+4'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 5 -->
     <div class="galeria-item-original">
         <img src="IMG_8756.jpg" 
              alt="Birongo Live - Momento 5" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+5'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+5'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 6 -->
     <div class="galeria-item-original">
         <img src="IMG_8764.jpg" 
              alt="Birongo Live - Momento 6" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+6'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+6'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 7 -->
     <div class="galeria-item-original">
         <img src="IMG_8818.jpg" 
              alt="Birongo Live - Momento 7" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+7'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+7'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 8 -->
     <div class="galeria-item-original">
         <img src="IMG_8829.jpg" 
              alt="Birongo Live - Momento 8" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+8'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+8'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 9 -->
     <div class="galeria-item-original">
         <img src="IMG_8834.jpg" 
              alt="Birongo Live - Momento 9" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+9'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+9'"
+             loading="lazy">
     </div>
     
     <!-- IMAGEN 10 -->
     <div class="galeria-item-original">
         <img src="IMG_8868.jpg" 
              alt="Birongo Live - Momento 10" 
-             onerror="this.src='https://via.placeholder.com/1080x1920/1a1a1a/666666?text=BIRONGO+10'"
-             loading="lazy"
-             style="width: 100%; height: auto; display: block;">
+             onerror="this.src='https://via.placeholder.com/1200x1500/1a1a1a/666666?text=BIRONGO+10'"
+             loading="lazy">
     </div>
 </div>
 
