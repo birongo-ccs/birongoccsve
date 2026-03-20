@@ -116,11 +116,11 @@
             opacity: 0.5;
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN ===== */
+        /* ===== MENÚ DE NAVEGACIÓN MEJORADO ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 2rem;
             margin: 1rem 0 2rem;
             flex-wrap: wrap;
             padding: 0.5rem 0;
@@ -136,6 +136,7 @@
             padding: 0.5rem 0;
             position: relative;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-item::after {
@@ -165,16 +166,35 @@
             width: 100%;
         }
 
-        @media (max-width: 600px) {
+        /* ===== MENÚ RESPONSIVE MEJORADO ===== */
+        @media (max-width: 768px) {
             .nav-menu {
-                gap: 1rem;
-                flex-direction: column;
-                align-items: center;
+                gap: 1.2rem;
+                padding: 0.3rem 0;
             }
             
             .nav-item {
-                font-size: 0.9rem;
-                padding: 0.3rem 0;
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                padding: 0.4rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 0.8rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                padding: 0.3rem 0.3rem;
+                white-space: normal;
+                text-align: center;
+                min-width: 70px;
             }
         }
 
@@ -208,6 +228,12 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .card {
+                padding: 1rem;
+            }
+        }
+
         .card h2 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -226,6 +252,13 @@
                 font-size: 1.8rem;
                 margin-bottom: 2rem;
                 padding-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card h2 {
+                font-size: 1.3rem;
+                gap: 0.5rem;
             }
         }
 
@@ -258,6 +291,12 @@
             margin-top: 1rem;
             padding: 0.8rem;
             background: #080808;
+        }
+
+        @media (max-width: 480px) {
+            .video-info {
+                padding: 0.5rem;
+            }
         }
 
         .video-info p {
@@ -312,6 +351,11 @@
             .spotify-grid {
                 grid-template-columns: 1fr;
                 gap: 0.8rem;
+                margin: 0 -0.8rem;
+            }
+            
+            .spotify-item iframe {
+                height: 132px;
             }
         }
 
@@ -379,6 +423,7 @@
                 max-width: 280px;
                 margin: 0 auto;
                 padding: 1.2rem 1.5rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -516,11 +561,11 @@
                 <h2><i class="fab fa-spotify"></i> BIRONGO RECOMMENDATIONS</h2>
                 
                 <div style="margin: 0 -1.5rem; width: calc(100% + 3rem);">
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
             </div>
 
-          <!-- TARJETA 4: PLAYLISTS (CON SEPARACIÓN MEJORADA) -->
+            <!-- TARJETA 4: PLAYLISTS (CON SEPARACIÓN MEJORADA) -->
             <div class="card" style="padding: 1.5rem 1.5rem 0 1.5rem; overflow: hidden;">
                 <h2 style="margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid #ffffff20;">
                     <i class="fab fa-spotify"></i> OTRAS PLAYLISTS
@@ -528,7 +573,7 @@
                 
                 <div class="spotify-grid" style="margin: 0 -1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="spotify-item" style="padding: 0 0.5rem;">
-                       <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0hSN6Ur1m0NVe1K711UyIW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0hSN6Ur1m0NVe1K711UyIW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                     <div class="spotify-item" style="padding: 0 0.5rem;">
                         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
