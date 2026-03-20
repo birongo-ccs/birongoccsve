@@ -451,6 +451,33 @@
             color: #ffffff60;
             font-size: 0.6rem;
         }
+        
+        /* ===== FILA DE DOS COLUMNAS PARA IMAGEN 1 Y 2 ===== */
+.galeria-row {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.galeria-item-original.mitad {
+    width: calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .galeria-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .galeria-item-original.mitad {
+        width: 100%;
+        max-width: 95%;
+        margin: 0 auto;
+    }
+}
     </style>
 </head>
 <body>
@@ -508,100 +535,93 @@
             </div>
         </div>
 
-        <!-- ===== GALERÍA DE FOTOS ===== -->
-        <h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
+<!-- ===== GALERÍA DE FOTOS ===== -->
+<h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
 
-        <div class="galeria-original">
-            <!-- IMAGEN 1 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8628.jpg" 
-                     alt="Birongo Live - Momento 1" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+1'"
-                     loading="lazy">
-            </div>
-
-            <!-- IMAGEN 2 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8629.jpg" 
-                     alt="Birongo Live - Momento 2" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 3 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8698.jpg" 
-                     alt="Birongo Live - Momento 3" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+3'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 4 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8731.jpg" 
-                     alt="Birongo Live - Momento 4" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+4'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 5 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8756.jpg" 
-                     alt="Birongo Live - Momento 5" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+5'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 6 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8764.jpg" 
-                     alt="Birongo Live - Momento 6" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+6'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 7 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8818.jpg" 
-                     alt="Birongo Live - Momento 7" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+7'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 8 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8829.jpg" 
-                     alt="Birongo Live - Momento 8" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+8'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 9 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8834.jpg" 
-                     alt="Birongo Live - Momento 9" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+9'"
-                     loading="lazy">
-            </div>
-            
-            <!-- IMAGEN 10 -->
-            <div class="galeria-item-original">
-                <img src="IMG_8868.jpg" 
-                     alt="Birongo Live - Momento 10" 
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+10'"
-                     loading="lazy">
-            </div>
+<div class="galeria-original">
+    <!-- FILA DE DOS COLUMNAS: IMAGEN 1 y IMAGEN 2 -->
+    <div class="galeria-row">
+        <!-- IMAGEN 1 -->
+        <div class="galeria-item-original mitad">
+            <img src="IMG_8628.jpg" 
+                 alt="Birongo Live - Momento 1" 
+                 onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+1'"
+                 loading="lazy">
         </div>
 
-        <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
-        <div class="nav-links">
-            <a href="index.html" class="btn-tactile">
-                <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
-            </a>
-            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-tactile">
-                <i class="fab fa-instagram"></i> MÁS EN INSTAGRAM
-            </a>
+        <!-- IMAGEN 2 -->
+        <div class="galeria-item-original mitad">
+            <img src="IMG_8629.jpg" 
+                 alt="Birongo Live - Momento 2" 
+                 onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'"
+                 loading="lazy">
         </div>
+    </div>
+
+    <!-- IMAGEN 3 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8698.jpg" 
+             alt="Birongo Live - Momento 3" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+3'"
+             loading="lazy">
+    </div>
+    
+    <!-- IMAGEN 4 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8731.jpg" 
+             alt="Birongo Live - Momento 4" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+4'"
+             loading="lazy">
+    </div>
+    
+    <!-- IMAGEN 5 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8756.jpg" 
+             alt="Birongo Live - Momento 5" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+5'"
+             loading="lazy">
+    </div>
+    
+    <!-- IMAGEN 6 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8764.jpg" 
+             alt="Birongo Live - Momento 6" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+6'"
+             loading="lazy">
+    </div>
+    
+    <!-- IMAGEN 7 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8818.jpg" 
+             alt="Birongo Live - Momento 7" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+7'"
+             loading="lazy">
+    </div>
+    
+    <!-- IMAGEN 8 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8829.jpg" 
+             alt="Birongo Live - Momento 8" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+8'"
+             loading="lazy">
+    </div>
+    
+    <!-- IMAGEN 9 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8834.jpg" 
+             alt="Birongo Live - Momento 9" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+9'"
+             loading="lazy">
+    </div>
+    
+    <!-- IMAGEN 10 -->
+    <div class="galeria-item-original">
+        <img src="IMG_8868.jpg" 
+             alt="Birongo Live - Momento 10" 
+             onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+10'"
+             loading="lazy">
+    </div>
+</div>
 
         <!-- ===== FOOTER ===== -->
         <footer>
