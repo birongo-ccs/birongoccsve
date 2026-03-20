@@ -31,7 +31,6 @@
             flex-direction: column;
         }
 
-        /* Fondo sutil con gradientes */
         body::before {
             content: '';
             position: fixed;
@@ -45,9 +44,8 @@
             z-index: -1;
         }
 
-        /* ===== CONTAINER ===== */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 1rem;
             flex: 1;
@@ -61,27 +59,46 @@
             }
         }
 
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
         /* ===== HEADER ===== */
-        .header {
+        .hero {
             text-align: center;
             margin-bottom: 2rem;
             padding: 2rem 0;
-            border-bottom: 2px solid #ffffff20;
+            border-bottom: 1px solid #ffffff20;
         }
 
-        .header h1 {
-            font-size: clamp(3rem, 15vw, 6rem);
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: -0.03em;
-            line-height: 0.9;
-            color: white;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(255,255,255,0.3);
-            margin-bottom: 1rem;
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 4rem;
+                padding: 3rem 0;
+            }
         }
 
-        .header .subtitle {
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        .tagline {
             font-size: 0.9rem;
             color: #ffffff80;
             display: flex;
@@ -91,387 +108,228 @@
             flex-wrap: wrap;
             text-transform: uppercase;
             letter-spacing: 0.2em;
+            margin-bottom: 2rem;
         }
 
         @media (min-width: 768px) {
-            .header .subtitle {
+            .tagline {
                 font-size: 1.2rem;
             }
         }
 
-        .header .subtitle i {
+        .tagline i {
             color: white;
             opacity: 0.5;
         }
 
-        /* ===== TICKETS CARD ===== */
-        .tickets-card {
-            background: #0a0a0a;
-            border: 1px solid #ffffff20;
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .tickets-card:hover {
-            border-color: #ffffff60;
-            box-shadow: 0 20px 40px -20px rgba(255,255,255,0.2);
-        }
-
-        .event-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .event-details {
+        /* ===== MENÚ DE NAVEGACIÓN MEJORADO ===== */
+        .nav-menu {
             display: flex;
             justify-content: center;
             gap: 2rem;
+            margin: 1rem 0 3rem;
             flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #ffffff20;
+            padding: 0.5rem 0;
         }
 
-        .event-detail-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+        .nav-item {
             color: #ffffff80;
-            font-size: 0.95rem;
-        }
-
-        .event-detail-item i {
-            color: white;
-            opacity: 0.5;
-            font-size: 1.2rem;
-        }
-
-        .event-detail-item strong {
-            color: white;
+            text-decoration: none;
+            font-size: 1rem;
             font-weight: 600;
-            margin-right: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
-        /* ===== TICKET TIERS ===== */
-        .ticket-tiers {
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: white;
+        }
+
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1.2rem;
+                padding: 0.3rem 0;
+                margin: 0.5rem 0 2rem;
+            }
+            
+            .nav-item {
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                padding: 0.4rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 0.8rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                padding: 0.3rem 0.3rem;
+                white-space: normal;
+                text-align: center;
+                min-width: 70px;
+            }
+        }
+
+        /* ===== TARJETA DE ENTRADAS ===== */
+        .entradas-card {
+            max-width: 600px;
+            margin: 2rem auto 4rem;
+            background: linear-gradient(145deg, #111, #0a0a0a);
+            border: 2px solid #ffffff30;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .entradas-card:hover {
+            border-color: #ffffff60;
+            transform: translateY(-5px);
+            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.2);
+        }
+
+        .entradas-icon {
+            font-size: 5rem;
+            color: #ffffff40;
+            margin-bottom: 1.5rem;
+        }
+
+        .entradas-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .entradas-status {
+            display: inline-block;
+            background: #ffffff20;
+            color: #ffffff80;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .entradas-desc {
+            color: #ffffff90;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* ===== BOTONES TÁCTILES ===== */
+        .btn-tactile {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border: 2px solid #fff;
+            background: transparent;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn-tactile:active {
+            transform: scale(0.97);
+            background: white;
+            color: black;
+            box-shadow: 0 2px 4px rgba(255,255,255,0.2);
+        }
+
+        .btn-group-tactile {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .ticket-tiers {
-                flex-direction: row;
-            }
-        }
-
-        .tier {
-            flex: 1;
-            background: #111;
-            border: 1px solid #ffffff20;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tier:hover {
-            border-color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -15px rgba(255,255,255,0.2);
-        }
-
-        .tier.recommended {
-            border: 2px solid #ffffff60;
-            transform: scale(1.02);
-        }
-
-        .tier.recommended::before {
-            content: 'RECOMENDADO';
-            position: absolute;
-            top: 10px;
-            right: -30px;
-            background: white;
-            color: black;
-            padding: 0.2rem 2rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            transform: rotate(45deg);
-        }
-
-        .tier-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .tier-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .tier-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: white;
-        }
-
-        .tier-price span {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #ffffff60;
-        }
-
-        .tier-features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .tier-features li {
-            padding: 0.5rem 0;
-            color: #ffffff80;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border-bottom: 1px solid #ffffff10;
-        }
-
-        .tier-features li i {
-            color: #ffffff40;
-            font-size: 0.8rem;
-            width: 20px;
-        }
-
-        .tier-features li i.fa-check {
-            color: #1DB954;
-        }
-
-        .tier-btn {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .tier-btn:hover {
-            background: white;
-            color: black;
-        }
-
-        /* ===== QUANTITY SELECTOR ===== */
-        .quantity-section {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #ffffff20;
-        }
-
-        .quantity-title {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #ffffff80;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .quantity-btn {
-            width: 40px;
-            height: 40px;
-            background: transparent;
-            border: 2px solid #ffffff30;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quantity-btn:hover {
-            border-color: white;
-            background: white;
-            color: black;
-        }
-
-        .quantity-number {
-            font-size: 1.5rem;
-            font-weight: 600;
-            min-width: 60px;
-            text-align: center;
-        }
-
-        /* ===== TOTAL ===== */
-        .total-section {
-            background: #111;
-            border: 1px solid #ffffff20;
-            padding: 1.5rem;
             margin: 2rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
         }
 
-        .total-label {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #ffffff80;
-        }
-
-        .total-amount {
-            font-size: 2rem;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* ===== CHECKOUT BUTTON ===== */
-        .checkout-btn {
-            display: block;
-            width: 100%;
-            padding: 1.5rem;
-            background: white;
-            border: none;
-            color: black;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .checkout-btn:hover {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            padding: 1.4rem 1.5rem;
-        }
-
-        .checkout-btn i {
-            margin-left: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .checkout-btn:hover i {
-            transform: translateX(10px);
-        }
-
-        /* ===== INFO ADICIONAL ===== */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-
-        @media (min-width: 768px) {
-            .info-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
+        @media (min-width: 600px) {
+            .btn-group-tactile {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
             }
         }
 
-        .info-item {
-            background: #0a0a0a;
-            border: 1px solid #ffffff20;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
+        .btn-tactile.btn-primary {
+            background: white;
+            color: black;
         }
 
-        .info-item:hover {
-            border-color: white;
-            transform: translateY(-5px);
+        .btn-tactile.btn-primary:active {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
         }
 
-        .info-item i {
-            font-size: 2rem;
-            color: #ffffff40;
-            margin-bottom: 1rem;
+        @media (max-width: 600px) {
+            .btn-tactile {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+                padding: 1.2rem 1.5rem;
+                font-size: 0.8rem;
+            }
         }
 
-        .info-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .info-item p {
-            color: #ffffff60;
-            font-size: 0.9rem;
-        }
-
-        /* ===== BOTONES DE NAVEGACIÓN ===== */
         .nav-links {
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin: 2rem 0 1rem;
+            margin: 3rem 0 2rem;
             flex-wrap: wrap;
         }
 
-        .nav-btn {
-            background: transparent;
-            padding: 0.8rem 2rem;
-            border: 2px solid white;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.8rem;
-        }
-
-        .nav-btn:hover {
-            background: white;
-            color: black;
-        }
-
-        .nav-btn i {
-            transition: transform 0.3s ease;
-        }
-
-        .nav-btn:hover i {
-            transform: translateX(-5px);
+        @media (max-width: 768px) {
+            .nav-links {
+                margin: 2rem 0 1rem;
+            }
         }
 
         /* ===== FOOTER ===== */
@@ -484,6 +342,12 @@
             font-size: 0.8rem;
         }
 
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
         footer i {
             color: #ffffff60;
             margin: 0 0.5rem;
@@ -493,130 +357,49 @@
 <body>
     <div class="container">
         <!-- ===== HEADER ===== -->
-        <div class="header">
-            <h1>ENTRADAS</h1>
-            <div class="subtitle">
-                <i class="fas fa-bolt"></i>
-                <span>BIRONGO · LIVE</span>
-                <i class="fas fa-bolt"></i>
+        <div class="hero">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            <div class="tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span> DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA </span>
+                <i class="fas fa-sliders-h"></i>
             </div>
-        </div>
-
-        <!-- ===== TICKETS CARD ===== -->
-        <div class="tickets-card">
-            <h2 class="event-title">BIRONGO LIVE · LA QUINTA</h2>
             
-            <div class="event-details">
-                <div class="event-detail-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span><strong>13 DIC</strong> 2025</span>
-                </div>
-                <div class="event-detail-item">
-                    <i class="fas fa-clock"></i>
-                    <span><strong>22:00</strong> HASTA TARDE</span>
-                </div>
-                <div class="event-detail-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span><strong>LA QUINTA BAR</strong> · CARACAS</span>
-                </div>
+            <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">INICIO</a>
+                <a href="eventos.html" class="nav-item">EVENTOS</a>
+                <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
+                <a href="entradas.html" class="nav-item active">ENTRADAS</a>
+                <a href="contacto.html" class="nav-item">CONTACTO</a>
             </div>
-
-            <!-- TIERS DE ENTRADAS -->
-            <div class="ticket-tiers">
-                <!-- TIER 1: GENERAL -->
-                <div class="tier">
-                    <div class="tier-header">
-                        <div class="tier-name">ENTRADA GENERAL</div>
-                        <div class="tier-price">$15 <span>USD</span></div>
-                    </div>
-                    <ul class="tier-features">
-                        <li><i class="fas fa-check"></i> Acceso al evento</li>
-                        <li><i class="fas fa-check"></i> 1 bebida de cortesía</li>
-                        <li><i class="fas fa-times"></i> Acceso a backstage</li>
-                        <li><i class="fas fa-times"></i> Meet & greet</li>
-                    </ul>
-                    <button class="tier-btn" onclick="selectTier('general', 15)">SELECCIONAR</button>
-                </div>
-
-                <!-- TIER 2: VIP (RECOMENDADO) -->
-                <div class="tier recommended">
-                    <div class="tier-header">
-                        <div class="tier-name">VIP</div>
-                        <div class="tier-price">$30 <span>USD</span></div>
-                    </div>
-                    <ul class="tier-features">
-                        <li><i class="fas fa-check"></i> Acceso al evento</li>
-                        <li><i class="fas fa-check"></i> 3 bebidas de cortesía</li>
-                        <li><i class="fas fa-check"></i> Acceso a backstage</li>
-                        <li><i class="fas fa-times"></i> Meet & greet</li>
-                    </ul>
-                    <button class="tier-btn" onclick="selectTier('vip', 30)">SELECCIONAR</button>
-                </div>
-
-                <!-- TIER 3: BACKSTAGE -->
-                <div class="tier">
-                    <div class="tier-header">
-                        <div class="tier-name">BACKSTAGE</div>
-                        <div class="tier-price">$50 <span>USD</span></div>
-                    </div>
-                    <ul class="tier-features">
-                        <li><i class="fas fa-check"></i> Acceso al evento</li>
-                        <li><i class="fas fa-check"></i> Barra libre</li>
-                        <li><i class="fas fa-check"></i> Acceso a backstage</li>
-                        <li><i class="fas fa-check"></i> Meet & greet con artistas</li>
-                    </ul>
-                    <button class="tier-btn" onclick="selectTier('backstage', 50)">SELECCIONAR</button>
-                </div>
-            </div>
-
-            <!-- SELECTOR DE CANTIDAD -->
-            <div class="quantity-section">
-                <div class="quantity-title">CANTIDAD DE ENTRADAS</div>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" onclick="decrementQuantity()">−</button>
-                    <span class="quantity-number" id="quantity">1</span>
-                    <button class="quantity-btn" onclick="incrementQuantity()">+</button>
-                </div>
-            </div>
-
-            <!-- TOTAL -->
-            <div class="total-section">
-                <span class="total-label">TOTAL</span>
-                <span class="total-amount" id="totalAmount">$15</span>
-            </div>
-
-            <!-- BOTÓN DE CHECKOUT -->
-            <a href="#" class="checkout-btn" id="checkoutBtn">
-                CONTINUAR <i class="fas fa-arrow-right"></i>
-            </a>
-
-            <p style="color: #ffffff40; font-size: 0.7rem; text-align: center; margin-top: 1rem;">
-                * Al continuar serás redirigido a la pasarela de pago segura
-            </p>
         </div>
 
-        <!-- ===== INFORMACIÓN ADICIONAL ===== -->
-        <div class="info-grid">
-            <div class="info-item">
-                <i class="fas fa-shield-alt"></i>
-                <h3>PAGO SEGURO</h3>
-                <p>Transacciones encriptadas y seguras</p>
-            </div>
-            <div class="info-item">
+        <!-- ===== TARJETA DE ENTRADAS ===== -->
+        <div class="entradas-card">
+            <div class="entradas-icon">
                 <i class="fas fa-ticket-alt"></i>
-                <h3>ENTRADA DIGITAL</h3>
-                <p>Recibirás tu código QR por email</p>
             </div>
-            <div class="info-item">
-                <i class="fas fa-undo-alt"></i>
-                <h3>POLÍTICA DE REEMBOLSO</h3>
-                <p>Cancelaciones hasta 48h antes</p>
+            <h2>ENTRADAS</h2>
+            <div class="entradas-status">
+                <i class="fas fa-clock"></i> PRÓXIMAMENTE
             </div>
+            <p class="entradas-desc">
+                Las entradas para el próximo evento de Birongo<br>
+                aún no están disponibles.
+            </p>
+            <p class="entradas-desc" style="font-size: 0.95rem; margin-bottom: 2rem;">
+                Síguenos en Instagram para enterarte primero<br>
+                cuando salgan a la venta.
+            </p>
+            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-tactile" style="margin: 0 auto;">
+                <i class="fab fa-instagram"></i> SEGUIR EN INSTAGRAM
+            </a>
         </div>
 
-        <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
+        <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
         <div class="nav-links">
-            <a href="index.html" class="nav-btn">
+            <a href="index.html" class="btn-tactile">
                 <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
             </a>
         </div>
@@ -629,61 +412,7 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Variables globales
-        let currentTier = {
-            name: 'general',
-            price: 15
-        };
-        let quantity = 1;
-
-        // Seleccionar tier
-        function selectTier(tierName, tierPrice) {
-            currentTier.name = tierName;
-            currentTier.price = tierPrice;
-            
-            // Actualizar UI para mostrar tier seleccionado
-            document.querySelectorAll('.tier').forEach(tier => {
-                tier.style.border = '1px solid #ffffff20';
-            });
-            event.currentTarget.parentElement.style.border = '2px solid white';
-            
-            // Actualizar total
-            updateTotal();
-        }
-
-        // Incrementar cantidad
-        function incrementQuantity() {
-            if (quantity < 10) {
-                quantity++;
-                document.getElementById('quantity').textContent = quantity;
-                updateTotal();
-            }
-        }
-
-        // Decrementar cantidad
-        function decrementQuantity() {
-            if (quantity > 1) {
-                quantity--;
-                document.getElementById('quantity').textContent = quantity;
-                updateTotal();
-            }
-        }
-
-        // Actualizar total
-        function updateTotal() {
-            const total = currentTier.price * quantity;
-            document.getElementById('totalAmount').textContent = `$${total}`;
-            
-            // Actualizar href del botón de checkout (ejemplo con parámetros)
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            checkoutBtn.href = `https://tu-pasarela-de-pago.com?tier=${currentTier.name}&qty=${quantity}&total=${total}`;
-        }
-
-        // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
-            updateTotal();
-            
-            // Seguridad para enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
