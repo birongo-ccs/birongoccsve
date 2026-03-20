@@ -122,7 +122,7 @@
             opacity: 0.5;
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN MEJORADO ===== */
+        /* ===== MENÚ DE NAVEGACIÓN ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -204,81 +204,100 @@
             }
         }
 
-        /* ===== TARJETA DE CONTACTO ===== */
-        .contacto-card {
+        /* ===== TARJETA DE REDES SOCIALES ===== */
+        .redes-card {
             max-width: 700px;
             margin: 2rem auto 4rem;
             background: linear-gradient(145deg, #111, #0a0a0a);
             border: 2px solid #ffffff30;
             padding: 2.5rem;
+            text-align: center;
             transition: all 0.4s ease;
         }
 
-        .contacto-card:hover {
+        .redes-card:hover {
             border-color: #ffffff60;
             transform: translateY(-5px);
             box-shadow: 0 30px 50px -20px rgba(255,255,255,0.2);
         }
 
-        .contacto-icon {
-            text-align: center;
+        .redes-icon {
             font-size: 3rem;
             color: #ffffff40;
             margin-bottom: 1.5rem;
         }
 
-        .contacto-card h2 {
-            text-align: center;
+        .redes-card h2 {
             font-size: 2rem;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
 
-        .contacto-subtitle {
-            text-align: center;
+        .redes-subtitle {
             color: #ffffff80;
             margin-bottom: 2rem;
             font-size: 0.9rem;
         }
 
-        /* ===== FORMULARIO ===== */
-        .form-group {
-            margin-bottom: 1.5rem;
+        /* ===== GRID DE REDES ===== */
+        .redes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2rem 0;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.8rem;
-            color: #ffffff80;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
+        .redes-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             background: #1a1a1a;
             border: 1px solid #ffffff30;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            padding: 1rem 1.5rem;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
+        .redes-item:hover {
             border-color: white;
+            transform: translateX(5px);
             background: #222;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        .redes-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .redes-info i {
+            font-size: 1.8rem;
+            color: #ffffff80;
+            transition: color 0.3s ease;
+        }
+
+        .redes-item:hover .redes-info i {
+            color: white;
+        }
+
+        .redes-info span {
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .redes-arrow {
+            font-size: 1.2rem;
+            color: #ffffff60;
+            transition: transform 0.3s ease;
+        }
+
+        .redes-item:hover .redes-arrow {
+            transform: translateX(5px);
+            color: white;
         }
 
         /* ===== BOTONES TÁCTILES ===== */
@@ -300,7 +319,6 @@
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            width: 100%;
         }
 
         .btn-tactile:active {
@@ -308,45 +326,6 @@
             background: white;
             color: black;
             box-shadow: 0 2px 4px rgba(255,255,255,0.2);
-        }
-
-        .btn-tactile.btn-primary {
-            background: white;
-            color: black;
-        }
-
-        .btn-tactile.btn-primary:active {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        @media (max-width: 600px) {
-            .btn-tactile {
-                padding: 1.2rem 1.5rem;
-                font-size: 0.8rem;
-            }
-        }
-
-        /* ===== MENSAJES ===== */
-        .mensaje-exito {
-            background: #1DB95420;
-            border: 1px solid #1DB954;
-            color: #1DB954;
-            padding: 1rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .mensaje-error {
-            background: #ff000020;
-            border: 1px solid #ff0000;
-            color: #ff0000;
-            padding: 1rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
         }
 
         .nav-links {
@@ -406,41 +385,50 @@
             </div>
         </div>
 
-        <!-- ===== TARJETA DE CONTACTO ===== -->
-        <div class="contacto-card">
-            <div class="contacto-icon">
-                <i class="fas fa-envelope"></i>
+        <!-- ===== TARJETA DE REDES SOCIALES ===== -->
+        <div class="redes-card">
+            <div class="redes-icon">
+                <i class="fas fa-share-alt"></i>
             </div>
-            <h2>CONTACTO</h2>
-            <div class="contacto-subtitle">
-                Escríbenos y te responderemos lo antes posible
+            <h2>SÍGUENOS</h2>
+            <div class="redes-subtitle">
+                Conéctate con Birongo en nuestras redes sociales
             </div>
 
-            <!-- Mensaje de éxito/error -->
-            <div id="mensajeFormulario" style="display: none;"></div>
+            <div class="redes-grid">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/birongoccs/" target="_blank" class="redes-item">
+                    <div class="redes-info">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </div>
+                    <div class="redes-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-<!-- FORMULARIO -->
-<form id="formContacto" action="https://formspree.io/f/xovnvjyv" method="POST">
-    <div class="form-group">
-        <label for="nombre">NOMBRE</label>
-        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
-    </div>
-    <div class="form-group">
-        <label for="apellido">APELLIDO</label>
-        <input type="text" id="apellido" name="apellido" required placeholder="Tu apellido">
-    </div>
-    <div class="form-group">
-        <label for="email">EMAIL</label>
-        <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
-    </div>
-    <div class="form-group">
-        <label for="mensaje">MENSAJE</label>
-        <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
-    </div>
-    <button type="submit" class="btn-tactile btn-primary" id="btnEnviar">
-        <i class="fas fa-paper-plane"></i> ENVIAR MENSAJE
-    </button>
-</form>
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="redes-item">
+                    <div class="redes-info">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </div>
+                    <div class="redes-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Gmail (Correo) -->
+                <a href="mailto:birongolive@gmail.com" class="redes-item">
+                    <div class="redes-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>Correo Electrónico</span>
+                    </div>
+                    <div class="redes-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
@@ -459,55 +447,6 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('formContacto');
-            const mensajeDiv = document.getElementById('mensajeFormulario');
-            
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Mostrar mensaje de carga
-                const btn = document.getElementById('btnEnviar');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
-                btn.disabled = true;
-                
-                try {
-                    const formData = new FormData(form);
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    if (response.ok) {
-                        // Éxito
-                        mensajeDiv.style.display = 'block';
-                        mensajeDiv.className = 'mensaje-exito';
-                        mensajeDiv.innerHTML = '<i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito! Te responderemos pronto.';
-                        form.reset();
-                    } else {
-                        throw new Error('Error en el envío');
-                    }
-                } catch (error) {
-                    // Error
-                    mensajeDiv.style.display = 'block';
-                    mensajeDiv.className = 'mensaje-error';
-                    mensajeDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error al enviar. Por favor, inténtalo de nuevo.';
-                } finally {
-                    // Restaurar botón
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                    
-                    // Ocultar mensaje después de 5 segundos
-                    setTimeout(() => {
-                        mensajeDiv.style.display = 'none';
-                    }, 5000);
-                }
-            });
-            
-            // Seguridad para enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
