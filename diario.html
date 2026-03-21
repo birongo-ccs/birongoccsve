@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>BIRONGO · INICIO</title>
+    <title>BIRONGO · DJs & PRODUCTORES</title>
     
     <!-- FONTS & ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -14,6 +14,395 @@
     
     <!-- ===== FAVICON PNG FALLBACK ===== -->
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
-       </link>
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ===== HEADER ===== */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 4rem;
+                padding: 3rem 0;
+            }
+        }
+
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        /* ===== MENÚ DE NAVEGACIÓN ===== */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0 3rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item {
+            color: #ffffff80;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: white;
+        }
+
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1.2rem;
+                padding: 0.3rem 0;
+                margin: 0.5rem 0 2rem;
+            }
+            
+            .nav-item {
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                padding: 0.4rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 0.8rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                padding: 0.3rem 0.3rem;
+                white-space: normal;
+                text-align: center;
+                min-width: 70px;
+            }
+        }
+
+        /* ===== ARTISTAS GRID ===== */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .artists-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        .artist-card {
+            background: #111;
+            border: none;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
+        }
+
+        .artist-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .artist-image .placeholder-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: #ffffff20;
+            pointer-events: none;
+        }
+
+        .artist-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            gap: 1rem;
+        }
+
+        .artist-card:hover .artist-overlay {
+            opacity: 1;
+        }
+
+        .artist-overlay a {
+            color: white;
+            font-size: 1.8rem;
+            transition: transform 0.2s ease;
+        }
+
+        .artist-overlay a:hover {
+            transform: scale(1.2);
+        }
+
+        .artist-overlay .fa-spotify:hover {
+            color: #1DB954;
+        }
+
+        .artist-overlay .fa-youtube:hover {
+            color: #ff0000;
+        }
+
+        .artist-overlay .fa-instagram:hover {
+            color: #e4405f;
+        }
+
+        .artist-info {
+            padding: 1rem;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artist-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .artist-info p {
+            color: #ffffff60;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .artist-tags {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 0.3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .artist-tags span {
+            background: #ffffff10;
+            color: #ffffff80;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+        }
+
+        /* ===== BOTONES ===== */
+        .btn {
+            background: transparent;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                margin: 2rem 0 1rem;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.7rem;
+            color: #ffffff40;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-tagline i {
+            color: #ffffff60;
+            font-size: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <div class="hero">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            
+            <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">INICIO</a>
+                <a href="eventos.html" class="nav-item">EVENTOS</a>
+                <a href="djs-productores.html" class="nav-item active">DJs & PRODUCTORES</a>
+                <a href="entradas.html" class="nav-item">ENTRADAS</a>
+                <a href="contacto.html" class="nav-item">CONTACTO</a>
+            </div>
+        </div>
 </body>
 </html>
