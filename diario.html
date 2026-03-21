@@ -177,163 +177,172 @@
             }
         }
 
-        /* ===== ARTISTAS GRID ===== */
-        .artists-grid {
+        /* ===== DIARIO / BLOG GRID ===== */
+        .diario-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem 0 4rem;
         }
 
         @media (min-width: 768px) {
-            .artists-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            .diario-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
         }
 
-        .artist-card {
-            background: #111;
-            border: none;
+        @media (min-width: 1200px) {
+            .diario-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .diario-card {
+            background: #0a0a0a;
+            border: 1px solid #ffffff20;
             overflow: hidden;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             height: 100%;
         }
 
-        .artist-card:hover {
+        .diario-card:hover {
             transform: translateY(-8px);
+            border-color: white;
             box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
         }
 
-        .artist-image {
+        .diario-imagen {
             width: 100%;
-            aspect-ratio: 1/1;
+            aspect-ratio: 16/9;
             background: #1a1a1a;
-            position: relative;
             overflow: hidden;
+            position: relative;
         }
 
-        .artist-image img {
+        .diario-imagen img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.5s ease;
         }
 
-        .artist-image .placeholder-icon {
+        .diario-card:hover .diario-imagen img {
+            transform: scale(1.05);
+        }
+
+        .diario-fecha {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            color: #ffffff20;
-            pointer-events: none;
+            top: 1rem;
+            right: 1rem;
+            background: #ffffff20;
+            backdrop-filter: blur(5px);
+            padding: 0.3rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 20px;
         }
 
-        .artist-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            gap: 1rem;
-        }
-
-        .artist-card:hover .artist-overlay {
-            opacity: 1;
-        }
-
-        .artist-overlay a {
-            color: white;
-            font-size: 1.8rem;
-            transition: transform 0.2s ease;
-        }
-
-        .artist-overlay a:hover {
-            transform: scale(1.2);
-        }
-
-        .artist-overlay .fa-spotify:hover {
-            color: #1DB954;
-        }
-
-        .artist-overlay .fa-youtube:hover {
-            color: #ff0000;
-        }
-
-        .artist-overlay .fa-instagram:hover {
-            color: #e4405f;
-        }
-
-        .artist-info {
-            padding: 1rem;
-            text-align: center;
+        .diario-contenido {
+            padding: 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .artist-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .artist-info p {
-            color: #ffffff60;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .diario-titulo {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
-        .artist-tags {
-            margin-top: 0.5rem;
-            display: flex;
-            gap: 0.3rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: auto;
-        }
-
-        .artist-tags span {
-            background: #ffffff10;
+        .diario-descripcion {
             color: #ffffff80;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .diario-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .diario-tag {
+            background: #ffffff10;
+            color: #ffffff70;
             font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
+            padding: 0.2rem 0.8rem;
             border-radius: 20px;
         }
 
-        /* ===== BOTONES ===== */
-        .btn {
-            background: transparent;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid #fff;
+        .diario-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #ffffff20;
+        }
+
+        .diario-leer {
+            color: white;
             text-decoration: none;
-            color: #fff;
-            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .diario-leer:hover {
+            gap: 0.8rem;
+        }
+
+        .diario-stats {
+            display: flex;
+            gap: 1rem;
+            color: #ffffff60;
+            font-size: 0.7rem;
+        }
+
+        .diario-stats i {
+            margin-right: 0.2rem;
+        }
+
+        /* ===== BOTONES ===== */
+        .btn-tactile {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+            border: 2px solid #fff;
+            background: transparent;
+            color: white;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
-        .btn:hover {
-            background: #fff;
-            color: #000;
+        .btn-tactile:active {
+            transform: scale(0.97);
+            background: white;
+            color: black;
         }
 
         .nav-links {
@@ -341,6 +350,7 @@
             justify-content: center;
             gap: 1rem;
             margin: 3rem 0 2rem;
+            flex-wrap: wrap;
         }
 
         @media (max-width: 768px) {
@@ -398,12 +408,186 @@
             <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
             <div class="nav-menu">
                 <a href="index.html" class="nav-item">INICIO</a>
-                <a href="djs-productores.html" class="nav-item active">DJs & PRODUCTORES</a>
-                <a href="diario.html" class="nav-item">DIARIO</a>
+                <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
+                <a href="diario.html" class="nav-item active">DIARIO</a>
                 <a href="eventos.html" class="nav-item">EVENTOS</a>
                 <a href="entradas.html" class="nav-item">ENTRADAS</a>
                 <a href="contacto.html" class="nav-item">CONTACTO</a>
             </div>
         </div>
+
+        <!-- ===== DIARIO / BLOG ===== -->
+        <div class="diario-grid">
+            <!-- ENTRADA 1 -->
+            <div class="diario-card">
+                <div class="diario-imagen">
+                    <img src="img/diario/entrada-1.jpg" alt="Birongo en el estudio" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=BIRONGO+ESTUDIO'">
+                    <span class="diario-fecha">15 MAR 2026</span>
+                </div>
+                <div class="diario-contenido">
+                    <h3 class="diario-titulo">Nuevas sesiones en BackBeat Studio</h3>
+                    <p class="diario-descripcion">Estuvimos grabando nuevas mezclas en el estudio. La energía estuvo increíble con toda la crew.</p>
+                    <div class="diario-tags">
+                        <span class="diario-tag">Estudio</span>
+                        <span class="diario-tag">Grabación</span>
+                        <span class="diario-tag">BackBeat</span>
+                    </div>
+                    <div class="diario-footer">
+                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
+                        <div class="diario-stats">
+                            <span><i class="far fa-heart"></i> 24</span>
+                            <span><i class="far fa-comment"></i> 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENTRADA 2 -->
+            <div class="diario-card">
+                <div class="diario-imagen">
+                    <img src="img/diario/entrada-2.jpg" alt="Birongo Live en La Quinta" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=BIRONGO+LIVE'">
+                    <span class="diario-fecha">10 MAR 2026</span>
+                </div>
+                <div class="diario-contenido">
+                    <h3 class="diario-titulo">Resumen: Birongo Live en La Quinta Bar</h3>
+                    <p class="diario-descripcion">Una noche increíble con más de 200 personas vibrando al ritmo de la electrónica caraqueña.</p>
+                    <div class="diario-tags">
+                        <span class="diario-tag">Live Set</span>
+                        <span class="diario-tag">La Quinta</span>
+                        <span class="diario-tag">Evento</span>
+                    </div>
+                    <div class="diario-footer">
+                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
+                        <div class="diario-stats">
+                            <span><i class="far fa-heart"></i> 56</span>
+                            <span><i class="far fa-comment"></i> 8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENTRADA 3 -->
+            <div class="diario-card">
+                <div class="diario-imagen">
+                    <img src="img/diario/entrada-3.jpg" alt="Nuevos tracks en Spotify" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=NUEVOS+TRACKS'">
+                    <span class="diario-fecha">5 MAR 2026</span>
+                </div>
+                <div class="diario-contenido">
+                    <h3 class="diario-titulo">Nuevas canciones en nuestras playlist</h3>
+                    <p class="diario-descripcion">Actualizamos nuestras recomendaciones con los últimos tracks que están sonando en la crew.</p>
+                    <div class="diario-tags">
+                        <span class="diario-tag">Spotify</span>
+                        <span class="diario-tag">Playlist</span>
+                        <span class="diario-tag">Nuevo</span>
+                    </div>
+                    <div class="diario-footer">
+                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
+                        <div class="diario-stats">
+                            <span><i class="far fa-heart"></i> 42</span>
+                            <span><i class="far fa-comment"></i> 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENTRADA 4 -->
+            <div class="diario-card">
+                <div class="diario-imagen">
+                    <img src="img/diario/entrada-4.jpg" alt="Detrás de las cabinas" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=BEHIND+THE+DECKS'">
+                    <span class="diario-fecha">28 FEB 2026</span>
+                </div>
+                <div class="diario-contenido">
+                    <h3 class="diario-titulo">Detrás de las cabinas: Así preparamos un set</h3>
+                    <p class="diario-descripcion">Te mostramos el proceso creativo detrás de cada presentación. Selección, mezcla y energía.</p>
+                    <div class="diario-tags">
+                        <span class="diario-tag">Detrás</span>
+                        <span class="diario-tag">DJ Set</span>
+                        <span class="diario-tag">Proceso</span>
+                    </div>
+                    <div class="diario-footer">
+                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
+                        <div class="diario-stats">
+                            <span><i class="far fa-heart"></i> 38</span>
+                            <span><i class="far fa-comment"></i> 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENTRADA 5 -->
+            <div class="diario-card">
+                <div class="diario-imagen">
+                    <img src="img/diario/entrada-5.jpg" alt="Entrevista con ALOCATE" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=ALOCATE'">
+                    <span class="diario-fecha">20 FEB 2026</span>
+                </div>
+                <div class="diario-contenido">
+                    <h3 class="diario-titulo">Entrevista: ALOCATE y su visión del Hardtechno</h3>
+                    <p class="diario-descripcion">Hablamos con uno de los referentes de la escena sobre su proceso creativo y próximos lanzamientos.</p>
+                    <div class="diario-tags">
+                        <span class="diario-tag">Entrevista</span>
+                        <span class="diario-tag">ALOCATE</span>
+                        <span class="diario-tag">Hardtechno</span>
+                    </div>
+                    <div class="diario-footer">
+                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
+                        <div class="diario-stats">
+                            <span><i class="far fa-heart"></i> 67</span>
+                            <span><i class="far fa-comment"></i> 12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENTRADA 6 -->
+            <div class="diario-card">
+                <div class="diario-imagen">
+                    <img src="img/diario/entrada-6.jpg" alt="Fotos del evento" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=FOTOS+EVENTO'">
+                    <span class="diario-fecha">15 FEB 2026</span>
+                </div>
+                <div class="diario-contenido">
+                    <h3 class="diario-titulo">Galería: Los mejores momentos del Birongo Live</h3>
+                    <p class="diario-descripcion">Revive la noche con nuestra selección de fotos y videos del evento en La Quinta Bar.</p>
+                    <div class="diario-tags">
+                        <span class="diario-tag">Galería</span>
+                        <span class="diario-tag">Fotos</span>
+                        <span class="diario-tag">Recuerdos</span>
+                    </div>
+                    <div class="diario-footer">
+                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
+                        <div class="diario-stats">
+                            <span><i class="far fa-heart"></i> 89</span>
+                            <span><i class="far fa-comment"></i> 15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
+        <div class="nav-links">
+            <a href="index.html" class="btn-tactile">
+                <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
+            </a>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
+            <div class="footer-tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span>DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA</span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
 </body>
 </html>
