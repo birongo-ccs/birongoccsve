@@ -507,15 +507,15 @@
             </div>
         </div>
 
-        <!-- BOTÓN DE RETROCESO - CORREGIDO -->
-        <a href="djs-productores.html" class="back-button" id="backButton">
+        <!-- BOTÓN DE RETROCESO - RUTA CORREGIDA -->
+        <a href="../djs-productores.html" class="back-button" id="backButton">
             <i class="fas fa-arrow-left"></i> VOLVER A DJs & PRODUCTORES
         </a>
 
         <!-- PERFIL DEL ARTISTA CON IMAGEN -->
         <div class="artist-card">
             <div class="artist-image">
-                <img src="img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" 
+                <img src="../img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" 
                      alt="DESTRO5 - DJ y Productor" 
                      onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'artist-image-placeholder\'><i class=\'fas fa-user-music\'></i></div>';">
             </div>
@@ -564,7 +564,7 @@
             <h3><i class="fab fa-youtube"></i> SETS DESTACADOS</h3>
             <div class="youtube-grid">
                 <div>
-                    <a href="https://www.youtube.com/watch?v=vI7M4HgtWlY" target="_blank" class="video-thumbnail-link">
+                    <a href="https://www.youtube.com/watch?v=o4oIPK1CdW8" target="_blank" class="video-thumbnail-link">
                         <div class="video-thumbnail">
                             <img src="https://img.youtube.com/vi/o4oIPK1CdW8/maxresdefault.jpg" 
                                  alt="Hardechno Mix 2026 - DJ Zarinovak"
@@ -633,7 +633,7 @@
 
         <!-- BOTÓN DE ACCIÓN -->
         <div class="text-center mt-3">
-            <a href="djs-productores.html" class="btn-tactile">
+            <a href="../djs-productores.html" class="btn-tactile">
                 <i class="fas fa-users"></i> CONOCE MÁS ARTISTAS
             </a>
         </div>
@@ -656,12 +656,12 @@
                 link.setAttribute('rel', 'noopener noreferrer');
             });
             
-            // Asegurar que el botón de retroceso funcione correctamente
+            // Asegurar que el botón de retroceso funcione correctamente con la ruta correcta
             const backButton = document.getElementById('backButton');
             if (backButton) {
                 backButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    window.location.href = 'djs-productores.html';
+                    window.location.href = '../djs-productores.html';
                 });
             }
         });
