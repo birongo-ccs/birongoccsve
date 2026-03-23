@@ -489,6 +489,81 @@
             gap: 0.5rem;
             flex-wrap: wrap;
         }
+
+        /* SECCIÓN DE CANCIONES DESTACADAS DE SPOTIFY */
+.spotify-tracks-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.track-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #111;
+    border: 1px solid #ffffff20;
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.track-card:hover {
+    background: #1a1a1a;
+    border-color: #1DB954;
+    transform: translateX(5px);
+}
+
+.track-card:active {
+    transform: scale(0.98);
+}
+
+.track-icon i {
+    font-size: 2rem;
+    color: #1DB954;
+}
+
+.track-info {
+    flex: 1;
+}
+
+.track-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.track-artist {
+    font-size: 0.8rem;
+    color: #ffffff80;
+}
+
+.track-year {
+    font-size: 0.7rem;
+    color: #ffffff50;
+    margin-top: 0.2rem;
+}
+
+.track-play i {
+    font-size: 1.5rem;
+    color: #ffffff60;
+    transition: color 0.2s ease;
+}
+
+.track-card:hover .track-play i {
+    color: #1DB954;
+}
+
+@media (max-width: 768px) {
+    .track-name {
+        font-size: 0.9rem;
+    }
+    .track-artist {
+        font-size: 0.7rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -596,40 +671,57 @@
     </div>
 </div>
 
-        <!-- PLAYLISTS EN SPOTIFY -->
-        <div class="music-section">
-            <h3><i class="fab fa-spotify"></i> PLAYLISTS RECOMENDADAS</h3>
-            <div class="spotify-grid">
-                <div class="spotify-item">
-                    <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator&theme=0" 
-                            frameborder="0" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy">
-                    </iframe>
-                </div>
-                <div class="spotify-item">
-                    <iframe src="https://open.spotify.com/embed/playlist/4FqIWucxeM0mjD1uuiycIU?utm_source=generator&theme=0" 
-                            frameborder="0" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy">
-                    </iframe>
-                </div>
-                <div class="spotify-item">
-                    <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo?utm_source=generator&theme=0" 
-                            frameborder="0" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy">
-                    </iframe>
-                </div>
-                <div class="spotify-item">
-                    <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD?utm_source=generator&theme=0" 
-                            frameborder="0" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy">
-                    </iframe>
-                </div>
+<!-- LANZAMIENTOS DESTACADOS EN SPOTIFY (NUEVA SECCIÓN) -->
+<div class="music-section">
+    <h3><i class="fab fa-spotify"></i> LANZAMIENTOS DESTACADOS</h3>
+    <div class="spotify-tracks-grid">
+        <a href="https://open.spotify.com/intl-es/track/0T55yoZtNJqzKybr3HIYt7" target="_blank" class="track-card">
+            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-info">
+                <div class="track-name">SMNNV</div>
+                <div class="track-artist">Luis Piña, Destro5, Durai, Treboll</div>
+                <div class="track-year">2026</div>
             </div>
-        </div>
+            <div class="track-play"><i class="fas fa-play-circle"></i></div>
+        </a>
+        <a href="https://open.spotify.com/intl-es/track/5Cth8LgYwRvdZRp1fGiMpl" target="_blank" class="track-card">
+            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-info">
+                <div class="track-name">You Know It (Afro Style Remix)</div>
+                <div class="track-artist">Melo Greco, Destro5</div>
+                <div class="track-year">2025</div>
+            </div>
+            <div class="track-play"><i class="fas fa-play-circle"></i></div>
+        </a>
+        <a href="https://open.spotify.com/intl-es/track/4GwOM0XcfH5AJmB0YFy95J" target="_blank" class="track-card">
+            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-info">
+                <div class="track-name">Oh Lanana</div>
+                <div class="track-artist">Destro5, ómada, Onibas</div>
+                <div class="track-year">2026</div>
+            </div>
+            <div class="track-play"><i class="fas fa-play-circle"></i></div>
+        </a>
+        <a href="https://open.spotify.com/intl-es/track/0dJUwIo4oE5hTiNO9y4LHc" target="_blank" class="track-card">
+            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-info">
+                <div class="track-name">NADA (Destro5 Remix)</div>
+                <div class="track-artist">De La Trinidad, Markez (VE), Destro5</div>
+                <div class="track-year">2026</div>
+            </div>
+            <div class="track-play"><i class="fas fa-play-circle"></i></div>
+        </a>
+        <a href="https://open.spotify.com/intl-es/track/5aDBDhj8IN5VLlrEKTpB0J" target="_blank" class="track-card">
+            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-info">
+                <div class="track-name">Leski Down</div>
+                <div class="track-artist">Destro5</div>
+                <div class="track-year">2021</div>
+            </div>
+            <div class="track-play"><i class="fas fa-play-circle"></i></div>
+        </a>
+    </div>
+</div>
 
         <!-- BOTÓN DE ACCIÓN -->
         <div class="text-center mt-3">
