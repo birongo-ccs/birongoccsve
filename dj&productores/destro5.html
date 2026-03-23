@@ -193,7 +193,7 @@
                 gap: 1rem;
             }
             .nav-item {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
                 letter-spacing: 0.12em;
             }
         }
@@ -311,10 +311,66 @@
             color: #ffffff90;
         }
 
+        /* DESCRIPCIÓN RESPONSIVE */
         .artist-description {
             color: #cccccc;
             margin-bottom: 1.5rem;
             line-height: 1.6;
+        }
+
+        /* Versión completa para pantallas grandes */
+        .description-full {
+            display: block;
+        }
+
+        .description-short {
+            display: none;
+        }
+
+        /* Botón "Leer más" para móviles */
+        .read-more-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #1DB954;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .read-more-btn:hover {
+            color: white;
+            gap: 0.5rem;
+        }
+
+        .read-more-btn i {
+            font-size: 0.7rem;
+            margin-left: 0.3rem;
+            transition: transform 0.2s ease;
+        }
+
+        .read-more-btn:hover i {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .description-full {
+                display: none;
+            }
+            
+            .description-short {
+                display: block;
+            }
+            
+            .read-more-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.3rem;
+            }
         }
 
         .social-links {
@@ -355,6 +411,12 @@
             margin-bottom: 2rem;
         }
 
+        @media (max-width: 768px) {
+            .music-section {
+                padding: 1rem;
+            }
+        }
+
         .music-section h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
@@ -363,6 +425,12 @@
             gap: 0.8rem;
             border-bottom: 1px solid #ffffff20;
             padding-bottom: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .music-section h3 {
+                font-size: 1.2rem;
+            }
         }
 
         .youtube-grid, .spotify-grid {
@@ -429,6 +497,12 @@
             font-weight: 500;
         }
 
+        @media (max-width: 768px) {
+            .video-info p {
+                font-size: 0.8rem;
+            }
+        }
+
         .spotify-item iframe {
             width: 100%;
             height: 152px;
@@ -461,6 +535,14 @@
             color: black;
         }
 
+        @media (max-width: 768px) {
+            .btn-tactile {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.7rem;
+                letter-spacing: 0.15em;
+            }
+        }
+
         .text-center {
             text-align: center;
         }
@@ -490,78 +572,91 @@
             flex-wrap: wrap;
         }
 
-/* SECCIÓN DE CANCIONES DESTACADAS DE SPOTIFY */
-.spotify-tracks-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+        @media (max-width: 768px) {
+            .footer-tagline {
+                font-size: 0.6rem;
+            }
+        }
 
-.track-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: #111;
-    border: 1px solid #ffffff20;
-    border-radius: 12px;
-    padding: 0.8rem 1rem;
-    transition: all 0.2s ease;
-    flex-wrap: wrap;
-}
+        /* SECCIÓN DE CANCIONES DESTACADAS DE SPOTIFY */
+        .spotify-tracks-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-.track-card:hover {
-    background: #1a1a1a;
-    border-color: #1DB954;
-}
+        .track-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #111;
+            border: 1px solid #ffffff20;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            transition: all 0.2s ease;
+            flex-wrap: wrap;
+        }
 
-.track-info {
-    flex: 1;
-    min-width: 180px;
-}
+        .track-card:hover {
+            background: #1a1a1a;
+            border-color: #1DB954;
+        }
 
-.track-name {
-    font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-}
+        .track-info {
+            flex: 1;
+            min-width: 180px;
+        }
 
-.track-artist {
-    font-size: 0.8rem;
-    color: #ffffff80;
-}
+        .track-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
 
-.track-player {
-    flex: 2;
-    min-width: 250px;
-}
+        .track-artist {
+            font-size: 0.8rem;
+            color: #ffffff80;
+        }
 
-.track-player iframe {
-    border-radius: 8px;
-    background: #000;
-}
+        .track-player {
+            flex: 2;
+            min-width: 250px;
+        }
 
-@media (max-width: 768px) {
-    .track-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .track-player {
-        width: 100%;
-    }
-    
-    .track-info {
-        width: 100%;
-    }
-    
-    .track-name {
-        font-size: 0.9rem;
-    }
-    
-    .track-artist {
-        font-size: 0.7rem;
-    }
-}
+        .track-player iframe {
+            border-radius: 8px;
+            background: #000;
+        }
+
+        @media (max-width: 768px) {
+            .track-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.8rem;
+            }
+            
+            .track-player {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .track-info {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .track-name {
+                font-size: 0.9rem;
+            }
+            
+            .track-artist {
+                font-size: 0.7rem;
+            }
+            
+            .track-player iframe {
+                height: 70px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -575,13 +670,13 @@
                 <a href="../djs-productores.html" class="nav-item active">DJs & PRODUCTORES</a>
                 <a href="../diario.html" class="nav-item">DIARIO</a>
                 <a href="../eventos.html" class="nav-item">EVENTOS</a>
-                <a href=".//entradas.html" class="nav-item">ENTRADAS</a>
+                <a href="../entradas.html" class="nav-item">ENTRADAS</a>
                 <a href="../contacto.html" class="nav-item">CONTACTO</a>
             </div>
         </div>
 
-        <!-- BOTÓN DE RETROCESO - RUTA CORREGIDA -->
-        <a href="../djs-productores.html" class="back-button" id="backButton">
+        <!-- BOTÓN DE RETROCESO -->
+        <a href="../djs-productores.html" class="back-button">
             <i class="fas fa-arrow-left"></i> VOLVER A DJs & PRODUCTORES
         </a>
 
@@ -590,7 +685,7 @@
             <div class="artist-image">
                 <img src="../img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" 
                      alt="DESTRO5 - DJ y Productor" 
-                     onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'artist-image-placeholder\'><i class=\'fas fa-user-music\'></i></div>';">
+                     onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;\'><i class=\'fas fa-user-music\' style=\'font-size:5rem;color:#ffffff30;\'></i></div>';">
             </div>
             <div class="artist-info">
                 <div class="artist-tag">
@@ -603,18 +698,33 @@
                     <span class="genre-badge">EDM</span>
                     <span class="genre-badge">TECH HOUSE</span>
                 </div>
-                <p class="artist-description">
-                    Destro5 es un DJ y productor venezolano en el diverso mundo del EDM. 
-                    Su música se distingue por una fusión de géneros, incorporando influencias del House, UK Bass, Afro-Latin House y muchos más. 
-                    Esta mezcla de estilos es lo que le da a su sonido una energía única y lo hace destacar en la escena. Su camino en la música electrónica comenzó en 2015, 
-                    cuando se formó como DJ bajo la tutela del reconocido DJ y productor venezolano Yohand González. 
-                    Desde entonces, ha perfeccionado su arte y ha colaborado con una variedad de artistas, 
-                    tanto nacionales como internacionales. Entre sus colaboradores se encuentran talentos como Treboll, Sirdiamnd, 
-                    Nidhoog, Nereid, Daront y Cyru$$, lo que demuestra su versatilidad y su capacidad para conectar con otros creadores.
-                    Uno de los mayores éxitos de Destro5 en 2024 fue el tema "Loco". Esta canción, una colaboración con los productores mexicanos Nereid y Nidhoog, 
-                    se convirtió en uno de sus trabajos más reconocidos y consolidó su presencia en la escena musical.
-                    Con su habilidad para mezclar ritmos y crear sonidos frescos, Destro5 continúa siendo una figura a seguir en el mundo de la música electrónica.
-                </p>
+                
+                <!-- DESCRIPCIÓN COMPLETA (para PC y tablets) -->
+                <div class="artist-description description-full">
+                    <p>Destro5 es un DJ y productor venezolano en el diverso mundo del EDM. Su música se distingue por una fusión de géneros, incorporando influencias del House, UK Bass, Afro-Latin House y muchos más. Esta mezcla de estilos es lo que le da a su sonido una energía única y lo hace destacar en la escena.</p>
+                    <br>
+                    <p>Su camino en la música electrónica comenzó en 2015, cuando se formó como DJ bajo la tutela del reconocido DJ y productor venezolano Yohand González. Desde entonces, ha perfeccionado su arte y ha colaborado con una variedad de artistas, tanto nacionales como internacionales. Entre sus colaboradores se encuentran talentos como Treboll, Sirdiamnd, Nidhoog, Nereid, Daront y Cyru$$.</p>
+                    <br>
+                    <p>Uno de los mayores éxitos de Destro5 en 2024 fue el tema "Loco". Esta canción, una colaboración con los productores mexicanos Nereid y Nidhoog, se convirtió en uno de sus trabajos más reconocidos y consolidó su presencia en la escena musical. Con su habilidad para mezclar ritmos y crear sonidos frescos, Destro5 continúa siendo una figura a seguir en el mundo de la música electrónica.</p>
+                </div>
+                
+                <!-- DESCRIPCIÓN RESUMIDA (para móviles) -->
+                <div class="artist-description description-short" id="shortDescription">
+                    <p><strong>🎧 DJ & Productor venezolano</strong> especializado en UK House, Afro Latin House y EDM. Miembro del colectivo Birongo.</p>
+                    <br>
+                    <p><strong>🏆 Éxito 2024:</strong> "Loco" junto a Nereid y Nidhoog.</p>
+                    <br>
+                    <p><strong>🤝 Colaboraciones:</strong> Treboll, Sirdiamnd, Nidhoog, Nereid, Daront, Cyru$$ y más.</p>
+                    <br>
+                    <p><strong>📀 Desde 2015</strong> en la escena electrónica venezolana, formado con Yohand González.</p>
+                </div>
+                
+                <!-- Botón Leer Más (solo visible en móvil) -->
+                <button class="read-more-btn" id="readMoreBtn" onclick="toggleDescription()">
+                    <span>LEER MÁS</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                
                 <div class="social-links">
                     <a href="https://www.instagram.com/dj_destro5/" target="_blank" class="social-link">
                         <i class="fab fa-instagram"></i> Instagram
@@ -633,132 +743,132 @@
         </div>
 
         <!-- SETS EN YOUTUBE -->
-<div class="music-section">
-    <h3><i class="fab fa-youtube"></i> SETS DESTACADOS</h3>
-    <div class="youtube-grid">
-        <div>
-            <a href="https://youtu.be/vI7M4HgtWlY" target="_blank" class="video-thumbnail-link">
-                <div class="video-thumbnail">
-                    <img src="https://img.youtube.com/vi/vI7M4HgtWlY/maxresdefault.jpg" 
-                         alt="Afro Life - Destro5 (Dolfets Music Live Session)"
-                         onerror="this.src='https://img.youtube.com/vi/vI7M4HgtWlY/hqdefault.jpg'">
-                    <div class="play-overlay">
-                        <i class="fab fa-youtube"></i>
+        <div class="music-section">
+            <h3><i class="fab fa-youtube"></i> SETS DESTACADOS</h3>
+            <div class="youtube-grid">
+                <div>
+                    <a href="https://youtu.be/vI7M4HgtWlY" target="_blank" class="video-thumbnail-link">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/vI7M4HgtWlY/maxresdefault.jpg" 
+                                 alt="Afro Life - Destro5 (Dolfets Music Live Session)"
+                                 onerror="this.src='https://img.youtube.com/vi/vI7M4HgtWlY/hqdefault.jpg'">
+                            <div class="play-overlay">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="video-info">
+                        <p>Afro Life - Destro5 (Dolfets Music Live Session)</p>
                     </div>
                 </div>
-            </a>
-            <div class="video-info">
-                <p>Afro Life - Destro5 (Dolfets Music Live Session)</p>
-            </div>
-        </div>
-        <div>
-            <a href="https://youtu.be/Wt9RnBHnW90" target="_blank" class="video-thumbnail-link">
-                <div class="video-thumbnail">
-                    <img src="https://img.youtube.com/vi/Wt9RnBHnW90/maxresdefault.jpg" 
-                         alt="Afro House Mix 2025 🦁 Tribal Warm Up DJ Set (DiMO, Manybeat, Jose Alves) | DESTRO5"
-                         onerror="this.src='https://img.youtube.com/vi/Wt9RnBHnW90/hqdefault.jpg'">
-                    <div class="play-overlay">
-                        <i class="fab fa-youtube"></i>
+                <div>
+                    <a href="https://youtu.be/Wt9RnBHnW90" target="_blank" class="video-thumbnail-link">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/Wt9RnBHnW90/maxresdefault.jpg" 
+                                 alt="Afro House Mix 2025 🦁 Tribal Warm Up DJ Set"
+                                 onerror="this.src='https://img.youtube.com/vi/Wt9RnBHnW90/hqdefault.jpg'">
+                            <div class="play-overlay">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="video-info">
+                        <p>Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5</p>
                     </div>
                 </div>
-            </a>
-            <div class="video-info">
-                <p>Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- LANZAMIENTOS DESTACADOS EN SPOTIFY -->
-<div class="music-section">
-    <h3><i class="fab fa-spotify"></i> LANZAMIENTOS DESTACADOS</h3>
-    <div class="spotify-tracks-grid">
-        <!-- Track 1 - SMNNV -->
-        <div class="track-card">
-            <div class="track-info">
-                <div class="track-name">SMNNV</div>
-                <div class="track-artist">Luis Piña, Destro5, Durai, Treboll</div>
-            </div>
-            <div class="track-player">
-                <iframe src="https://open.spotify.com/embed/track/0T55yoZtNJqzKybr3HIYt7?utm_source=generator&theme=0" 
-                        width="100%" 
-                        height="80" 
-                        frameborder="0" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy">
-                </iframe>
             </div>
         </div>
 
-        <!-- Track 2 - You Know It (Afro Style Remix) -->
-        <div class="track-card">
-            <div class="track-info">
-                <div class="track-name">You Know It (Afro Style Remix)</div>
-                <div class="track-artist">Melo Greco, Destro5</div>
-            </div>
-            <div class="track-player">
-                <iframe src="https://open.spotify.com/embed/track/5Cth8LgYwRvdZRp1fGiMpl?utm_source=generator&theme=0" 
-                        width="100%" 
-                        height="80" 
-                        frameborder="0" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy">
-                </iframe>
-            </div>
-        </div>
+        <!-- LANZAMIENTOS DESTACADOS EN SPOTIFY -->
+        <div class="music-section">
+            <h3><i class="fab fa-spotify"></i> LANZAMIENTOS DESTACADOS</h3>
+            <div class="spotify-tracks-grid">
+                <!-- Track 1 - SMNNV -->
+                <div class="track-card">
+                    <div class="track-info">
+                        <div class="track-name">SMNNV</div>
+                        <div class="track-artist">Luis Piña, Destro5, Durai, Treboll</div>
+                    </div>
+                    <div class="track-player">
+                        <iframe src="https://open.spotify.com/embed/track/0T55yoZtNJqzKybr3HIYt7?utm_source=generator&theme=0" 
+                                width="100%" 
+                                height="80" 
+                                frameborder="0" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
 
-        <!-- Track 3 - Oh Lanana -->
-        <div class="track-card">
-            <div class="track-info">
-                <div class="track-name">Oh Lanana</div>
-                <div class="track-artist">Destro5, ómada, Onibas</div>
-            </div>
-            <div class="track-player">
-                <iframe src="https://open.spotify.com/embed/track/4GwOM0XcfH5AJmB0YFy95J?utm_source=generator&theme=0" 
-                        width="100%" 
-                        height="80" 
-                        frameborder="0" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy">
-                </iframe>
-            </div>
-        </div>
+                <!-- Track 2 - You Know It (Afro Style Remix) -->
+                <div class="track-card">
+                    <div class="track-info">
+                        <div class="track-name">You Know It (Afro Style Remix)</div>
+                        <div class="track-artist">Melo Greco, Destro5</div>
+                    </div>
+                    <div class="track-player">
+                        <iframe src="https://open.spotify.com/embed/track/5Cth8LgYwRvdZRp1fGiMpl?utm_source=generator&theme=0" 
+                                width="100%" 
+                                height="80" 
+                                frameborder="0" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
 
-        <!-- Track 4 - NADA (Destro5 Remix) -->
-        <div class="track-card">
-            <div class="track-info">
-                <div class="track-name">NADA (Destro5 Remix)</div>
-                <div class="track-artist">De La Trinidad, Markez (VE), Destro5</div>
-            </div>
-            <div class="track-player">
-                <iframe src="https://open.spotify.com/embed/track/0dJUwIo4oE5hTiNO9y4LHc?utm_source=generator&theme=0" 
-                        width="100%" 
-                        height="80" 
-                        frameborder="0" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy">
-                </iframe>
-            </div>
-        </div>
+                <!-- Track 3 - Oh Lanana -->
+                <div class="track-card">
+                    <div class="track-info">
+                        <div class="track-name">Oh Lanana</div>
+                        <div class="track-artist">Destro5, ómada, Onibas</div>
+                    </div>
+                    <div class="track-player">
+                        <iframe src="https://open.spotify.com/embed/track/4GwOM0XcfH5AJmB0YFy95J?utm_source=generator&theme=0" 
+                                width="100%" 
+                                height="80" 
+                                frameborder="0" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
 
-        <!-- Track 5 - Leski Down -->
-        <div class="track-card">
-            <div class="track-info">
-                <div class="track-name">Leski Down</div>
-                <div class="track-artist">Destro5</div>
-            </div>
-            <div class="track-player">
-                <iframe src="https://open.spotify.com/embed/track/5aDBDhj8IN5VLlrEKTpB0J?utm_source=generator&theme=0" 
-                        width="100%" 
-                        height="80" 
-                        frameborder="0" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy">
-                </iframe>
+                <!-- Track 4 - NADA (Destro5 Remix) -->
+                <div class="track-card">
+                    <div class="track-info">
+                        <div class="track-name">NADA (Destro5 Remix)</div>
+                        <div class="track-artist">De La Trinidad, Markez (VE), Destro5</div>
+                    </div>
+                    <div class="track-player">
+                        <iframe src="https://open.spotify.com/embed/track/0dJUwIo4oE5hTiNO9y4LHc?utm_source=generator&theme=0" 
+                                width="100%" 
+                                height="80" 
+                                frameborder="0" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Track 5 - Leski Down -->
+                <div class="track-card">
+                    <div class="track-info">
+                        <div class="track-name">Leski Down</div>
+                        <div class="track-artist">Destro5</div>
+                    </div>
+                    <div class="track-player">
+                        <iframe src="https://open.spotify.com/embed/track/5aDBDhj8IN5VLlrEKTpB0J?utm_source=generator&theme=0" 
+                                width="100%" 
+                                height="80" 
+                                frameborder="0" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
         <!-- BOTÓN DE ACCIÓN -->
         <div class="text-center mt-3">
@@ -779,20 +889,32 @@
     </div>
 
     <script>
+        // Función para alternar entre descripción corta y completa en móviles
+        let expanded = false;
+        const fullDescription = `<p>Destro5 es un DJ y productor venezolano en el diverso mundo del EDM. Su música se distingue por una fusión de géneros, incorporando influencias del House, UK Bass, Afro-Latin House y muchos más. Esta mezcla de estilos es lo que le da a su sonido una energía única y lo hace destacar en la escena.</p><br><p>Su camino en la música electrónica comenzó en 2015, cuando se formó como DJ bajo la tutela del reconocido DJ y productor venezolano Yohand González. Desde entonces, ha perfeccionado su arte y ha colaborado con una variedad de artistas, tanto nacionales como internacionales. Entre sus colaboradores se encuentran talentos como Treboll, Sirdiamnd, Nidhoog, Nereid, Daront y Cyru$$.</p><br><p>Uno de los mayores éxitos de Destro5 en 2024 fue el tema "Loco". Esta canción, una colaboración con los productores mexicanos Nereid y Nidhoog, se convirtió en uno de sus trabajos más reconocidos y consolidó su presencia en la escena musical. Con su habilidad para mezclar ritmos y crear sonidos frescos, Destro5 continúa siendo una figura a seguir en el mundo de la música electrónica.</p>`;
+        
+        const shortDescription = `<p><strong>🎧 DJ & Productor venezolano</strong> especializado en UK House, Afro Latin House y EDM. Miembro del colectivo Birongo.</p><br><p><strong>🏆 Éxito 2024:</strong> "Loco" junto a Nereid y Nidhoog.</p><br><p><strong>🤝 Colaboraciones:</strong> Treboll, Sirdiamnd, Nidhoog, Nereid, Daront, Cyru$$ y más.</p><br><p><strong>📀 Desde 2015</strong> en la escena electrónica venezolana, formado con Yohand González.</p>`;
+        
+        function toggleDescription() {
+            const descContainer = document.getElementById('shortDescription');
+            const btn = document.getElementById('readMoreBtn');
+            
+            if (!expanded) {
+                descContainer.innerHTML = fullDescription;
+                btn.innerHTML = '<span>LEER MENOS</span> <i class="fas fa-chevron-up"></i>';
+                expanded = true;
+            } else {
+                descContainer.innerHTML = shortDescription;
+                btn.innerHTML = '<span>LEER MÁS</span> <i class="fas fa-chevron-down"></i>';
+                expanded = false;
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             // Enlaces externos con noopener
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
-            
-            // Asegurar que el botón de retroceso funcione correctamente con la ruta correcta
-            const backButton = document.getElementById('backButton');
-            if (backButton) {
-                backButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = '../djs-productores.html';
-                });
-            }
         });
     </script>
 </body>
