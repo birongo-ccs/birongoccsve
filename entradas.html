@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Preventa - Birongo Live 2.0 | Entradas $5</title>
 
+    <!-- ===== FAVICON SVG ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
+    
     <!-- ===== FONTS & ICONS ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -125,7 +128,6 @@
     <div id="alertMessage" class="alert"></div>
 
     <!-- ===== FORMULARIO CON FORMSPREE ===== -->
-    <!-- 🔴 ¡IMPORTANTE! Reemplaza la URL con la que te dio Formspree -->
     <form id="ventaForm" action="https://formspree.io/f/xvzvggwy" method="POST" enctype="multipart/form-data">
         <!-- Datos Personales -->
         <div class="form-card">
@@ -197,7 +199,7 @@
                         <strong>💵 Zelle</strong><br>
                         Email: sotospectra@gmail.com<br>
                         Beneficiario: Miguel Alvarado<br>
-                        Notas Adicionales: Colocar el nombre del comprador (solo para Zelle)<br>
+                        Notas Adicionales: Colocar el nombre del comprador<br>
                         <span class="highlight">💡 Monto: $5 USD por entrada</span>
                     </div>
                 </div>
@@ -234,7 +236,7 @@
                         </div>
                     </div>
                     <small style="color: rgba(255,255,255,0.4); font-size: 0.7rem; display: block; margin-top: 0.3rem;">
-                        Formatos aceptados: JPG, PNG, GIF (máx. 10MB) - La imagen se enviará adjunta al correo
+                        Formatos aceptados: JPG, PNG, GIF (máx. 10MB)
                     </small>
                 </div>
                 <div class="form-group full-width">
@@ -257,7 +259,7 @@
         </div>
 
         <button type="submit" class="btn-confirm" id="submitBtn">
-            <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> Enviar Orden
+            <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> CONFIRMAR Y ENVIAR
         </button>
     </form>
 </div>
@@ -292,28 +294,37 @@
         
         if (currentBCVRate > 0) {
             const totalVES = (totalUSD * currentBCVRate).toFixed(2);
-            totalDisplayVES.textContent = `≈ Bs ${totalVES} (tasa BCV: Bs ${currentBCVRate})`;
+            totalDisplayVES.textContent = `≈ Bs ${totalVES} (tasa BCV: Bs ${currentBCVRate.toFixed(2)})`;
             document.getElementById('totalVESField').value = totalVES;
         } else {
             totalDisplayVES.textContent = '+ tasa BCV del día';
         }
     }
 
-    // Obtener tasa BCV
+    // Obtener tasa BCV desde API
     async function fetchBCVRate() {
         try {
             bcvRateSpan.textContent = 'Actualizando...';
+            // Usando la API que compartiste
             const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
-            const data = await response.json();
             
-            if (data && data.price) {
-                currentBCVRate = data.price;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            console.log('API Response:', data); // Para depuración
+            
+            // La API devuelve el promedio en el campo "promedio"
+            if (data && data.promedio && data.promedio > 0) {
+                currentBCVRate = data.promedio;
                 bcvRateSpan.textContent = `Bs ${currentBCVRate.toFixed(2)}`;
-                bcvUpdatedSpan.textContent = `Actualizado: ${new Date().toLocaleString('es-VE')}`;
+                const fechaActualizacion = data.fechaActualizacion || new Date().toISOString();
+                bcvUpdatedSpan.textContent = `Actualizado: ${new Date(fechaActualizacion).toLocaleString('es-VE')}`;
                 document.getElementById('tasaBcvField').value = currentBCVRate;
                 updateTotal();
             } else {
-                throw new Error('No se pudo obtener la tasa');
+                throw new Error('Formato de respuesta inválido');
             }
         } catch (error) {
             console.error('Error al obtener tasa BCV:', error);
@@ -321,7 +332,7 @@
             currentBCVRate = 60;
             document.getElementById('tasaBcvField').value = 60;
             updateTotal();
-            bcvUpdatedSpan.textContent = 'Usando tasa estimada. Actualiza la página para obtener la tasa oficial.';
+            bcvUpdatedSpan.textContent = 'Usando tasa estimada. Si el problema persiste, actualiza la página.';
         }
     }
 
@@ -448,11 +459,10 @@
         }
         
         showAlert('📧 Enviando comprobante...', 'info');
-        
         return true;
     });
     
-    // Cargar tasa BCV al iniciar
+    // Cargar tasa BCV al iniciar y actualizar cada 5 minutos
     fetchBCVRate();
     setInterval(fetchBCVRate, 5 * 60 * 1000);
 </script>
