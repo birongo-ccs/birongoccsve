@@ -37,7 +37,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
-        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -82,7 +81,6 @@
             font-weight: 700;
         }
 
-        /* ===== HEADER ===== */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
@@ -116,7 +114,6 @@
             }
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -169,14 +166,11 @@
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1.2rem;
-                padding: 0.3rem 0;
                 margin: 0.5rem 0 2rem;
             }
-            
             .nav-item {
                 font-size: 0.85rem;
                 letter-spacing: 0.15em;
-                padding: 0.4rem 0;
             }
         }
 
@@ -187,25 +181,21 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
             .nav-item {
                 font-size: 0.75rem;
                 letter-spacing: 0.1em;
                 padding: 0.3rem 0.3rem;
                 white-space: normal;
-                text-align: center;
                 min-width: 70px;
             }
         }
 
-        /* ===== MAIN CONTENT ===== */
         .main-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        /* ===== TARJETAS ===== */
         .form-card, .ticket-card {
             background: linear-gradient(145deg, #111, #0a0a0a);
             border: 2px solid #ffffff30;
@@ -243,7 +233,6 @@
             padding: 1.5rem;
         }
 
-        /* ===== FORMULARIOS ===== */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -301,7 +290,6 @@
             background: rgba(255,255,255,0.08);
         }
 
-        /* ===== TICKET ROW ===== */
         .ticket-row {
             display: flex;
             flex-wrap: wrap;
@@ -382,7 +370,6 @@
             font-weight: 500;
         }
 
-        /* ===== EVENT HEADER ===== */
         .event-header {
             text-align: center;
             margin-bottom: 2rem;
@@ -417,7 +404,6 @@
             margin-top: 0.3rem;
         }
 
-        /* ===== TOTAL CARD ===== */
         .total-card-inline {
             background: rgba(20,20,20,0.8);
             border: 1px solid rgba(255,215,0,0.3);
@@ -446,7 +432,6 @@
             margin-top: 0.3rem;
         }
 
-        /* ===== BCV RATE ===== */
         .bcv-rate-card {
             background: rgba(0,0,0,0.4);
             padding: 0.8rem;
@@ -480,12 +465,6 @@
             margin-right: 0.5rem;
         }
 
-        .calc-info-card .calc-text {
-            font-size: 0.75rem;
-            letter-spacing: 0.03em;
-        }
-
-        /* ===== PAYMENT TABS ===== */
         .payment-tabs {
             display: flex;
             gap: 0.8rem;
@@ -543,7 +522,6 @@
             font-weight: 500;
         }
 
-        /* ===== FILE UPLOAD ===== */
         .file-upload-area {
             border: 2px dashed rgba(255,255,255,0.2);
             background: rgba(255,255,255,0.02);
@@ -563,17 +541,6 @@
             font-size: 2rem;
             color: rgba(255,255,255,0.5);
             margin-bottom: 0.5rem;
-        }
-
-        .file-upload-area p {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .file-upload-area .file-hint {
-            font-size: 0.65rem;
-            color: rgba(255,255,255,0.3);
-            margin-top: 0.3rem;
         }
 
         .file-list {
@@ -600,19 +567,6 @@
 
         .file-item-info i {
             color: #ffd966;
-            font-size: 1rem;
-        }
-
-        .file-item-info span {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .file-item-size {
-            font-size: 0.65rem;
-            color: rgba(255,255,255,0.4);
-            margin-left: 0.5rem;
         }
 
         .remove-file {
@@ -621,14 +575,12 @@
             color: rgba(255,255,255,0.4);
             cursor: pointer;
             padding: 0.3rem;
-            transition: color 0.2s;
         }
 
         .remove-file:hover {
             color: #e74c3c;
         }
 
-        /* ===== BOTONES ===== */
         .btn-confirm {
             width: 100%;
             padding: 1.2rem;
@@ -643,7 +595,6 @@
             transition: all 0.2s ease;
             font-family: 'Inter', sans-serif;
             margin-bottom: 1.5rem;
-            -webkit-tap-highlight-color: transparent;
         }
 
         .btn-confirm:active {
@@ -655,10 +606,8 @@
         .btn-confirm:disabled {
             opacity: 0.6;
             cursor: not-allowed;
-            transform: none;
         }
 
-        /* ===== ALERTAS ===== */
         .alert-container {
             margin-top: 0.5rem;
             margin-bottom: 1.5rem;
@@ -702,7 +651,6 @@
             color: #ffd966;
         }
 
-        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -710,17 +658,6 @@
             border-top: 1px solid #ffffff20;
             color: #ffffff40;
             font-size: 0.8rem;
-        }
-
-        @media (min-width: 768px) {
-            footer {
-                margin-top: 5rem;
-            }
-        }
-
-        footer i {
-            color: #ffffff60;
-            margin: 0 0.5rem;
         }
 
         .footer-tagline {
@@ -732,33 +669,17 @@
             justify-content: center;
             gap: 0.5rem;
             flex-wrap: wrap;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
         }
 
-        .footer-tagline i {
-            color: #ffffff60;
-            font-size: 0.6rem;
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 480px) {
             .ticket-row {
                 flex-direction: column;
                 text-align: center;
-                padding: 1rem;
             }
             .ticket-quantity {
                 justify-content: center;
             }
-            .payment-tab {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.65rem;
-            }
             .event-title {
-                font-size: 1.5rem;
-            }
-            .total-amount-inline {
                 font-size: 1.5rem;
             }
         }
@@ -766,10 +687,8 @@
 </head>
 <body>
     <div class="container">
-        <!-- ===== HEADER ===== -->
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
-            
             <div class="nav-menu">
                 <a href="index.html" class="nav-item">INICIO</a>
                 <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
@@ -790,10 +709,9 @@
 
             <div class="calc-info-card">
                 <i class="fas fa-calculator"></i>
-                <span class="calc-text">💡 Monto en bolívares calculado con la tasa BCV oficial</span>
+                <span class="calc-text">💡 Monto calculado con la tasa BCV oficial del momento</span>
             </div>
 
-            <!-- 1. DATOS PERSONALES -->
             <div class="form-card">
                 <div class="card-header">
                     <h3><i class="far fa-user"></i> 1. TUS DATOS</h3>
@@ -820,7 +738,6 @@
                 </div>
             </div>
 
-            <!-- 2. SELECCIÓN DE ENTRADAS -->
             <div class="ticket-card">
                 <div class="card-header">
                     <h3><i class="fas fa-ticket-alt"></i> 2. SELECCIONA TUS ENTRADAS</h3>
@@ -844,23 +761,20 @@
                 </div>
             </div>
 
-            <!-- TOTAL -->
             <div class="total-card-inline">
                 <div class="total-label-inline">TOTAL A PAGAR</div>
                 <div class="total-amount-inline" id="totalDisplayUSD">$5.00 USD</div>
                 <div class="total-bs-inline" id="totalDisplayVES">≈ Bs 300.00</div>
             </div>
 
-            <!-- Tasa BCV -->
             <div class="bcv-rate-card">
                 <i class="fas fa-chart-line"></i>
-                <span>TASA BCV:</span>
+                <span>TASA BCV OFICIAL:</span>
                 <span class="bcv-rate-value" id="bcvRate">Cargando...</span>
                 <div class="bcv-updated" id="bcvUpdated"></div>
                 <input type="hidden" id="tasaBcvField">
             </div>
 
-            <!-- 3. MÉTODO DE PAGO -->
             <div class="form-card">
                 <div class="card-header">
                     <h3><i class="fas fa-credit-card"></i> 3. MÉTODO DE PAGO</h3>
@@ -879,13 +793,14 @@
                             Teléfono: 0424-5948063<br>
                             Cédula: V-21.125.996<br>
                             Banco: Provincial (0108)<br>
-                            <span class="highlight">💡 Monto: $5 × cantidad × tasa BCV</span>
+                            <span class="highlight">💡 Monto: $5 × cantidad × tasa BCV del día</span>
                         </div>
                     </div>
                     <div id="zelleDetails" class="payment-details">
                         <div class="bank-info">
                             <strong>💵 Zelle</strong><br>
                             Email: sotospectra@gmail.com<br>
+                            Beneficiario: Miguel Alvarado<br>
                             <span class="highlight">💡 Monto: $5 USD por entrada</span>
                         </div>
                     </div>
@@ -894,13 +809,13 @@
                             <strong>₿ Binance / USDT</strong><br>
                             Correo: aaronsoto1997@gmail.com<br>
                             Usuario: @Sirsoto<br>
-                            <span class="highlight">💡 Monto: $5 USD por entrada</span>
+                            ID: 155230260<br>
+                            <span class="highlight">💡 Monto: $5 USD por entrada en USDT</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 4. COMPROBANTE DE PAGO -->
             <div class="form-card">
                 <div class="card-header">
                     <h3><i class="fas fa-receipt"></i> 4. COMPROBANTE DE PAGO</h3>
@@ -919,6 +834,9 @@
                         </div>
                         <input type="file" id="fileInput" accept="image/jpeg,image/png,application/pdf" style="display: none;">
                         <div id="fileList" class="file-list"></div>
+                        <div style="font-size: 0.7rem; color: #ffd966; margin-top: 0.5rem; text-align: center;">
+                            <i class="fas fa-paperclip"></i> La imagen se adjuntará AUTOMÁTICAMENTE al correo
+                        </div>
                     </div>
                     <div class="form-group full-width">
                         <label>NOTAS ADICIONALES</label>
@@ -950,7 +868,6 @@
     </div>
 
     <script>
-        // ========== CONFIGURACIÓN ==========
         const SUPABASE_URL = "https://cupdndnszpaavgkbigiy.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cGRuZG5zenBhYXZna2JpZ2l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2Mzg1NjUsImV4cCI6MjA5MDIxNDU2NX0.-yofLprFtSXmZESemY_AyoZNlP7R0NU3MCneAN7h-Zc";
         
@@ -962,7 +879,6 @@
         let selectedFile = null;
         let selectedFileDataURL = null;
 
-        // Elementos DOM
         const qtyInput = document.getElementById('ticketQty');
         const qtyMinus = document.getElementById('qtyMinus');
         const qtyPlus = document.getElementById('qtyPlus');
@@ -1003,7 +919,6 @@
                     updateTotal();
                 }
             } catch (error) {
-                console.error('Error tasa BCV:', error);
                 bcvRateSpan.textContent = 'Bs 60.00 (estimado)';
                 currentBCVRate = 60;
                 updateTotal();
@@ -1030,7 +945,7 @@
         function updateFileList() {
             fileListDiv.innerHTML = '';
             if (!selectedFile) {
-                fileListDiv.innerHTML = '<div style="text-align: center; padding: 0.5rem; color: rgba(255,255,255,0.4); font-size: 0.7rem;">No hay archivo seleccionado</div>';
+                fileListDiv.innerHTML = '<div style="text-align: center; padding: 0.5rem; color: rgba(255,255,255,0.4);">No hay archivo seleccionado</div>';
                 selectedFileDataURL = null;
                 return;
             }
@@ -1040,7 +955,7 @@
                 <div class="file-item-info">
                     <i class="fas fa-${selectedFile.type.includes('image') ? 'image' : 'file-pdf'}"></i>
                     <span>${selectedFile.name}</span>
-                    <span class="file-item-size">(${formatFileSize(selectedFile.size)})</span>
+                    <span style="font-size: 0.65rem; color: rgba(255,255,255,0.4);">(${formatFileSize(selectedFile.size)})</span>
                 </div>
                 <button class="remove-file"><i class="fas fa-times"></i></button>
             `;
@@ -1122,19 +1037,16 @@
                     ]);
                 
                 if (error) {
-                    console.error('Error Supabase:', error);
                     showAlert('❌ Error al guardar: ' + error.message, 'error');
                     return false;
                 }
                 return true;
             } catch (error) {
-                console.error('Error de red:', error);
                 return false;
             }
         }
 
-        // FUNCIÓN PRINCIPAL: Abre el correo con la imagen adjunta automáticamente
-        // Usa Web Share API en móviles (iOS/Android) y mailto con instrucciones en PC
+        // FUNCIÓN PRINCIPAL: Abre el correo con la imagen adjunta AUTOMÁTICAMENTE
         async function openEmailWithAttachment(formData, imageDataURL) {
             const totalUSD = formData.total_usd;
             const totalVES = formData.total_bs;
@@ -1150,19 +1062,17 @@
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nMÉTODO DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.metodo_pago}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nREFERENCIA DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.referencia}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNOTAS ADICIONALES\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.notas || 'Sin notas adicionales'}\n\n` +
-                `✅ Estado: Pendiente de validación de pago\n\n` +
-                `---\nEnviado desde birongo.live/entradas | Preventa`;
+                `✅ Estado: Pendiente de validación de pago\n\n---\nEnviado desde birongo.live/entradas | Preventa`;
             
-            // Convertir DataURL a Blob para compartir
+            // Convertir DataURL a Blob para adjuntar
             const response = await fetch(imageDataURL);
             const blob = await response.blob();
-            
             const extension = selectedFile.type.split('/')[1];
             const fileName = `comprobante_${formData.referencia}_${formData.nombre.replace(/\s/g, '_')}.${extension === 'jpeg' ? 'jpg' : extension}`;
-            
             const file = new File([blob], fileName, { type: selectedFile.type });
             
-            // Verificar si el navegador soporta Web Share API (iOS, Android, algunos navegadores)
+            // MÉTODO 1: Web Share API (iOS, Android, macOS, Windows con navegadores modernos)
+            // Esto abre el menú compartir nativo con el archivo adjunto
             if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
                 try {
                     await navigator.share({
@@ -1173,12 +1083,15 @@
                     showAlert('✅ Correo listo para enviar con el comprobante adjunto', 'success');
                     return true;
                 } catch (shareError) {
-                    console.log('Error en share:', shareError);
-                    // Fallback a mailto si el usuario cancela o hay error
+                    console.log('Usuario canceló o error en share:', shareError);
+                    // Si el usuario cancela, no mostramos error, solo continuamos
+                    if (shareError.name !== 'AbortError') {
+                        console.log('Error en share, usando fallback');
+                    }
                 }
             }
             
-            // FALLBACK para PC o navegadores sin Web Share: crear archivo .eml con adjunto
+            // MÉTODO 2: Fallback para PC - Crear archivo .eml con la imagen adjunta
             const matches = imageDataURL.match(/^data:([^;]+);base64,(.+)$/);
             if (matches) {
                 const mimeType = matches[1];
@@ -1222,7 +1135,21 @@ ${base64Data.match(/.{1,76}/g).join('\n')}
                 return true;
             }
             
-            return false;
+            // MÉTODO 3: Último recurso - mailto con instrucciones
+            const subjectEncoded = encodeURIComponent(subject);
+            const bodyEncoded = encodeURIComponent(body + "\n\n📸 IMPORTANTE: Adjunta la imagen del comprobante que se descargó.");
+            window.location.href = `mailto:birongoentradas@gmail.com?subject=${subjectEncoded}&body=${bodyEncoded}`;
+            
+            // Descargar imagen como último recurso
+            const downloadLink = document.createElement('a');
+            downloadLink.href = imageDataURL;
+            downloadLink.download = fileName;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            showAlert('📧 Se abrió tu correo. La imagen se descargó, por favor adjúntala manualmente.', 'info');
+            return true;
         }
 
         submitBtn.addEventListener('click', async function() {
@@ -1264,12 +1191,11 @@ ${base64Data.match(/.{1,76}/g).join('\n')}
                 showAlert('📊 Guardando en base de datos...', 'info');
                 await saveToSupabase(formData);
                 
-                showAlert('📧 Preparando correo con imagen adjunta...', 'info');
+                showAlert('📧 Abriendo correo con imagen adjunta...', 'info');
                 
                 setTimeout(async () => {
                     await openEmailWithAttachment(formData, selectedFileDataURL);
                     
-                    // Limpiar formulario
                     setTimeout(() => {
                         document.getElementById('fullName').value = '';
                         document.getElementById('idNumber').value = '';
@@ -1321,7 +1247,7 @@ ${base64Data.match(/.{1,76}/g).join('\n')}
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Página lista - Adjunto automático al correo con Web Share API');
+        console.log('🚀 Adjunto automático activado - Web Share API + .eml');
     </script>
 </body>
 </html>
