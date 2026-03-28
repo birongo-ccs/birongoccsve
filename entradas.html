@@ -642,7 +642,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: 'Inter', sans-serif;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -658,14 +658,30 @@
             transform: none;
         }
 
-        /* ===== ALERTAS ===== */
+        /* ===== ALERTAS (ahora debajo del botón) ===== */
+        .alert-container {
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
         .alert {
             padding: 1rem;
-            margin: 1rem 0;
             text-align: center;
             display: none;
             font-size: 0.8rem;
             border-radius: 4px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .alert-success {
@@ -772,8 +788,6 @@
                 <div class="event-location"><i class="fas fa-map-marker-alt"></i> La Quinta Bar · Caracas, Venezuela</div>
                 <div class="event-date"><i class="far fa-calendar"></i> Sábado 18 de Abril · 11:00 PM</div>
             </div>
-
-            <div id="alertMessage" class="alert"></div>
 
             <div class="calc-info-card">
                 <i class="fas fa-calculator"></i>
@@ -925,6 +939,11 @@
             <button class="btn-confirm" id="submitBtn">
                 <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> CONFIRMAR Y ENVIAR
             </button>
+            
+            <!-- Contenedor de alertas debajo del botón -->
+            <div class="alert-container" id="alertContainer">
+                <div id="alertMessage" class="alert"></div>
+            </div>
         </div>
 
         <!-- ===== FOOTER (mismo estilo que eventos.html) ===== -->
@@ -962,6 +981,7 @@
         const fileInput = document.getElementById('fileInput');
         const fileListDiv = document.getElementById('fileList');
         const submitBtn = document.getElementById('submitBtn');
+        const alertMessageDiv = document.getElementById('alertMessage');
 
         function updateTotal() {
             const totalUSD = PRICE_USD * currentQuantity;
@@ -1067,11 +1087,16 @@
         });
 
         function showAlert(message, type) {
-            const alertDiv = document.getElementById('alertMessage');
-            alertDiv.textContent = message;
-            alertDiv.className = `alert alert-${type}`;
-            alertDiv.style.display = 'block';
-            setTimeout(() => { alertDiv.style.display = 'none'; }, 5000);
+            alertMessageDiv.textContent = message;
+            alertMessageDiv.className = `alert alert-${type}`;
+            alertMessageDiv.style.display = 'block';
+            
+            // Scroll suave hacia la alerta
+            document.getElementById('alertContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            setTimeout(() => { 
+                alertMessageDiv.style.display = 'none'; 
+            }, 5000);
         }
 
         function validatePhone(phone) { return /^(0412|0414|0416|0424|0426|0410|0420)[0-9]{7}$/.test(phone); }
@@ -1151,6 +1176,7 @@
             const totalUSD = PRICE_USD * currentQuantity;
             const totalVES = (totalUSD * currentBCVRate).toFixed(2);
 
+            // Validaciones con mensajes específicos
             if (!name) { showAlert('❌ Ingresa tu nombre completo', 'error'); return; }
             if (!validateIdNumber(idNumber)) { showAlert('❌ Ingresa una cédula válida (Ej: V-12345678)', 'error'); return; }
             if (!validateEmail(email)) { showAlert('❌ Ingresa un correo electrónico válido', 'error'); return; }
@@ -1241,7 +1267,7 @@
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Página lista - Supabase configurada');
+        console.log('🚀 Página lista - Supabase configurada - Alertas debajo del botón');
     </script>
 </body>
 </html>
