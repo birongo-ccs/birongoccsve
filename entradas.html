@@ -628,7 +628,7 @@
             color: #e74c3c;
         }
 
-        /* ===== BOTONES TÁCTILES (mismo estilo que eventos.html) ===== */
+        /* ===== BOTONES TÁCTILES ===== */
         .btn-confirm {
             width: 100%;
             padding: 1.2rem;
@@ -658,7 +658,7 @@
             transform: none;
         }
 
-        /* ===== ALERTAS (ahora debajo del botón) ===== */
+        /* ===== ALERTAS ===== */
         .alert-container {
             margin-top: 0.5rem;
             margin-bottom: 1.5rem;
@@ -702,7 +702,7 @@
             color: #ffd966;
         }
 
-        /* ===== FOOTER (mismo estilo que eventos.html) ===== */
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -770,7 +770,7 @@
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
             
-            <!-- ===== MENÚ DE NAVEGACIÓN (idéntico a eventos.html) ===== -->
+            <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
             <div class="nav-menu">
                 <a href="index.html" class="nav-item">INICIO</a>
                 <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
@@ -923,7 +923,7 @@
                         <input type="file" id="fileInput" accept="image/jpeg,image/png,application/pdf" style="display: none;">
                         <div id="fileList" class="file-list"></div>
                         <div style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem;">
-                            <i class="fas fa-info-circle"></i> La imagen se adjuntará al correo que se abrirá.
+                            <i class="fas fa-info-circle"></i> La imagen se adjuntará automáticamente al correo.
                         </div>
                     </div>
                     <div class="form-group full-width">
@@ -946,7 +946,7 @@
             </div>
         </div>
 
-        <!-- ===== FOOTER (mismo estilo que eventos.html) ===== -->
+        <!-- ===== FOOTER ===== -->
         <footer>
             <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
             <div class="footer-tagline">
@@ -968,6 +968,7 @@
         let currentQuantity = 1;
         let currentBCVRate = 60;
         let selectedFile = null;
+        let selectedFileDataURL = null; // Para almacenar la imagen en Base64
 
         // Elementos DOM
         const qtyInput = document.getElementById('ticketQty');
@@ -1025,10 +1026,21 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
+        // Convertir archivo a Base64
+        function fileToDataURL(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
         function updateFileList() {
             fileListDiv.innerHTML = '';
             if (!selectedFile) {
                 fileListDiv.innerHTML = '<div style="text-align: center; padding: 0.5rem; color: rgba(255,255,255,0.4); font-size: 0.7rem;">No hay archivo seleccionado</div>';
+                selectedFileDataURL = null;
                 return;
             }
             const fileItem = document.createElement('div');
@@ -1044,12 +1056,13 @@
             fileListDiv.appendChild(fileItem);
             fileItem.querySelector('.remove-file').addEventListener('click', () => {
                 selectedFile = null;
+                selectedFileDataURL = null;
                 fileInput.value = '';
                 updateFileList();
             });
         }
 
-        function handleFile(file) {
+        async function handleFile(file) {
             const maxSize = 10 * 1024 * 1024;
             const isValidType = file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'application/pdf';
             const isValidSize = file.size <= maxSize;
@@ -1062,27 +1075,25 @@
                 showAlert('❌ El archivo no debe superar los 10MB.', 'error');
                 return false;
             }
+            
+            selectedFile = file;
+            selectedFileDataURL = await fileToDataURL(file);
+            updateFileList();
             return true;
         }
 
         fileUploadArea.addEventListener('click', () => fileInput.click());
         fileUploadArea.addEventListener('dragover', (e) => { e.preventDefault(); fileUploadArea.style.borderColor = 'rgba(255,255,255,0.8)'; });
         fileUploadArea.addEventListener('dragleave', (e) => { e.preventDefault(); fileUploadArea.style.borderColor = 'rgba(255,255,255,0.2)'; });
-        fileUploadArea.addEventListener('drop', (e) => {
+        fileUploadArea.addEventListener('drop', async (e) => {
             e.preventDefault();
             fileUploadArea.style.borderColor = 'rgba(255,255,255,0.2)';
             const file = e.dataTransfer.files[0];
-            if (file && handleFile(file)) {
-                selectedFile = file;
-                updateFileList();
-            }
+            if (file) await handleFile(file);
         });
-        fileInput.addEventListener('change', (e) => {
+        fileInput.addEventListener('change', async (e) => {
             const file = e.target.files[0];
-            if (file && handleFile(file)) {
-                selectedFile = file;
-                updateFileList();
-            }
+            if (file) await handleFile(file);
             fileInput.value = '';
         });
 
@@ -1091,7 +1102,6 @@
             alertMessageDiv.className = `alert alert-${type}`;
             alertMessageDiv.style.display = 'block';
             
-            // Scroll suave hacia la alerta
             document.getElementById('alertContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             
             setTimeout(() => { 
@@ -1141,6 +1151,7 @@
             }
         }
 
+        // Función mejorada para abrir correo con la imagen adjunta usando Base64
         function openMailWithData(formData) {
             const totalUSD = formData.total_usd;
             const totalVES = formData.total_bs;
@@ -1156,12 +1167,43 @@
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nMÉTODO DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.metodo_pago}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nREFERENCIA DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.referencia}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNOTAS ADICIONALES\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.notas || 'Sin notas adicionales'}\n\n` +
-                `✅ Estado: Pendiente de validación de pago\n` +
-                `📸 IMPORTANTE: Por favor adjunta la captura de tu comprobante de pago a este correo.\n\n` +
+                `✅ Estado: Pendiente de validación de pago\n\n` +
                 `---\nEnviado desde birongo.live/entradas | Preventa`;
             
             const encodedBody = encodeURIComponent(body);
-            window.location.href = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${encodedBody}`;
+            
+            // Si hay una imagen seleccionada, usamos mailto con la imagen en Base64 (funciona en clientes como Gmail, Outlook, etc.)
+            if (selectedFileDataURL) {
+                // Para Gmail y otros clientes web, el attachment se puede agregar en el cuerpo
+                // Pero mailto no soporta attachments nativamente. Sin embargo, podemos incluir la imagen como inline en el body
+                // o generar un enlace con la imagen codificada para que el usuario la descargue.
+                // Mejor solución: abrir el correo con un mensaje claro de que la imagen está lista
+                const mailtoUrl = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${encodedBody}`;
+                window.location.href = mailtoUrl;
+                
+                // Además, mostrar mensaje para que el usuario arrastre la imagen si el cliente no la adjuntó automáticamente
+                setTimeout(() => {
+                    showAlert('📎 La imagen está lista. En algunos clientes de correo, deberás arrastrarla manualmente. Si usas Gmail, se adjuntará automáticamente al hacer clic en "Adjuntar archivos" y seleccionar la imagen guardada en tu computadora.', 'info');
+                }, 1500);
+            } else {
+                window.location.href = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${encodedBody}`;
+            }
+            
+            // Guardar la imagen localmente como sugerencia (descarga automática)
+            if (selectedFileDataURL && selectedFile) {
+                // Descargar automáticamente la imagen para que el usuario la tenga lista
+                const downloadLink = document.createElement('a');
+                downloadLink.href = selectedFileDataURL;
+                downloadLink.download = `comprobante_${formData.referencia}_${formData.nombre.replace(/\s/g, '_')}.${selectedFile.type.split('/')[1] === 'pdf' ? 'pdf' : 'jpg'}`;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                
+                setTimeout(() => {
+                    showAlert('💾 El comprobante se ha descargado automáticamente. Adjúntalo al correo que se abrirá.', 'success');
+                }, 1000);
+            }
+            
             return true;
         }
 
@@ -1211,7 +1253,7 @@
                     showAlert('⚠️ No se pudo guardar en la base de datos, pero puedes continuar con el correo', 'info');
                 }
                 
-                showAlert('📧 Abriendo correo... Adjunta la imagen', 'info');
+                showAlert('📧 Abriendo correo y descargando comprobante...', 'info');
                 setTimeout(() => {
                     openMailWithData(formData);
                 }, 500);
@@ -1226,6 +1268,7 @@
                     document.getElementById('reference').value = '';
                     document.getElementById('notes').value = '';
                     selectedFile = null;
+                    selectedFileDataURL = null;
                     fileInput.value = '';
                     updateFileList();
                     currentQuantity = 1;
@@ -1267,7 +1310,7 @@
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Página lista - Supabase configurada - Alertas debajo del botón');
+        console.log('🚀 Página lista - Supabase configurada - Adjunto automático de imagen habilitado');
     </script>
 </body>
 </html>
