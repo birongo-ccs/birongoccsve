@@ -46,7 +46,7 @@
     <meta property="article:section" content="Música Electrónica">
     <meta property="article:tag" content="Birongo, música electrónica, Caracas, DJs">
 
-    <!-- Schema.org para noticias (Google News) -->
+    <!-- Schema.org para noticias -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -81,7 +81,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- ===== FONTS & ICONS (cargados sin bloqueo) ===== -->
+    <!-- ===== FONTS & ICONS ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     
@@ -89,14 +89,11 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 
     <!-- ===== FAVICON ===== -->
-    <!-- SVG Favicon (principal) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
-    
-    <!-- PNG Favicon (fallback) -->
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
     <link rel="shortcut icon" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
 
-    <!-- Cronitor RUM (cargado diferido) -->
+    <!-- Cronitor RUM -->
     <script>
         window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
         cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
@@ -183,7 +180,7 @@
             }
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN ===== */
+        /* ===== MENÚ DE NAVEGACIÓN ESTÁTICO ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -237,10 +234,11 @@
             .nav-menu {
                 gap: 1rem;
                 padding: 0.3rem 0;
+                margin: 0.5rem 0 1.5rem;
             }
             
             .nav-item {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
                 letter-spacing: 0.12em;
                 padding: 0.4rem 0;
             }
@@ -255,7 +253,7 @@
             }
             
             .nav-item {
-                font-size: 0.7rem;
+                font-size: 0.75rem;
                 letter-spacing: 0.08em;
                 padding: 0.3rem 0.2rem;
                 white-space: normal;
@@ -264,35 +262,164 @@
             }
         }
 
-        /* ===== NOTICIAS EN GRID ===== */
-        .noticias-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 2rem 0 3rem;
+        /* ===== BURGER MENU FLOATING (aparece al hacer scroll) ===== */
+        .burger-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
+            transition: opacity 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.3s, transform 0.2s ease;
+        }
+        
+        .burger-float.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-button {
+            width: 56px;
+            height: 56px;
+            background: #0a0a0a;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+            background-color: rgba(0,0,0,0.85);
+        }
+        
+        .burger-button i {
+            font-size: 1.8rem;
+            color: white;
+            transition: transform 0.2s;
+        }
+        
+        .burger-button:active {
+            transform: scale(0.94);
+            background: white;
+        }
+        
+        .burger-button:active i {
+            color: black;
+        }
+        
+        .burger-menu-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 1rem 0.8rem;
+            min-width: 200px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            transform-origin: bottom right;
+            z-index: 999;
+        }
+        
+        .burger-menu-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-menu-panel a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: #ffffffdd;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .burger-menu-panel a i {
+            width: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .burger-menu-panel a:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .burger-menu-panel a:active {
+            transform: scale(0.97);
+        }
+        
+        @media (max-width: 480px) {
+            .burger-float {
+                bottom: 18px;
+                right: 18px;
+            }
+            .burger-button {
+                width: 50px;
+                height: 50px;
+            }
+            .burger-button i {
+                font-size: 1.5rem;
+            }
+            .burger-menu-panel {
+                min-width: 180px;
+                bottom: 82px;
+                right: 18px;
+            }
+            .burger-menu-panel a {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
         }
 
-        @media (max-width: 768px) {
+        /* ===== NOTICIAS EN GRID (estilo consistente con eventos) ===== */
+        .noticias-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        @media (min-width: 768px) {
             .noticias-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
         }
 
         .noticia-card {
-            background: #0a0a0a;
+            background: linear-gradient(145deg, #111, #0a0a0a);
             border: 1px solid #ffffff20;
-            border-radius: 0px;
             overflow: hidden;
             transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
+            height: 100%;
+            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.1);
         }
 
         .noticia-card:hover {
+            transform: translateY(-8px);
             border-color: #ffffff60;
-            transform: translateY(-6px);
-            box-shadow: 0 20px 35px -15px rgba(255,255,255,0.1);
+            box-shadow: 0 40px 60px -20px rgba(255,255,255,0.2);
         }
 
         .noticia-imagen-h {
@@ -312,7 +439,7 @@
         }
 
         .noticia-card:hover .noticia-imagen-h img {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         .noticia-imagen-h::after {
@@ -339,15 +466,15 @@
         }
 
         .noticia-contenido-h {
-            padding: 1.2rem;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .noticia-contenido-h {
-                padding: 1rem;
+                padding: 1.2rem;
             }
         }
 
@@ -480,7 +607,6 @@
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            white-space: nowrap;
         }
 
         .btn-tactile:active {
@@ -493,32 +619,28 @@
         .nav-links {
             display: flex;
             justify-content: center;
-            margin: 2rem 0 2rem;
+            margin: 3rem 0 2rem;
         }
 
         @media (max-width: 600px) {
             .btn-tactile {
                 width: 100%;
                 max-width: 280px;
-                padding: 1rem 1.5rem;
+                padding: 0.9rem 1.5rem;
                 font-size: 0.85rem;
                 letter-spacing: 0.15em;
-                white-space: normal;
-                text-align: center;
             }
             
             .nav-links .btn-tactile {
-                width: 100%;
+                width: auto;
                 max-width: 280px;
-                margin: 0 auto;
-                display: flex;
             }
         }
 
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
             padding: 2rem 0 1rem;
             border-top: 1px solid #ffffff20;
             color: #ffffff40;
@@ -557,7 +679,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- ===== H1 PARA SEO ===== -->
+        <!-- H1 SEO oculto -->
         <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;">Birongo · Diario · Noticias de música electrónica en Caracas, Venezuela</h1>
 
         <div class="hero">
@@ -573,7 +695,6 @@
         </div>
 
         <div class="noticias-container">
-            
             <!-- TARJETA 1 -->
             <div class="noticia-card">
                 <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_1.html'">
@@ -622,51 +743,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- TARJETA 3 - OCULTA (comentada) -->
-            <!--
-            <div class="noticia-card">
-                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_3.html'">
-                    <img src="img/placeholder.jpg" alt="La Quinta Bar historia" loading="lazy">
-                </div>
-                <div class="noticia-contenido-h">
-                    <span class="noticia-categoria-h">ESPACIOS</span>
-                    <h2 class="noticia-titulo-h">La Quinta Bar: El lugar que vió nacer a Birongo</h2>
-                    <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 10 MAR 2026</span><span><i class="far fa-user"></i> Equipo Birongo</span></div>
-                    <div class="noticia-descripcion-h"><p>Un espacio icónico en Caracas se convierte en el hogar temporal de nuestra comunidad.</p></div>
-                    <div class="noticia-footer-h" onclick="event.stopPropagation()">
-                        <div class="share-buttons-h">
-                            <span class="share-label-h">COMPARTIR</span>
-                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('La Quinta Bar', 'blog_birongo/blog_3.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('La Quinta Bar', 'blog_birongo/blog_3.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
-
-            <!-- TARJETA 4 - OCULTA (comentada) -->
-            <!--
-            <div class="noticia-card">
-                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_4.html'">
-                    <img src="img/placeholder.jpg" alt="Hardgroove y UK Garage en Caracas" loading="lazy">
-                </div>
-                <div class="noticia-contenido-h">
-                    <span class="noticia-categoria-h">GÉNEROS</span>
-                    <h2 class="noticia-titulo-h">Hardgroove y UK Garage: Los sonidos que definen a Birongo</h2>
-                    <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 05 MAR 2026</span><span><i class="far fa-user"></i> SirDiamnd</span></div>
-                    <div class="noticia-descripcion-h"><p>Exploramos los géneros que marcan la identidad sonora de Birongo.</p></div>
-                    <div class="noticia-footer-h" onclick="event.stopPropagation()">
-                        <div class="share-buttons-h">
-                            <span class="share-label-h">COMPARTIR</span>
-                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('Hardgroove y UK Garage', 'blog_birongo/blog_4.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('Hardgroove y UK Garage', 'blog_birongo/blog_4.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
-
         </div>
 
         <div class="nav-links">
@@ -679,8 +755,21 @@
         </footer>
     </div>
 
+    <!-- FLOATING BURGER MENU -->
+    <div class="burger-float" id="burgerFloat">
+        <div class="burger-button" id="burgerBtn"><i class="fas fa-bars"></i></div>
+        <div class="burger-menu-panel" id="burgerPanel">
+            <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
+            <a href="djs-productores.html"><i class="fas fa-users"></i> DJs & PROD</a>
+            <a href="diario.html"><i class="fas fa-newspaper"></i> DIARIO</a>
+            <a href="eventos.html"><i class="fas fa-calendar-alt"></i> EVENTOS</a>
+            <a href="entradas.html"><i class="fas fa-ticket-alt"></i> ENTRADAS</a>
+            <a href="contacto.html"><i class="fas fa-envelope"></i> CONTACTO</a>
+        </div>
+    </div>
+
     <script>
-        // Funciones de compartir optimizadas
+        // Funciones de compartir
         function shareWhatsApp(title, urlPath) {
             const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
             const fullUrl = baseUrl + urlPath;
@@ -700,13 +789,34 @@
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`, '_blank');
         }
 
-        // Añadir noopener a enlaces externos
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="http"]').forEach(link => {
-                if (!link.href.includes(window.location.hostname)) {
-                    link.setAttribute('rel', 'noopener noreferrer');
-                }
-            });
+        // Burger float scroll
+        const burgerFloat = document.getElementById('burgerFloat');
+        const burgerBtn = document.getElementById('burgerBtn');
+        const burgerPanel = document.getElementById('burgerPanel');
+        let scrollTimeout;
+
+        function handleScrollVisibility() {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > 80) burgerFloat.classList.add('active');
+            else burgerFloat.classList.remove('active');
+        }
+        window.addEventListener('scroll', () => {
+            handleScrollVisibility();
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+        });
+        handleScrollVisibility();
+
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            burgerPanel.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) burgerPanel.classList.remove('open');
+        });
+
+        // Noopener externos
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            if (!link.href.includes(window.location.hostname)) link.setAttribute('rel', 'noopener noreferrer');
         });
     </script>
 </body>
