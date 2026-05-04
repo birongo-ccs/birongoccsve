@@ -32,7 +32,7 @@
       "@type": "ItemList",
       "name": "Artistas Birongo",
       "description": "Lista de DJs y productores del colectivo Birongo en Caracas, Venezuela.",
-      "numberOfItems": 12,
+      "numberOfItems": 14,
       "itemListElement": [
         {"@type": "Person", "name": "ALOCATE", "url": "https://www.birongo.live/dj&productores/alocate.html"},
         {"@type": "Person", "name": "HERESICKA", "url": "https://www.birongo.live/dj&productores/heresicka.html"},
@@ -45,9 +45,9 @@
         {"@type": "Person", "name": "HADDES", "url": "https://www.birongo.live/dj&productores/haddes.html"},
         {"@type": "Person", "name": "DORKAS", "url": "https://www.birongo.live/dj&productores/dorkas.html"},
         {"@type": "Person", "name": "KAATHA", "url": "https://www.birongo.live/dj&productores/kaatha.html"},
-        {"@type": "Person", "name": "ZARINOVAK", "url": "https://www.birongo.live/dj&productores/zarinovak.html"}
-        {"@type": "Person", "name": "OKUBO", "url": "https://www.birongo.live/dj&productores/okubo.html"}
-        {"@type": "Person", "name": "OKUBO", "url": "https://www.birongo.live/dj&productores/extintorbass.html"}
+        {"@type": "Person", "name": "ZARINOVAK", "url": "https://www.birongo.live/dj&productores/zarinovak.html"},
+        {"@type": "Person", "name": "OKUBO", "url": "https://www.birongo.live/dj&productores/okubo.html"},
+        {"@type": "Person", "name": "EXTINTOR BASS", "url": "https://www.birongo.live/dj&productores/extintorbass.html"}
       ]
     }
     </script>
@@ -57,18 +57,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- ===== FONTS & ICONS (cargados sin bloqueo) ===== -->
+    <!-- ===== FONTS & ICONS ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 
-    <!-- ===== FAVICON SVG ===== -->
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
 
-    <!-- Cronitor RUM (cargado diferido) -->
+    <!-- Cronitor RUM -->
     <script>
         window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
         cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
@@ -155,12 +155,12 @@
             }
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN ===== */
+        /* ===== MENÚ DE NAVEGACIÓN ESTÁTICO (igual que eventos) ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin: 1rem 0 3rem;
+            margin: 1rem 0 2rem;
             flex-wrap: wrap;
             padding: 0.5rem 0;
         }
@@ -207,21 +207,21 @@
 
         @media (max-width: 768px) {
             .nav-menu {
-                gap: 1.2rem;
+                gap: 1rem;
                 padding: 0.3rem 0;
-                margin: 0.5rem 0 2rem;
+                margin: 0.5rem 0 1.5rem;
             }
             
             .nav-item {
                 font-size: 0.85rem;
-                letter-spacing: 0.15em;
+                letter-spacing: 0.12em;
                 padding: 0.4rem 0;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             .nav-menu {
-                gap: 0.8rem;
+                gap: 0.7rem;
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -229,32 +229,161 @@
             
             .nav-item {
                 font-size: 0.75rem;
-                letter-spacing: 0.1em;
-                padding: 0.3rem 0.3rem;
+                letter-spacing: 0.08em;
+                padding: 0.3rem 0.2rem;
                 white-space: normal;
                 text-align: center;
-                min-width: 70px;
+                min-width: 65px;
             }
         }
 
-        /* ===== ARTISTAS GRID ===== */
+        /* ===== BURGER MENU FLOATING (aparece al hacer scroll) ===== */
+        .burger-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
+            transition: opacity 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.3s, transform 0.2s ease;
+        }
+        
+        .burger-float.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-button {
+            width: 56px;
+            height: 56px;
+            background: #0a0a0a;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+            background-color: rgba(0,0,0,0.85);
+        }
+        
+        .burger-button i {
+            font-size: 1.8rem;
+            color: white;
+            transition: transform 0.2s;
+        }
+        
+        .burger-button:active {
+            transform: scale(0.94);
+            background: white;
+        }
+        
+        .burger-button:active i {
+            color: black;
+        }
+        
+        .burger-menu-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 1rem 0.8rem;
+            min-width: 200px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            transform-origin: bottom right;
+            z-index: 999;
+        }
+        
+        .burger-menu-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-menu-panel a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: #ffffffdd;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .burger-menu-panel a i {
+            width: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .burger-menu-panel a:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .burger-menu-panel a:active {
+            transform: scale(0.97);
+        }
+        
+        @media (max-width: 480px) {
+            .burger-float {
+                bottom: 18px;
+                right: 18px;
+            }
+            .burger-button {
+                width: 50px;
+                height: 50px;
+            }
+            .burger-button i {
+                font-size: 1.5rem;
+            }
+            .burger-menu-panel {
+                min-width: 180px;
+                bottom: 82px;
+                right: 18px;
+            }
+            .burger-menu-panel a {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ===== ARTISTAS GRID con márgenes consistentes ===== */
         .artists-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin: 2rem 0;
+            margin: 2rem auto;
+            max-width: 100%;
         }
 
         @media (min-width: 768px) {
             .artists-grid {
                 grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
                 gap: 2rem;
+                margin: 3rem auto;
             }
         }
 
         .artist-card {
-            background: #111;
-            border: none;
+            background: linear-gradient(145deg, #111, #0a0a0a);
+            border: 1px solid #ffffff20;
             overflow: hidden;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -263,7 +392,7 @@
             flex-direction: column;
             height: 100%;
             cursor: pointer;
-            border-radius: 0;
+            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.1);
         }
 
         .artist-card:active {
@@ -272,7 +401,8 @@
 
         .artist-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
+            border-color: #ffffff60;
+            box-shadow: 0 40px 60px -20px rgba(255,255,255,0.2);
         }
 
         .artist-image {
@@ -288,6 +418,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .artist-card:hover .artist-image img {
+            transform: scale(1.05);
         }
 
         .artist-image .placeholder-icon {
@@ -384,7 +519,7 @@
             font-weight: 400;
         }
 
-        /* BOTÓN VER MÁS ELEGANTE */
+        /* ===== BOTÓN VER MÁS ===== */
         .btn-ver-mas {
             margin: 0.8rem auto 0 auto;
             display: flex;
@@ -428,10 +563,10 @@
             transform: translateX(3px);
         }
 
-        /* ===== BOTONES ===== */
+        /* ===== BOTONES PRINCIPALES ===== */
         .btn {
             background: transparent;
-            padding: 0.8rem 1.5rem;
+            padding: 0.9rem 1.8rem;
             border: 2px solid #fff;
             text-decoration: none;
             color: #fff;
@@ -440,15 +575,17 @@
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background: #fff;
-            color: #000;
+        .btn:active {
+            transform: scale(0.96);
+            background: white;
+            color: black;
         }
 
         .nav-links {
@@ -462,12 +599,16 @@
             .nav-links {
                 margin: 2rem 0 1rem;
             }
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.75rem;
+            }
         }
 
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
             padding: 2rem 0 1rem;
             border-top: 1px solid #ffffff20;
             color: #ffffff40;
@@ -497,20 +638,14 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
-
-        .footer-tagline i {
-            color: #ffffff60;
-            font-size: 0.6rem;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- ===== HEADER ===== -->
+        <!-- HEADER -->
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO - Colectivo de música electrónica Caracas" class="logo-image" loading="eager" width="800" height="300">
             
-            <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
             <div class="nav-menu">
                 <a href="index.html" class="nav-item">INICIO</a>
                 <a href="djs-productores.html" class="nav-item active">DJs & PRODUCTORES</a>
@@ -521,7 +656,7 @@
             </div>
         </div>
 
-        <!-- ===== GRID DE ARTISTAS ===== -->
+        <!-- GRID DE ARTISTAS -->
         <div class="artists-grid">
             <!-- ARTISTA 1 - ALOCATE -->
             <div class="artist-card" data-artist-url="dj&productores/alocate.html">
@@ -536,14 +671,8 @@
                 <div class="artist-info">
                     <h3>ALOCATE</h3>
                     <p>DJ - PRODUCTORA</p>
-                    <div class="artist-tags">
-                        <span>Hardtechno</span>
-                        <span>Hardstyle</span>
-                    </div>
-                    <a href="dj&productores/alocate.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="artist-tags"><span>Hardtechno</span><span>Hardstyle</span></div>
+                    <a href="dj&productores/alocate.html" class="btn-ver-mas" onclick="event.stopPropagation();"><span>VER MÁS</span><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -561,14 +690,8 @@
                 <div class="artist-info">
                     <h3>HERESICKA</h3>
                     <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>Drum & Bass</span>
-                        <span>Moombah</span>
-                    </div>
-                    <a href="dj&productores/heresicka.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="artist-tags"><span>Drum & Bass</span><span>Moombah</span></div>
+                    <a href="dj&productores/heresicka.html" class="btn-ver-mas" onclick="event.stopPropagation();"><span>VER MÁS</span><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -586,14 +709,8 @@
                 <div class="artist-info">
                     <h3>SIRDIAMND</h3>
                     <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>Melodic House</span>
-                        <span>Melodic Techno</span>
-                    </div>
-                    <a href="dj&productores/sirdiamnd.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="artist-tags"><span>Melodic House</span><span>Melodic Techno</span></div>
+                    <a href="dj&productores/sirdiamnd.html" class="btn-ver-mas" onclick="event.stopPropagation();"><span>VER MÁS</span><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -611,14 +728,8 @@
                 <div class="artist-info">
                     <h3>DESTRO5</h3>
                     <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>UK House</span>
-                        <span>Afro Latin House</span>
-                    </div>
-                    <a href="dj&productores/destro5.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="artist-tags"><span>UK House</span><span>Afro Latin House</span></div>
+                    <a href="dj&productores/destro5.html" class="btn-ver-mas" onclick="event.stopPropagation();"><span>VER MÁS</span><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -636,281 +747,10 @@
                 <div class="artist-info">
                     <h3>DE LA TRINIDAD</h3>
                     <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>Groove House</span>
-                        <span>Melodic House</span>
-                    </div>
-                    <a href="dj&productores/delatrinidad.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="artist-tags"><span>Groove House</span><span>Melodic House</span></div>
+                    <a href="dj&productores/delatrinidad.html" class="btn-ver-mas" onclick="event.stopPropagation();"><span>VER MÁS</span><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
             <!-- ARTISTA 6 - MORET -->
-            <div class="artist-card" data-artist-url="dj&productores/moret.html">
-                <div class="artist-image">
-                    <img src="img/Moret_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="MORET Hardgroove" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/user/31ya6uwndlzkn6x6hf7smslvrn4u" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/channel/UCdiwrmiLo0IgOMTeR0pvv1g" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/moret_______/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>MORET</h3>
-                    <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>Hardgroove</span>
-                    </div>
-                    <a href="dj&productores/moret.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ARTISTA 7 - GERARD VALERA -->
-            <div class="artist-card" data-artist-url="dj&productores/gerardvalera.html">
-                <div class="artist-image">
-                    <img src="img/Gerard_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="GERARD VALERA Progressive House" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/4We0e10I4cXJtCeGnkouq8" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/@gerardvaleradj" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/gerardvaleradj/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>GERARD VALERA</h3>
-                    <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>Progressive House</span>
-                    </div>
-                    <a href="dj&productores/gerardvalera.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ARTISTA 8 - KURGANS -->
-            <div class="artist-card" data-artist-url="dj&productores/kurgans.html">
-                <div class="artist-image">
-                    <img src="img/Kurgans_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KURGANS Techno" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/0yjfe423duXcL5To8EgxLP" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/@thakurgans" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/kurgansdj/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>KURGANS</h3>
-                    <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>Techno</span>
-                    </div>
-                    <a href="dj&productores/kurgans.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ARTISTA 9 - HADDES -->
-            <div class="artist-card" data-artist-url="dj&productores/haddes.html">
-                <div class="artist-image">
-                    <img src="img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="HADDES Techouse" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/6tBfBvEgAgFsKWK6Y4IgD8" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/channel/UCf6QKoMsf3iVaAfrnK8_IpA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/thehaddes/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>HADDES</h3>
-                    <p>DJ - Productor</p>
-                    <div class="artist-tags">
-                        <span>Techouse</span>
-                    </div>
-                    <a href="dj&productores/haddes.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ARTISTA 10 - DORKAS -->
-            <div class="artist-card" data-artist-url="dj&productores/dorkas.html">
-                <div class="artist-image">
-                    <img src="img/Dorkas_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DORKAS Techno Drum & Bass" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://www.youtube.com/channel/UCnoFthJ3O3juYcHhznl7BVA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/djdorkas/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>DORKAS</h3>
-                    <p>DJ</p>
-                    <div class="artist-tags">
-                        <span>Techno</span>
-                        <span>Drum & Bass</span>
-                    </div>
-                    <a href="dj&productores/dorkas.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ARTISTA 11 - KAATHA -->
-            <div class="artist-card" data-artist-url="dj&productores/kaatha.html">
-                <div class="artist-image">
-                    <img src="img/Kaatha_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KAATHA Techouse" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/7r0FHBhhkVztsTzH7hNFMB" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/channel/UCqEj2vtwTEw3TrH6w7IafrA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/kaathamusic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>KAATHA</h3>
-                    <p>DJ - PRODUCTORA</p>
-                    <div class="artist-tags">
-                        <span>Techouse</span>
-                    </div>
-                    <a href="dj&productores/kaatha.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ARTISTA 12 - ZARINOVAK -->
-            <div class="artist-card" data-artist-url="dj&productores/zarinovak.html">
-                <div class="artist-image">
-                    <img src="img/Zarinovak_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="ZARINOVAK Hardtechno" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/5JWeruMJutO9RbOYPS3OqZ?si=CkPLWcHPSLWnIHCkoz3ZOw" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/@zarinovak" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/zarinovak.dj/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>ZARINOVAK</h3>
-                    <p>DJ - PRODUCTORA</p>
-                    <div class="artist-tags">
-                        <span>Hardtechno</span>
-                    </div>
-                    <a href="dj&productores/zarinovak.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ARTISTA 13 - OKUBO -->
-            <div class="artist-card" data-artist-url="dj&productores/okubo.html">
-                <div class="artist-image">
-                    <img src="img/Okubo_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="Okubo Raptor House" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/2IfiLrxz1i9Z769jZ4j3Ka?si=JEXfmhwoT1yLcdGlGd6-Og" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/@okuboxsamurai/" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/okuboxsamurai/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>OKUBO</h3>
-                    <p>DJ - PRODUCTOR</p>
-                    <div class="artist-tags">
-                        <span>Raptor House</span>
-                    </div>
-                    <a href="dj&productores/okubo.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-                <!-- ARTISTA 14 - EXTINTOR BASS -->
-            <div class="artist-card" data-artist-url="dj&productores/extintorbass.html">
-                <div class="artist-image">
-                    <img src="img/Extintor-Bass_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="Extintor Bass Uk Bass" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
-                    <div class="artist-overlay">
-                        <a href="https://open.spotify.com/intl-es/artist/4CMd84r6qkb7FqjZxjlnoR" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/channel/UCYRUADWo9oYFSW7AwSiLxtw" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/extintor_bass_vzla/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="artist-info">
-                    <h3>EXTINTOR BASS</h3>
-                    <p>DJ - PRODUCTOR</p>
-                    <div class="artist-tags">
-                        <span>Uk Bass</span>
-                        <span>Baile Bass</span>
-                    </div>
-                    <a href="dj&productores/extintorbass.html" class="btn-ver-mas" onclick="event.stopPropagation();">
-                        <span>VER MÁS</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
-        <div class="nav-links">
-            <a href="index.html" class="btn">
-                <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
-            </a>
-        </div>
-
-        <!-- ===== FOOTER ===== -->
-        <footer>
-            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
-            <div class="footer-tagline">
-                <i class="fas fa-headphones-alt"></i>
-                <span>DJs · PRODUCTORES · EVENTOS · MÚSICA ELECTRÓNICA · CARACAS · VENEZUELA</span>
-                <i class="fas fa-sliders-h"></i>
-            </div>
-        </footer>
-    </div>
-
-    <!-- ===== JAVASCRIPT OPTIMIZADO ===== -->
-    <script>
-        (function() {
-            'use strict';
-            
-            // Redirección de tarjetas de artista
-            const artistCards = document.querySelectorAll('.artist-card');
-            
-            artistCards.forEach(card => {
-                const artistUrl = card.getAttribute('data-artist-url');
-                
-                if (artistUrl && artistUrl !== '') {
-                    card.addEventListener('click', function(e) {
-                        if (e.target.closest('.artist-overlay a') || e.target.closest('.btn-ver-mas')) {
-                            return;
-                        }
-                        window.location.href = artistUrl;
-                    });
-                }
-            });
-            
-            // Asegurar noopener en todos los enlaces externos
-            document.querySelectorAll('a[href^="http"]').forEach(link => {
-                if (!link.href.includes(window.location.hostname) && !link.getAttribute('rel')) {
-                    link.setAttribute('rel', 'noopener noreferrer');
-                }
-            });
-        })();
-    </script>
-</body>
-</html>
+            <div class="artist-card" data-art
