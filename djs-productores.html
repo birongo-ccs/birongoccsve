@@ -155,7 +155,7 @@
             }
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN ESTÁTICO (igual que eventos) ===== */
+        /* ===== MENÚ DE NAVEGACIÓN ESTÁTICO ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -364,20 +364,28 @@
             }
         }
 
-        /* ===== ARTISTAS GRID con márgenes consistentes ===== */
+        /* ===== ARTISTAS GRID: EXACTAMENTE 4 COLUMNAS EN PC ===== */
         .artists-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
             margin: 2rem auto;
             max-width: 100%;
         }
 
-        @media (min-width: 768px) {
+        /* Tablets: 2 columnas */
+        @media (max-width: 992px) and (min-width: 601px) {
             .artists-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-                gap: 2rem;
-                margin: 3rem auto;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        /* Móviles: 1 columna */
+        @media (max-width: 600px) {
+            .artists-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
 
@@ -656,7 +664,7 @@
             </div>
         </div>
 
-        <!-- GRID DE ARTISTAS -->
+        <!-- GRID DE ARTISTAS (4 columnas fijas en escritorio) -->
         <div class="artists-grid">
             <!-- ARTISTA 1 - ALOCATE -->
             <div class="artist-card" data-artist-url="dj&productores/alocate.html">
