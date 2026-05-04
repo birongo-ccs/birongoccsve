@@ -134,7 +134,7 @@
             }
         }
 
-        /* ===== MENÚ ===== */
+        /* ===== MENÚ DE NAVEGACIÓN ESTÁTICO ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -179,10 +179,12 @@
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1rem;
+                margin: 0.5rem 0 1.5rem;
             }
             .nav-item {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
                 letter-spacing: 0.12em;
+                padding: 0.4rem 0;
             }
         }
 
@@ -191,39 +193,184 @@
                 gap: 0.7rem;
             }
             .nav-item {
-                font-size: 0.7rem;
+                font-size: 0.75rem;
                 letter-spacing: 0.08em;
                 white-space: normal;
                 text-align: center;
                 min-width: 65px;
+                padding: 0.3rem 0.2rem;
             }
         }
 
-        /* ===== TARJETA ORIGINAL OCULTA ===== */
-        .ticket-card {
-            display: none;
+        /* ===== BURGER MENU FLOATING (aparece al hacer scroll) ===== */
+        .burger-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
+            transition: opacity 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.3s, transform 0.2s ease;
+        }
+        
+        .burger-float.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-button {
+            width: 56px;
+            height: 56px;
+            background: #0a0a0a;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+            background-color: rgba(0,0,0,0.85);
+        }
+        
+        .burger-button i {
+            font-size: 1.8rem;
+            color: white;
+            transition: transform 0.2s;
+        }
+        
+        .burger-button:active {
+            transform: scale(0.94);
+            background: white;
+        }
+        
+        .burger-button:active i {
+            color: black;
+        }
+        
+        .burger-menu-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 1rem 0.8rem;
+            min-width: 200px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            transform-origin: bottom right;
+            z-index: 999;
+        }
+        
+        .burger-menu-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-menu-panel a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: #ffffffdd;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .burger-menu-panel a i {
+            width: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .burger-menu-panel a:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .burger-menu-panel a:active {
+            transform: scale(0.97);
+        }
+        
+        @media (max-width: 480px) {
+            .burger-float {
+                bottom: 18px;
+                right: 18px;
+            }
+            .burger-button {
+                width: 50px;
+                height: 50px;
+            }
+            .burger-button i {
+                font-size: 1.5rem;
+            }
+            .burger-menu-panel {
+                min-width: 180px;
+                bottom: 82px;
+                right: 18px;
+            }
+            .burger-menu-panel a {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
         }
 
-        /* ===== SECCIÓN PROFESIONAL POST-EVENTO ===== */
+        /* ===== SECCIÓN POST-EVENTO (estilo consistente con eventos.html) ===== */
         .post-event {
-            max-width: 900px;
-            margin: 2rem auto 0;
+            max-width: 800px;
+            margin: 2rem auto;
             text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 2rem;
+            background: linear-gradient(145deg, #111, #0a0a0a);
+            border: 1px solid #ffffff20;
+            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .post-event:hover {
+            border-color: #ffffff60;
+            box-shadow: 0 40px 60px -20px rgba(255,255,255,0.2);
+        }
+
+        @media (min-width: 768px) {
+            .post-event {
+                padding: 2.5rem;
+                margin: 3rem auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .post-event {
+                padding: 1.5rem;
+                margin: 1.5rem auto;
+            }
         }
 
         .event-flyer-mini {
             max-width: 260px;
             margin: 0 auto 2rem;
-            opacity: 0.65;
+            opacity: 0.85;
         }
 
         .event-flyer-mini img {
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 4px;
         }
 
         .event-status {
@@ -231,26 +378,38 @@
             font-weight: 500;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
             margin-bottom: 1.5rem;
         }
 
         .event-title {
             font-size: 1.8rem;
-            font-weight: 600;
+            font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
             letter-spacing: -0.02em;
             color: white;
             margin-bottom: 1rem;
         }
 
+        @media (max-width: 768px) {
+            .event-title {
+                font-size: 1.5rem;
+            }
+        }
+
         .thankyou-text {
             font-size: 1rem;
             font-weight: 400;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.75);
             max-width: 500px;
             margin: 0 auto 0.75rem;
             line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .thankyou-text {
+                font-size: 0.9rem;
+            }
         }
 
         /* ===== TAGS DE GÉNEROS ===== */
@@ -283,7 +442,7 @@
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
             margin-bottom: 0.8rem;
         }
 
@@ -294,11 +453,22 @@
             gap: 1.2rem;
             font-size: 0.9rem;
             font-weight: 500;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
         }
 
         .dj-names span {
             letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .dj-names {
+                gap: 0.8rem;
+                font-size: 0.8rem;
+            }
+            .genre-tag {
+                font-size: 0.6rem;
+                padding: 0.2rem 0.8rem;
+            }
         }
 
         .next-info {
@@ -314,13 +484,14 @@
             align-items: center;
             gap: 0.75rem;
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.3);
             padding: 0.85rem 2rem;
             text-decoration: none;
             color: white;
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             transition: all 0.25s ease;
         }
 
@@ -329,32 +500,13 @@
         }
 
         .insta-link:hover {
-            border-color: rgba(255,255,255,0.6);
-            background: rgba(255,255,255,0.03);
-            transform: translateY(-1px);
+            border-color: white;
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 768px) {
-            .post-event {
-                padding: 2rem 1.5rem;
-            }
-            .event-title {
-                font-size: 1.4rem;
-            }
-            .thankyou-text {
-                font-size: 0.9rem;
-            }
-            .event-flyer-mini {
-                max-width: 180px;
-            }
-            .dj-names {
-                gap: 0.8rem;
-                font-size: 0.8rem;
-            }
-            .genre-tag {
-                font-size: 0.6rem;
-                padding: 0.2rem 0.8rem;
-            }
+        .insta-link:active {
+            transform: scale(0.97);
         }
 
         /* ===== FOOTER ===== */
@@ -373,6 +525,11 @@
             }
         }
 
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
+        }
+
         .footer-tagline {
             font-size: 0.7rem;
             color: #ffffff40;
@@ -384,6 +541,11 @@
             flex-wrap: wrap;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+        }
+
+        .footer-tagline i {
+            color: #ffffff60;
+            font-size: 0.6rem;
         }
     </style>
 </head>
@@ -404,13 +566,10 @@
             </div>
         </div>
 
-        <!-- TARJETA ORIGINAL OCULTA -->
-        <div class="ticket-card"></div>
-
         <!-- SECCIÓN POST-EVENTO: AGRADECIMIENTO FORMAL + TAGS + DJS -->
         <div class="post-event">
             <div class="event-flyer-mini">
-                <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0">
+                <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0" loading="lazy">
             </div>
             <div class="event-status">EVENTO CONCLUIDO</div>
             <div class="event-title">BIRONGO LIVE 2.0</div>
@@ -457,8 +616,47 @@
         </footer>
     </div>
 
+    <!-- FLOATING BURGER MENU -->
+    <div class="burger-float" id="burgerFloat">
+        <div class="burger-button" id="burgerBtn"><i class="fas fa-bars"></i></div>
+        <div class="burger-menu-panel" id="burgerPanel">
+            <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
+            <a href="djs-productores.html"><i class="fas fa-users"></i> DJs & PROD</a>
+            <a href="diario.html"><i class="fas fa-newspaper"></i> DIARIO</a>
+            <a href="eventos.html"><i class="fas fa-calendar-alt"></i> EVENTOS</a>
+            <a href="entradas.html"><i class="fas fa-ticket-alt"></i> ENTRADAS</a>
+            <a href="contacto.html"><i class="fas fa-envelope"></i> CONTACTO</a>
+        </div>
+    </div>
+
     <script>
         (function() {
+            // Burger float scroll
+            const burgerFloat = document.getElementById('burgerFloat');
+            const burgerBtn = document.getElementById('burgerBtn');
+            const burgerPanel = document.getElementById('burgerPanel');
+            let scrollTimeout;
+
+            function handleScrollVisibility() {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                if (currentScroll > 80) burgerFloat.classList.add('active');
+                else burgerFloat.classList.remove('active');
+            }
+            window.addEventListener('scroll', () => {
+                handleScrollVisibility();
+                if (scrollTimeout) clearTimeout(scrollTimeout);
+            });
+            handleScrollVisibility();
+
+            burgerBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                burgerPanel.classList.toggle('open');
+            });
+            document.addEventListener('click', (e) => {
+                if (!burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) burgerPanel.classList.remove('open');
+            });
+
+            // Noopener externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 if (!link.href.includes(window.location.hostname) && !link.getAttribute('rel')) {
                     link.setAttribute('rel', 'noopener noreferrer');
