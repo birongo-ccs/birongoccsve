@@ -632,7 +632,39 @@
             color: #ffffff60;
             font-size: 0.6rem;
         }
-    </style>
+    
+        /* ===== MARGENES DE TARJETAS (igual a eventos.html) ===== */
+        .eventos-grid,
+        .noticias-grid,
+        .artists-grid,
+        .youtube-grid,
+        .spotify-grid,
+        .cards-grid {
+            margin: 2rem auto;
+            gap: 3rem;
+            max-width: 1000px;
+        }
+
+        @media (min-width: 768px) {
+            .eventos-grid,
+            .noticias-grid,
+            .artists-grid,
+            .youtube-grid,
+            .spotify-grid,
+            .cards-grid {
+                gap: 2rem;
+            }
+        }
+
+        .card,
+        .evento-card,
+        .noticia-card,
+        .artist-card,
+        .redes-card,
+        .youtube-card {
+            margin-bottom: 2rem;
+        }
+</style>
 </head>
 <body>
     <div class="container">
