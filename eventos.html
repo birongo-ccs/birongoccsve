@@ -339,8 +339,9 @@
         
         @media (max-width: 480px) {
             .burger-float {
-                bottom: 18px;
+                top: 18px;
                 right: 18px;
+                bottom: auto;
             }
             .burger-button {
                 width: 50px;
@@ -351,8 +352,10 @@
             }
             .burger-menu-panel {
                 min-width: 180px;
-                bottom: 82px;
+                top: 82px;
                 right: 18px;
+                bottom: auto;
+                transform-origin: top right;
             }
             .burger-menu-panel a {
                 padding: 10px 16px;
