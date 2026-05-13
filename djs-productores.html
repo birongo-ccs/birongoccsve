@@ -371,16 +371,16 @@
         .artists-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 1rem; /* Reducido para que estén más pegadas */
             margin: 2rem auto;
-            max-width: 100%;
+            max-width: 100%; /* Forzamos a que use el 100% del contenedor */
         }
 
         /* Tablets: 2 columnas */
         @media (max-width: 992px) and (min-width: 601px) {
             .artists-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                gap: 1rem;
             }
         }
 
@@ -653,7 +653,6 @@
         /* ===== MARGENES DE TARJETAS (igual a eventos.html) ===== */
         .eventos-grid,
         .noticias-grid,
-        .artists-grid,
         .youtube-grid,
         .spotify-grid,
         .cards-grid {
@@ -665,7 +664,6 @@
         @media (min-width: 768px) {
             .eventos-grid,
             .noticias-grid,
-            .artists-grid,
             .youtube-grid,
             .spotify-grid,
             .cards-grid {
@@ -680,29 +678,6 @@
         .redes-card,
         .youtube-card {
             margin-bottom: 2rem;
-        }
-
-        /* ===== MARGENES DE TARJETAS (igual a eventos.html) ===== */
-        .eventos-grid,
-        .noticias-grid,
-        /* Borramos .artists-grid de aquí para que no interfiera */
-        .youtube-grid,
-        .spotify-grid,
-        .cards-grid {
-            margin: 2rem auto;
-            gap: 3rem;
-            max-width: 1000px;
-        }
-
-        @media (min-width: 768px) {
-            .eventos-grid,
-            .noticias-grid,
-            /* También lo borramos de aquí */
-            .youtube-grid,
-            .spotify-grid,
-            .cards-grid {
-                gap: 2rem;
-            }
         }
 </style>
 </head>
