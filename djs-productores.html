@@ -681,6 +681,29 @@
         .youtube-card {
             margin-bottom: 2rem;
         }
+
+        /* ===== MARGENES DE TARJETAS (igual a eventos.html) ===== */
+        .eventos-grid,
+        .noticias-grid,
+        /* Borramos .artists-grid de aquí para que no interfiera */
+        .youtube-grid,
+        .spotify-grid,
+        .cards-grid {
+            margin: 2rem auto;
+            gap: 3rem;
+            max-width: 1000px;
+        }
+
+        @media (min-width: 768px) {
+            .eventos-grid,
+            .noticias-grid,
+            /* También lo borramos de aquí */
+            .youtube-grid,
+            .spotify-grid,
+            .cards-grid {
+                gap: 2rem;
+            }
+        }
 </style>
 </head>
 <body>
