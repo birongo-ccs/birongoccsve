@@ -131,1144 +131,585 @@
 
 
     <style>
-
         /* ===== RESET & BASE ===== */
-
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
         }
-
-
 
         body {
-
             background: #000000;
-
             font-family: 'Inter', sans-serif;
-
             color: #ffffff;
-
             line-height: 1.6;
-
             font-size: 16px;
-
         }
-
-
 
         body::before {
-
             content: '';
-
             position: fixed;
-
             top: 0;
-
             left: 0;
-
             width: 100%;
-
             height: 100%;
-
             background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
-
                         radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
-
             pointer-events: none;
-
             z-index: -1;
-
         }
-
-
 
         .container {
-
             max-width: 1400px;
-
             margin: 0 auto;
-
             padding: 1rem;
-
         }
-
-
 
         @media (min-width: 768px) {
-
             .container {
-
                 padding: 2rem;
-
             }
-
         }
-
-
 
         h1, h2, h3, h4 {
-
             font-family: 'Space Grotesk', sans-serif;
-
             font-weight: 700;
-
         }
-
-
 
         /* ===== HEADER ===== */
-
         .hero {
-
             text-align: center;
-
             margin-bottom: 2rem;
-
             padding: 2rem 0;
-
             border-bottom: 1px solid #ffffff20;
-
         }
-
-
 
         @media (min-width: 768px) {
-
             .hero {
-
                 margin-bottom: 4rem;
-
                 padding: 3rem 0;
-
             }
-
         }
-
-
 
         .logo-image {
-
             max-width: 80%;
-
             height: auto;
-
             margin: 0 auto 1rem;
-
             display: block;
-
         }
-
-
 
         @media (min-width: 768px) {
-
             .logo-image {
-
                 max-width: 60%;
-
             }
-
         }
-
-
 
         @media (min-width: 992px) {
-
             .logo-image {
-
                 max-width: 50%;
-
             }
-
         }
-
-
 
         /* ===== MENÚ DE NAVEGACIÓN ESTÁTICO ===== */
-
         .nav-menu {
-
             display: flex;
-
             justify-content: center;
-
             gap: 2rem;
-
             margin: 1rem 0 2rem;
-
             flex-wrap: wrap;
-
             padding: 0.5rem 0;
-
         }
-
-
 
         .nav-item {
-
             color: #ffffff80;
-
             text-decoration: none;
-
             font-size: 1rem;
-
             font-weight: 600;
-
             text-transform: uppercase;
-
             letter-spacing: 0.2em;
-
             padding: 0.5rem 0;
-
             position: relative;
-
             transition: all 0.3s ease;
-
             white-space: nowrap;
-
         }
-
-
 
         .nav-item::after {
-
             content: '';
-
             position: absolute;
-
             bottom: 0;
-
             left: 0;
-
             width: 0;
-
             height: 2px;
-
             background: white;
-
             transition: width 0.3s ease;
-
         }
-
-
 
         .nav-item:hover {
-
             color: white;
-
         }
-
-
 
         .nav-item:hover::after {
-
             width: 100%;
-
         }
-
-
 
         .nav-item.active {
-
             color: white;
-
         }
-
-
 
         .nav-item.active::after {
-
             width: 100%;
-
         }
-
-
 
         @media (max-width: 768px) {
-
             .nav-menu {
-
                 gap: 1rem;
-
                 padding: 0.3rem 0;
-
                 margin: 0.5rem 0 1.5rem;
-
             }
-
             
-
             .nav-item {
-
                 font-size: 0.85rem;
-
                 letter-spacing: 0.12em;
-
                 padding: 0.4rem 0;
-
             }
-
         }
-
-
 
         @media (max-width: 600px) {
-
             .nav-menu {
-
                 gap: 0.7rem;
-
                 flex-direction: row;
-
                 flex-wrap: wrap;
-
                 justify-content: center;
-
             }
-
             
-
             .nav-item {
-
                 font-size: 0.75rem;
-
                 letter-spacing: 0.08em;
-
                 padding: 0.3rem 0.2rem;
-
                 white-space: normal;
-
                 text-align: center;
-
                 min-width: 65px;
-
             }
-
         }
-
-
 
         /* ===== BURGER MENU FLOATING (aparece al hacer scroll) ===== */
-
         .burger-float {
-
             position: fixed;
-
             bottom: 24px;
-
             right: 24px;
-
             z-index: 1000;
-
             opacity: 0;
-
             visibility: hidden;
-
             transform: scale(0.8);
-
             transition: opacity 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.3s, transform 0.2s ease;
-
         }
-
         
-
         .burger-float.active {
-
             opacity: 1;
-
             visibility: visible;
-
             transform: scale(1);
-
         }
-
         
-
         .burger-button {
-
             width: 56px;
-
             height: 56px;
-
             background: #0a0a0a;
-
             border: 2px solid rgba(255,255,255,0.8);
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             cursor: pointer;
-
             box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
-
             transition: all 0.2s ease;
-
             backdrop-filter: blur(8px);
-
             background-color: rgba(0,0,0,0.85);
-
         }
-
         
-
         .burger-button i {
-
             font-size: 1.8rem;
-
             color: white;
-
             transition: transform 0.2s;
-
         }
-
         
-
         .burger-button:active {
-
             transform: scale(0.94);
-
             background: white;
-
         }
-
         
-
         .burger-button:active i {
-
             color: black;
-
         }
-
         
-
         .burger-menu-panel {
-
             position: fixed;
-
             bottom: 90px;
-
             right: 24px;
-
             background: rgba(0,0,0,0.95);
-
             backdrop-filter: blur(16px);
-
             border-radius: 24px;
-
             padding: 1rem 0.8rem;
-
             min-width: 200px;
-
             border: 1px solid rgba(255,255,255,0.3);
-
             box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8);
-
             transform: scale(0.9);
-
             opacity: 0;
-
             visibility: hidden;
-
             transition: all 0.25s ease;
-
             transform-origin: bottom right;
-
             z-index: 999;
-
         }
-
         
-
         .burger-menu-panel.open {
-
             opacity: 1;
-
             visibility: visible;
-
             transform: scale(1);
-
         }
-
         
-
         .burger-menu-panel a {
-
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
             padding: 12px 20px;
-
             color: #ffffffdd;
-
             text-decoration: none;
-
             font-weight: 600;
-
             letter-spacing: 0.08em;
-
             font-size: 0.9rem;
-
             border-radius: 40px;
-
             transition: all 0.2s;
-
             white-space: nowrap;
-
         }
-
         
-
         .burger-menu-panel a i {
-
             width: 24px;
-
             font-size: 1.1rem;
-
         }
-
         
-
         .burger-menu-panel a:hover {
-
             background: rgba(255,255,255,0.15);
-
             color: white;
-
             transform: translateX(4px);
-
         }
-
         
-
         .burger-menu-panel a:active {
-
             transform: scale(0.97);
-
         }
-
         
-
         @media (max-width: 480px) {
-
             .burger-float {
-
                 top: 18px;
-
                 right: 18px;
-
                 bottom: auto;
-
             }
-
             .burger-button {
-
                 width: 50px;
-
                 height: 50px;
-
             }
-
             .burger-button i {
-
                 font-size: 1.5rem;
-
             }
-
             .burger-menu-panel {
-
                 min-width: 180px;
-
                 top: 82px;
-
                 right: 18px;
-
                 bottom: auto;
-
                 transform-origin: top right;
-
             }
-
             .burger-menu-panel a {
-
                 padding: 10px 16px;
-
                 font-size: 0.8rem;
-
             }
-
         }
-
-
 
         /* ===== ARTISTAS GRID: EXACTAMENTE 4 COLUMNAS EN PC ===== */
-
         .artists-grid {
-
             display: grid;
-
             grid-template-columns: repeat(4, 1fr);
-
             gap: 1.5rem;
-
             margin: 2rem auto;
-
             max-width: 100%;
-
         }
-
-
 
         /* Tablets: 2 columnas */
-
         @media (max-width: 992px) and (min-width: 601px) {
-
             .artists-grid {
-
                 grid-template-columns: repeat(2, 1fr);
-
                 gap: 1.5rem;
-
             }
-
         }
-
-
 
         /* Móviles: 1 columna */
-
         @media (max-width: 600px) {
-
             .artists-grid {
-
                 grid-template-columns: 1fr;
-
                 gap: 1.5rem;
-
             }
-
         }
-
-
 
         .artist-card {
-
             background: linear-gradient(145deg, #111, #0a0a0a);
-
             border: 1px solid #ffffff20;
-
             overflow: hidden;
-
             transition: all 0.3s ease;
-
             text-decoration: none;
-
             color: white;
-
             display: flex;
-
             flex-direction: column;
-
-            height: 100%;
-
+            height: auto; /* Evita heredar alturas estáticas */
             cursor: pointer;
-
             box-shadow: 0 30px 50px -20px rgba(255,255,255,0.1);
-
+            margin-bottom: 0.5rem; /* Margen individual controlado */
         }
-
-
 
         .artist-card:active {
-
             transform: scale(0.98);
-
         }
-
-
 
         .artist-card:hover {
-
             transform: translateY(-8px);
-
             border-color: #ffffff60;
-
             box-shadow: 0 40px 60px -20px rgba(255,255,255,0.2);
-
         }
-
-
 
         .artist-image {
-
             width: 100%;
-
             aspect-ratio: 1/1;
-
             background: #1a1a1a;
-
             position: relative;
-
             overflow: hidden;
-
         }
-
-
 
         .artist-image img {
-
             width: 100%;
-
             height: 100%;
-
             object-fit: cover;
-
             display: block;
-
             transition: transform 0.4s ease;
-
         }
-
-
 
         .artist-card:hover .artist-image img {
-
             transform: scale(1.05);
-
         }
-
-
 
         .artist-image .placeholder-icon {
-
             position: absolute;
-
             top: 50%;
-
             left: 50%;
-
             transform: translate(-50%, -50%);
-
             font-size: 4rem;
-
             color: #ffffff20;
-
             pointer-events: none;
-
         }
-
-
 
         .artist-overlay {
-
             position: absolute;
-
             top: 0;
-
             left: 0;
-
             right: 0;
-
             bottom: 0;
-
             background: rgba(0,0,0,0.7);
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             opacity: 0;
-
             transition: opacity 0.3s ease;
-
             gap: 1rem;
-
             z-index: 2;
-
         }
-
-
 
         .artist-card:hover .artist-overlay {
-
             opacity: 1;
-
         }
-
-
 
         .artist-overlay a {
-
             color: white;
-
             font-size: 1.8rem;
-
             transition: transform 0.2s ease;
-
             text-decoration: none;
-
         }
-
-
 
         .artist-overlay a:hover {
-
             transform: scale(1.2);
-
         }
-
-
 
         .artist-overlay .fa-spotify:hover {
-
             color: #1DB954;
-
         }
-
-
 
         .artist-overlay .fa-youtube:hover {
-
             color: #ff0000;
-
         }
-
-
 
         .artist-overlay .fa-instagram:hover {
-
             color: #e4405f;
-
         }
 
-
-
         .artist-info {
-
-            padding: 1rem;
+            padding: 0.8rem 1rem 0.3rem 1rem; /* Reducidos paddings internos */
             text-align: center;
-            flex: 1;
+            flex: 0; /* Evita que el contenedor negro se estire hacia abajo */
             display: flex;
             flex-direction: column;
             pointer-events: none;
-            gap: 2px;
-
+            gap: 1px; /* Espacio mínimo entre nombre y rol */
         }
 
-
-
         .artist-info h3 {
-
             font-size: 1.2rem;
             margin-bottom: 0rem;
             letter-spacing: -0.3px;
-            line-height: 1.1;
-
+            line-height: 1.1; /* Texto más junto verticalmente */
         }
 
-
-
         .artist-info p {
-
             color: #ffffff60;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-top: 0;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem; /* Separación sutil antes de los tags */
             line-height: 1.2;
-
         }
 
-
-
         .artist-tags {
-
-            margin-top: 0.2rem;
             display: flex;
             gap: 0.3rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: auto;
-
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
         }
-
-
 
         .artist-tags span {
-
             background: #ffffff10;
-
             color: #ffffff80;
-
             font-size: 0.7rem;
-
             padding: 0.2rem 0.5rem;
-
             border-radius: 20px;
-
             font-weight: 400;
-
         }
-
-
 
         /* ===== BOTÓN VER MÁS ===== */
-
         .btn-ver-mas {
-
-            margin: 0.8rem auto 0 auto;
-
+            margin: 0.4rem auto 0.8rem auto; /* Ajuste para mantenerlo pegado arriba */
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             gap: 0.5rem;
-
             background: transparent;
-
             border: 1px solid #ffffff30;
-
             color: #ffffff90;
-
             text-decoration: none;
-
             font-size: 0.7rem;
-
             font-weight: 600;
-
             text-transform: uppercase;
-
             letter-spacing: 0.1em;
-
             padding: 0.5rem 1rem;
-
-            margin-top: 0.8rem;
-
             border-radius: 30px;
-
             transition: all 0.3s ease;
-
             cursor: pointer;
-
             width: fit-content;
-
             pointer-events: auto;
-
         }
-
-
 
         .btn-ver-mas:hover {
-
             border-color: #ffffff;
-
             color: white;
-
             gap: 0.8rem;
-
             background: rgba(255,255,255,0.05);
-
         }
-
-
 
         .btn-ver-mas:active {
-
             transform: scale(0.96);
-
         }
-
-
 
         .btn-ver-mas i {
-
             font-size: 0.7rem;
-
             transition: transform 0.2s ease;
-
         }
-
-
 
         .btn-ver-mas:hover i {
-
             transform: translateX(3px);
-
         }
-
-
 
         /* ===== BOTONES PRINCIPALES ===== */
-
         .btn {
-
             background: transparent;
-
             padding: 0.9rem 1.8rem;
-
             border: 2px solid #fff;
-
             text-decoration: none;
-
             color: #fff;
-
             font-weight: 700;
-
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
-
             gap: 0.8rem;
-
             transition: all 0.2s ease;
-
             text-transform: uppercase;
-
             letter-spacing: 0.2em;
-
             font-size: 0.85rem;
-
             cursor: pointer;
-
         }
-
-
 
         .btn:active {
-
             transform: scale(0.96);
-
             background: white;
-
             color: black;
-
         }
-
-
 
         .nav-links {
-
             display: flex;
-
             justify-content: center;
-
             gap: 1rem;
-
             margin: 3rem 0 2rem;
-
         }
-
-
 
         @media (max-width: 768px) {
-
             .nav-links {
-
                 margin: 2rem 0 1rem;
-
             }
-
             .btn {
-
                 padding: 0.7rem 1.5rem;
-
                 font-size: 0.75rem;
-
             }
-
         }
-
-
 
         /* ===== FOOTER ===== */
-
         footer {
-
             text-align: center;
-
             margin-top: 4rem;
-
             padding: 2rem 0 1rem;
-
             border-top: 1px solid #ffffff20;
-
             color: #ffffff40;
-
             font-size: 0.8rem;
-
         }
-
-
 
         @media (min-width: 768px) {
-
             footer {
-
                 margin-top: 5rem;
-
             }
-
         }
-
-
 
         footer i {
-
             color: #ffffff60;
-
             margin: 0 0.5rem;
-
         }
-
-
 
         .footer-tagline {
-
             font-size: 0.7rem;
-
             color: #ffffff40;
-
             margin-top: 0.5rem;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             gap: 0.5rem;
-
             flex-wrap: wrap;
-
             text-transform: uppercase;
-
             letter-spacing: 0.1em;
-
         }
-
     
-
-/* ===== MARGENES DE TARJETAS (igual a eventos.html) ===== */
+        /* ===== MARGENES DE TARJETAS (igual a eventos.html) ===== */
         .eventos-grid,
         .noticias-grid,
         .artists-grid,
@@ -1293,13 +734,13 @@
 
         /* ===== EXCEPCIÓN PARA PEGAR LAS TARJETAS DE ARTISTAS ===== */
         .artists-grid {
-            gap: 0.0rem !important; /* <--- Reduce el espacio enre tarjetas*/
+            gap: 0.0rem !important; 
         }
 
+        /* Se removió .artist-card de este grupo para romper el margin-bottom global */
         .card,
         .evento-card,
         .noticia-card,
-        .artist-card,
         .redes-card,
         .youtube-card {
             margin-bottom: 2rem;
