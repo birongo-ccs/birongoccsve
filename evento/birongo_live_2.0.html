@@ -725,7 +725,7 @@
                 font-size: 0.8rem;
             }
         }
-</style>
+    </style>
 </head>
 <body>
     <div class="container">
@@ -747,43 +747,69 @@
             </div>
         </div>
 
-<!-- ===== EVENTO (PASADO) ===== -->
-<div class="evento-unico">
-    <div class="evento-card">
-        <div class="evento-imagen" style="background: #000; display: flex; align-items: center; justify-content: center; position: relative;">
-            <a href="videos/after_move_birongo_live_2.0.mp4.webm" target="_blank" class="video-thumbnail-link" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 2;">
-                <div class="play-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3;">
-                    <i class="fas fa-play" style="font-size: 48px; color: white; background: rgba(0,0,0,0.7); border-radius: 50%; padding: 15px 20px;"></i>
+        <!-- ===== EVENTO (PASADO) ===== -->
+        <div class="evento-unico">
+            <div class="evento-card">
+                <div class="evento-imagen" style="background: #000; position: relative; cursor: pointer;" id="videoContainer">
+                    <video id="miVideo" style="width: 100%; height: 100%; object-fit: cover; display: block;" autoplay muted loop playsinline>
+                        <source src="../videos/after_move_birongo_live_2.0.mp4.webm" type="video/webm">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                    <!-- Indicador visual de que se puede hacer clic para activar sonido -->
+                    <div class="sound-indicator" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-family: sans-serif; pointer-events: none; z-index: 5;">
+                        🔇 Haz clic para activar sonido
+                    </div>
                 </div>
-            </a>
-            <video style="width: 100%; height: 100%; object-fit: cover;" autoplay muted loop playsinline>
-                <source src="../videos/after_move_birongo_live_2.0.mp4.webm" type="video/webm">
-                Tu navegador no soporta el elemento de video.
-            </video>
-        </div>
-        <div class="evento-contenido">
-            <div class="evento-titulo">
-                <h3>BIRONGO LIVE 2.0</h3>
-                <span class="evento-fecha"><i class="far fa-calendar"></i> 18 ABR 2026</span>
-            </div>
-            <div class="evento-lugar">
-                <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
-            </div>
-            <p class="evento-descripcion">
-                La premisa detrás de Birongo es simple: dos mentes creativas uniéndose para impulsar 
-                y celebrar el impacto de la música electrónica en la escena nocturna de Venezuela.
-            </p>
-            <div class="evento-artistas">
-                <span class="evento-artista-tag">EXTINTOR BASS</span>
-                <span class="evento-artista-tag">HADDE</span>
-                <span class="evento-artista-tag">KURGANS</span>
-                <span class="evento-artista-tag">MORET</span>
-                <span class="evento-artista-tag">HERESICKA</span>
-                <span class="evento-artista-tag">OKUBO</span>
+                <div class="evento-contenido">
+                    <div class="evento-titulo">
+                        <h3>BIRONGO LIVE 2.0</h3>
+                        <span class="evento-fecha"><i class="far fa-calendar"></i> 18 ABR 2026</span>
+                    </div>
+                    <div class="evento-lugar">
+                        <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
+                    </div>
+                    <p class="evento-descripcion">
+                        La premisa detrás de Birongo es simple: dos mentes creativas uniéndose para impulsar 
+                        y celebrar el impacto de la música electrónica en la escena nocturna de Venezuela.
+                    </p>
+                    <div class="evento-artistas">
+                        <span class="evento-artista-tag">EXTINTOR BASS</span>
+                        <span class="evento-artista-tag">HADDE</span>
+                        <span class="evento-artista-tag">KURGANS</span>
+                        <span class="evento-artista-tag">MORET</span>
+                        <span class="evento-artista-tag">HERESICKA</span>
+                        <span class="evento-artista-tag">OKUBO</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+
+        <script>
+            // Script para activar el sonido al hacer clic en el video
+            (function() {
+                const video = document.getElementById('miVideo');
+                const container = document.getElementById('videoContainer');
+                
+                if (video && container) {
+                    container.addEventListener('click', function() {
+                        if (video.muted) {
+                            video.muted = false;
+                            video.volume = 0.5; // Volumen al 50%
+                            
+                            // Ocultar el indicador de sonido
+                            const indicador = document.querySelector('.sound-indicator');
+                            if (indicador) {
+                                indicador.style.opacity = '0';
+                                indicador.style.transition = 'opacity 0.5s ease';
+                                setTimeout(() => {
+                                    indicador.style.display = 'none';
+                                }, 500);
+                            }
+                        }
+                    });
+                }
+            })();
+        </script>
 
         <!-- ===== GALERÍA DE FOTOS ===== -->
         <h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
@@ -803,264 +829,59 @@
                          loading="lazy"
                          onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'">
                 </div>
-                            <div class="galeria-row">
+            </div>
+            
+            <div class="galeria-row">
                 <div class="galeria-item-original mitad">
                     <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_03.jpg" 
                          alt="Birongo Live - Momento 3" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+1'">
+                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+3'">
                 </div>
                 <div class="galeria-item-original mitad">
                     <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_04.jpg" 
                          alt="Birongo Live - Momento 4" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'">
+                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+4'">
                 </div>
-                 <div class="galeria-item-original mitad">
+            </div>
+            
+            <div class="galeria-row">
+                <div class="galeria-item-original mitad">
                     <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_05.jpg" 
                          alt="Birongo Live - Momento 5" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+1'">
+                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+5'">
                 </div>
                 <div class="galeria-item-original mitad">
                     <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_06.jpg" 
                          alt="Birongo Live - Momento 6" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'">
+                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+6'">
                 </div>
+            </div>
+            
+            <div class="galeria-row">
                 <div class="galeria-item-original mitad">
                     <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_07.jpg" 
                          alt="Birongo Live - Momento 7" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'">
+                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+7'">
                 </div>
                 <div class="galeria-item-original mitad">
                     <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_08.jpg" 
                          alt="Birongo Live - Momento 8" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'">
+                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+8'">
                 </div>
+            </div>
+            
+            <div class="galeria-row">
                 <div class="galeria-item-original mitad">
                     <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_09.jpg" 
                          alt="Birongo Live - Momento 9" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'">
+                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+9'">
                 </div>
                 <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_10.jpg" 
-                         alt="Birongo Live - Momento 10" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+10'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_11.jpg" 
-                         alt="Birongo Live - Momento 11" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+11'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_12.jpg" 
-                         alt="Birongo Live - Momento 12" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+12'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_13.jpg" 
-                         alt="Birongo Live - Momento 13" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+13'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_14.jpg" 
-                         alt="Birongo Live - Momento 14" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+14'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_15.jpg" 
-                         alt="Birongo Live - Momento 15" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+15'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_16.jpg" 
-                         alt="Birongo Live - Momento 16" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+16'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_17.jpg" 
-                         alt="Birongo Live - Momento 17" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+17'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_18.jpg" 
-                         alt="Birongo Live - Momento 18" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+18'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_19.jpg" 
-                         alt="Birongo Live - Momento 19" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+19'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_20.jpg" 
-                         alt="Birongo Live - Momento 20" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+20'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_21.jpg" 
-                         alt="Birongo Live - Momento 21" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+21'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_22.jpg" 
-                         alt="Birongo Live - Momento 22" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+22'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_23.jpg" 
-                         alt="Birongo Live - Momento 23" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+23'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_25.jpg" 
-                         alt="Birongo Live - Momento 25" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+25'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_26.jpg" 
-                         alt="Birongo Live - Momento 26" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+26'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_27.jpg" 
-                         alt="Birongo Live - Momento 27" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+27'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_28.jpg" 
-                         alt="Birongo Live - Momento 28" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+28'">
-                </div>
-                <div class="galeria-item-original mitad">
-                    <img src="../evento/img/Birongo_Live-2_0_Caracas_Venezuela_29.jpg" 
-                         alt="Birongo Live - Momento 29" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+29'">
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
-        <div class="nav-links">
-            <a href="../eventos.html" class="btn-tactile">
-                <i class="fas fa-arrow-left"></i> VOLVER
-            </a>
-            <a href="https://www.instagram.com/birongoccs/" target="_blank" rel="noopener noreferrer" class="btn-tactile">
-                <i class="fab fa-instagram"></i> MÁS EN INSTAGRAM
-            </a>
-        </div>
-
-        <!-- ===== FOOTER ===== -->
-        <footer>
-            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
-            <div class="footer-tagline">
-                <i class="fas fa-headphones-alt"></i>
-                <span>DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA</span>
-                <i class="fas fa-sliders-h"></i>
-            </div>
-        </footer>
-    </div>
-
-    <!-- ===== JAVASCRIPT OPTIMIZADO ===== -->
-    <script>
-        (function() {
-            'use strict';
-            
-            // Añadir noopener a enlaces externos que no lo tengan
-            document.querySelectorAll('a[href^="http"]').forEach(link => {
-                if (!link.href.includes(window.location.hostname) && !link.getAttribute('rel')) {
-                    link.setAttribute('rel', 'noopener noreferrer');
-                }
-            });
-        })();
-    </script>
-
-    <!-- FLOATING BURGER MENU (aparece al hacer scroll) -->
-    <div class="burger-float" id="burgerFloat">
-        <div class="burger-button" id="burgerBtn" aria-label="Abrir menú">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="burger-menu-panel" id="burgerPanel">
-            <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
-            <a href="djs-productores.html"><i class="fas fa-users"></i> DJs & PROD</a>
-            <a href="diario.html"><i class="fas fa-newspaper"></i> DIARIO</a>
-            <a href="eventos.html"><i class="fas fa-calendar-alt"></i> EVENTOS</a>
-            <a href="entradas.html"><i class="fas fa-ticket-alt"></i> ENTRADAS</a>
-            <a href="contacto.html"><i class="fas fa-envelope"></i> CONTACTO</a>
-        </div>
-    </div>
-
-
-    <script>
-        (function() {
-            'use strict';
-            const burgerFloat = document.getElementById('burgerFloat');
-            const burgerBtn = document.getElementById('burgerBtn');
-            const burgerPanel = document.getElementById('burgerPanel');
-            let scrollTimeout;
-
-            function handleScrollVisibility() {
-                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                if (currentScroll > 80) {
-                    burgerFloat.classList.add('active');
-                } else {
-                    burgerFloat.classList.remove('active');
-                    if (burgerPanel) {
-                        burgerPanel.classList.remove('open');
-                    }
-                }
-            }
-
-            window.addEventListener('scroll', () => {
-                handleScrollVisibility();
-                if (scrollTimeout) clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {}, 50);
-            });
-            handleScrollVisibility();
-
-            if (burgerBtn) {
-                burgerBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    burgerPanel.classList.toggle('open');
-                });
-            }
-
-            document.addEventListener('click', (e) => {
-                if (burgerPanel && burgerFloat && !burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) {
-                    burgerPanel.classList.remove('open');
-                }
-            });
-
-            document.querySelectorAll('a[href^="http"]').forEach(link => {
-                if (!link.href.includes(window.location.hostname) && !link.getAttribute('rel')) {
-                    link.setAttribute('rel', 'noopener noreferrer');
-                }
-            });
-        })();
-    </script>
-
-</body>
-</html>
+                    <img src="../evento
