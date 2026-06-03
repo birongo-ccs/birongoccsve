@@ -750,15 +750,19 @@
         <!-- ===== EVENTO (PASADO) ===== -->
         <div class="evento-unico">
             <div class="evento-card">
-                <div class="evento-imagen" style="background: #000; position: relative; cursor: pointer;" id="videoContainer">
-                    <video id="miVideo" style="width: 100%; height: 100%; object-fit: cover; display: block;" autoplay muted loop playsinline>
-                        <source src="videos/after_move_birongo_live_2.0.mp4.webm" type="video/webm">
-                        Tu navegador no soporta el elemento de video.
-                    </video>
-                    <!-- Indicador visual de que se puede hacer clic para activar sonido -->
-                    <div class="sound-indicator" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-family: sans-serif; pointer-events: none; z-index: 5;">
-                        🔇 Haz clic para activar sonido
-                    </div>
+                <div class="evento-imagen" style="background: #000; position: relative;">
+                    <a href="https://www.youtube.com/watch?v=u0z0ZynM4M8" target="_blank" class="video-thumbnail-link" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 2;">
+                        <div class="video-thumbnail" style="width: 100%; height: 100%; position: relative;">
+                            <img src="videos/after_move_birongo_live_2.0.mp4.webm" 
+                                 alt="Birongo Live 2.0 @ La Quinta Bar"
+                                 style="width: 100%; height: 100%; object-fit: cover;"
+                                 loading="lazy"
+                                 onerror="this.src='https://img.youtube.com/vi/u0z0ZynM4M8/hqdefault.jpg'">
+                            <div class="play-overlay">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="evento-contenido">
                     <div class="evento-titulo">
@@ -783,33 +787,6 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            // Script para activar el sonido al hacer clic en el video
-            (function() {
-                const video = document.getElementById('miVideo');
-                const container = document.getElementById('videoContainer');
-                
-                if (video && container) {
-                    container.addEventListener('click', function() {
-                        if (video.muted) {
-                            video.muted = false;
-                            video.volume = 0.5; // Volumen al 50%
-                            
-                            // Ocultar el indicador de sonido
-                            const indicador = document.querySelector('.sound-indicator');
-                            if (indicador) {
-                                indicador.style.opacity = '0';
-                                indicador.style.transition = 'opacity 0.5s ease';
-                                setTimeout(() => {
-                                    indicador.style.display = 'none';
-                                }, 500);
-                            }
-                        }
-                    });
-                }
-            })();
-        </script>
 
         <!-- ===== GALERÍA DE FOTOS ===== -->
         <h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
