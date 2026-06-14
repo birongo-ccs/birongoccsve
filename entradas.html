@@ -7,8 +7,8 @@
     <title>Eventos - Birongo</title>
 
     <!-- ===== SEO ===== -->
-    <meta name="description" content="Gracias por asistir a Birongo Live 2.0. Próximos eventos muy pronto. Síguenos en Instagram @birongoccs.">
-    <meta name="keywords" content="Birongo Live, evento concluido, música electrónica Caracas, próximos eventos, Extintor Bass, Haddes, Kurgans, Moret, Heresicka, Okubo">
+    <meta name="description" content="Próximo evento Birongo Live 2.5. Entradas disponibles muy pronto. Síguenos en Instagram @birongoccs para anuncios y preventa.">
+    <meta name="keywords" content="Birongo Live, próximo evento, entradas pronto, música electrónica Caracas, Extintor Bass, Haddes, Kurgans, Moret, Heresicka, Okubo">
     <meta name="author" content="Birongo Crew">
     <meta name="robots" content="index, follow">
     
@@ -16,8 +16,8 @@
     <link rel="canonical" href="https://www.birongo.live/entradas.html">
     
     <!-- ===== OPEN GRAPH ===== -->
-    <meta property="og:title" content="Birongo Live 2.0 · Gracias por asistir">
-    <meta property="og:description" content="Evento concluido. Próxima fecha próximamente. Mantente informado vía Instagram @birongoccs.">
+    <meta property="og:title" content="Birongo Live 2.5 · Próximamente · Entradas muy pronto">
+    <meta property="og:description" content="Prepárate para la nueva edición. Mantente informado vía Instagram @birongoccs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.birongo.live/entradas.html">
     <meta property="og:image" content="https://www.birongo.live/img/Logo-birongo-og.jpg">
@@ -25,8 +25,8 @@
     
     <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Birongo Live 2.0 · Gracias por asistir">
-    <meta name="twitter:description" content="Evento concluido. Próxima fecha próximamente.">
+    <meta name="twitter:title" content="Birongo Live 2.5 · Próximamente">
+    <meta name="twitter:description" content="Entradas muy pronto. No te lo pierdas.">
     <meta name="twitter:image" content="https://www.birongo.live/img/Logo-birongo-og.jpg">
     
     <!-- ===== PRELOAD ===== -->
@@ -332,7 +332,7 @@
             }
         }
 
-        /* ===== SECCIÓN POST-EVENTO (estilo consistente con eventos.html) ===== */
+        /* ===== SECCIÓN PRÓXIMO EVENTO (estilo consistente, ahora con mensaje de entradas muy pronto) ===== */
         .post-event {
             max-width: 800px;
             margin: 2rem auto;
@@ -381,8 +381,13 @@
             font-weight: 500;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.6);
             margin-bottom: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
         }
 
         .event-title {
@@ -409,9 +414,26 @@
             line-height: 1.5;
         }
 
+        .coming-soon-highlight {
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid white;
+            padding: 1rem 1.2rem;
+            margin: 1.8rem auto;
+            max-width: 450px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #f0f0f0;
+        }
+
         @media (max-width: 768px) {
             .thankyou-text {
                 font-size: 0.9rem;
+            }
+            .coming-soon-highlight {
+                font-size: 0.85rem;
+                padding: 0.8rem 1rem;
+                margin: 1.5rem auto;
             }
         }
 
@@ -586,7 +608,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;">Birongo Live 2.0 · Evento concluido · Próximos eventos Caracas</h1>
+        <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;">Birongo Live 2.5 · Próximo evento Caracas · Entradas muy pronto</h1>
 
         <!-- HEADER -->
         <div class="hero">
@@ -601,40 +623,34 @@
             </div>
         </div>
 
-        <!-- SECCIÓN POST-EVENTO: AGRADECIMIENTO FORMAL + TAGS + DJS -->
+        <!-- SECCIÓN PRÓXIMO EVENTO: ENTRADAS MUY PRONTO (reemplaza agradecimiento) -->
         <div class="post-event">
             <div class="event-flyer-mini">
-                <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0" loading="lazy">
+                <!-- mismo flyer temporal pero el mensaje es de próximo evento -->
+                <img src="img/WhatsApp Image 2026-06-12 at 11.10.23 AM.jpeg" alt="Birongo Live ✪✪✪ - Próxima edición" loading="lazy">
             </div>
-            <div class="event-status">EVENTO CONCLUIDO</div>
-            <div class="event-title">BIRONGO LIVE 2.0</div>
-            <p class="thankyou-text">Agradecemos su asistencia y participación.</p>
-            <p class="thankyou-text">Una vez más, la escena electrónica de Caracas se hizo presente.</p>
+            <div class="event-status">PRÓXIMO EVENTO</div>
+            <div class="event-title">BIRONGO LIVE ✪✪✪</div>
+            <p class="thankyou-text">Estamos afinando los detalles para la siguiente edición.</p>
+            <p class="thankyou-text">La fecha y lineup completo se anunciarán en breve.</p>
             
-            <!-- TAGS DE GÉNEROS MUSICALES -->
-            <div class="genre-tags">
-                <span class="genre-tag">UK Bass</span>
-                <span class="genre-tag">Bass House</span>
-                <span class="genre-tag">Techno</span>
-                <span class="genre-tag">Schranz</span>
-                <span class="genre-tag">Drum & Bass</span>
-                <span class="genre-tag">Hard Raptor</span>
+            <!-- Bloque destacado: entradas muy pronto -->
+            <div class="coming-soon-highlight">
+                <i class="fas fa-ticket-alt" style="margin-right: 8px;"></i> 
+                 ENTRADAS DISPONIBLES MUY PRONTO
+                <div style="font-size: 0.75rem; margin-top: 6px; letter-spacing: 0.5px; color: #aaa;">Mantente atento a nuestras redes y recibe la alerta de preventa</div>
             </div>
             
-            <!-- LISTA DE DJS -->
+            
+            <!-- LISTA DE DJS (por ahora mismos referentes, se irá actualizando después) -->
             <div class="djs-list">
-                <div class="djs-label">LINEUP</div>
+                <div class="djs-label">LINEUP PRÓXIMAMENTE</div>
                 <div class="dj-names">
-                    <span>Extintor Bass</span>
-                    <span>Haddes</span>
-                    <span>Kurgans</span>
-                    <span>Moret</span>
-                    <span>Heresicka</span>
-                    <span>Okubo</span>
                 </div>
+                <p style="font-size: 0.7rem; margin-top: 0.6rem; color: rgba(255,255,255,0.4);">+ invitados sorpresa</p>
             </div>
             
-            <div class="next-info">PRÓXIMOS EVENTOS — MUY PRONTO</div>
+            <div class="next-info">FECHA: 01/08 — LUGAR: PRÓXIMAMENTE</div>
             <a href="https://www.instagram.com/birongoccs/" class="insta-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-instagram"></i> @BIRONGOCCS
             </a>
