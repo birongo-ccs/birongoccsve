@@ -1,1 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Postulación - Birongo Live 3.0</title>
 
+    <!-- ===== SEO BÁSICO ===== -->
+    <meta name="description" content="Postula a Birongo Live 3.0. Únete al colectivo de música electrónica más importante de Caracas. DJs, productores y talento electrónico venezolano.">
+    <meta name="keywords" content="Birongo, postulación, DJ, productor, música electrónica Caracas, Birongo Live 3.0">
+    <meta name="author" content="Birongo Crew">
+    <meta name="robots" content="index, follow">
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:title" content="Postulación · Birongo Live 3.0">
+    <meta property="og:description" content="Forma parte del colectivo de música electrónica en Caracas. Envía tu postulación.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.birongo.live/postulacion.html">
+    <meta property="og:image" content="https://www.birongo.live/img/Logo birongo.jpg">
+    <meta property="og:locale" content="es_VE">
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Postulación · Birongo Live 3.0">
+    <meta name="twitter:description" content="Forma parte del colectivo de música electrónica en Caracas.">
+    <meta name="twitter:image" content="https://www.birongo.live/img/Logo birongo.jpg">
+
+    <!-- ===== PRELOAD ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://formspree.io">
+
+    <!-- ===== FONTS & ICONS ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
+
+    <!-- Cronitor RUM -->
+    <script>
+        window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+        cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
+    </script>
+    <script async src="https://rum.cronitor.io/script.js" defer></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* HEADER */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 4rem;
+                padding: 3rem 0;
+            }
+        }
+
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        /* MENÚ DE NAVEGACIÓN */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0 2rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item {
+            color: #ffffff80;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: white;
+        }
+
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+                padding: 0.3rem 0;
+                margin: 0.5rem 0 1.5rem;
+            }
+            .nav-item {
+                font-size: 0.85rem;
+                letter-spacing: 0.12em;
+                padding: 0.4rem 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-menu {
+                gap: 0.7rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-item {
+                font-size: 0.75rem;
+                letter-spacing: 0.08em;
+                padding: 0.3rem 0.2rem;
+                white-space: normal;
+                text-align: center;
+                min-width: 65px;
+            }
+        }
+
+        /* FORMULARIO POSTULACIÓN */
+        .postulacion-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .postulacion-card {
+            background: linear-gradient(145deg, #111, #0a0a0a);
+            border: 1px solid #ffffff20;
+            padding: 2rem;
+            border-radius: 0;
+            transition: all 0.4s ease;
+        }
+
+        @media (min-width: 768px) {
+            .postulacion-card {
+                padding: 3rem;
+            }
+        }
+
+        .postulacion-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .postulacion-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .postulacion-header .subtitle {
+            color: #ffffff80;
+            font-size: 0.9rem;
+        }
+
+        .postulacion-header i {
+            font-size: 2.5rem;
+            color: #ffffff40;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            color: #ffffffcc;
+        }
+
+        .form-group label i {
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .required {
+            color: #ff4444;
+            margin-left: 0.2rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: #1a1a1a;
+            border: 1px solid #ffffff30;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: white;
+            background: #222;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #ffffff50;
+            font-size: 0.9rem;
+        }
+
+        .generos-hint {
+            display: block;
+            font-size: 0.75rem;
+            color: #ffffff60;
+            margin-top: 0.4rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.97);
+            background: white;
+            color: black;
+        }
+
+        .btn-submit i {
+            margin-right: 0.5rem;
+        }
+
+        .mensaje-info {
+            background: #1a1a1a;
+            border-left: 4px solid white;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: #ffffff90;
+        }
+
+        .mensaje-info i {
+            color: white;
+            margin-right: 0.5rem;
+        }
+
+        /* ALERTAS */
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .alert-success {
+            background: #00a86b20;
+            border: 1px solid #00a86b;
+            color: #00ff9d;
+        }
+
+        .alert-error {
+            background: #ff444420;
+            border: 1px solid #ff4444;
+            color: #ff8888;
+        }
+
+        .alert-loading {
+            background: #ffffff10;
+            border: 1px solid #ffffff60;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.7rem;
+            color: #ffffff40;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* BURGER MENU */
+        .burger-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
+            transition: opacity 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.3s, transform 0.2s ease;
+        }
+        
+        .burger-float.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-button {
+            width: 56px;
+            height: 56px;
+            background: #0a0a0a;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+            background-color: rgba(0,0,0,0.85);
+        }
+        
+        .burger-button i {
+            font-size: 1.8rem;
+            color: white;
+            transition: transform 0.2s;
+        }
+        
+        .burger-button:active {
+            transform: scale(0.94);
+            background: white;
+        }
+        
+        .burger-button:active i {
+            color: black;
+        }
+        
+        .burger-menu-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 1rem 0.8rem;
+            min-width: 200px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8);
+            transform: scale(0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            transform-origin: bottom right;
+            z-index: 999;
+        }
+        
+        .burger-menu-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        
+        .burger-menu-panel a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: #ffffffdd;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .burger-menu-panel a i {
+            width: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .burger-menu-panel a:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        @media (max-width: 480px) {
+            .burger-float {
+                top: 18px;
+                right: 18px;
+                bottom: auto;
+            }
+            .burger-button {
+                width: 50px;
+                height: 50px;
+            }
+            .burger-button i {
+                font-size: 1.5rem;
+            }
+            .burger-menu-panel {
+                min-width: 180px;
+                top: 82px;
+                right: 18px;
+                bottom: auto;
+                transform-origin: top right;
+            }
+            .burger-menu-panel a {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="hero">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager" width="800" height="300">
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">INICIO</a>
+                <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
+                <a href="diario.html" class="nav-item">DIARIO</a>
+                <a href="eventos.html" class="nav-item">EVENTOS</a>
+                <a href="entradas.html" class="nav-item">ENTRADAS</a>
+                <a href="contacto.html" class="nav-item">CONTACTO</a>
+                <a href="postulacion.html" class="nav-item active">POSTULACION</a>
+            </div>
+        </div>
+
+        <!-- FORMULARIO POSTULACIÓN -->
+        <div class="postulacion-section">
+            <div class="postulacion-card">
+                <div class="postulacion-header">
+                    <i class="fas fa-headphones-alt"></i>
+                    <h1>BIRONGO LIVE 3.0</h1>
+                    <div class="subtitle">Forma parte del colectivo · Postula como DJ o Productor</div>
+                </div>
+
+                <div class="mensaje-info">
+                    <i class="fas fa-info-circle"></i> Completa todos los campos. Tu postulación será revisada por nuestro equipo.
+                </div>
+
+                <!-- Alertas -->
+                <div id="alertSuccess" class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> ¡Postulación enviada con éxito! Te contactaremos pronto.
+                </div>
+                <div id="alertError" class="alert alert-error">
+                    <i class="fas fa-exclamation-triangle"></i> Error al enviar. Por favor intenta nuevamente.
+                </div>
+                <div id="alertLoading" class="alert alert-loading">
+                    <i class="fas fa-spinner fa-pulse"></i> Enviando postulación...
+                </div>
+
+                <!-- Formulario con Formspree -->
+                <!-- IMPORTANTE: Reemplazar 'tu-id-aqui' con tu ID real de Formspree -->
+                <!-- Pasos: 1. Ve a https://formspree.io/ 2. Crea cuenta 3. Crea un nuevo formulario 4. Copia tu ID y pégalo abajo -->
+                <form id="postulacionForm" action="https://formspree.io/f/mjgdpvlk" method="POST">
+                    <!-- Nombre Artístico -->
+                    <div class="form-group">
+                        <label><i class="fas fa-star"></i> NOMBRE ARTÍSTICO <span class="required">*</span></label>
+                        <input type="text" name="nombre_artistico" placeholder="Ej: DJ BIRONGO, PROD VIBE" required>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="form-group">
+                        <label><i class="fab fa-instagram"></i> INSTAGRAM <span class="required">*</span></label>
+                        <input type="url" name="instagram" placeholder="https://instagram.com/tuusuario" required>
+                    </div>
+
+                    <!-- Correo -->
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> CORREO ELECTRÓNICO <span class="required">*</span></label>
+                        <input type="email" name="correo" placeholder="tunombre@ejemplo.com" required>
+                    </div>
+
+                    <!-- Géneros Musicales (electrónicos) -->
+                    <div class="form-group">
+                        <label><i class="fas fa-music"></i> GÉNEROS MUSICALES <span class="required">*</span></label>
+                        <input type="text" name="generos_musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
+                        <span class="generos-hint">Ej: Techno / House / Drum & Bass / Trance / Deep House</span>
+                    </div>
+
+                    <!-- Set de Muestra (Link) -->
+                    <div class="form-group">
+                        <label><i class="fas fa-link"></i> SET DE MUESTRA <span class="required">*</span></label>
+                        <input type="url" name="set_muestra" placeholder="https://soundcloud.com/... o https://youtube.com/... o https://mixcloud.com/..." required>
+                        <span class="generos-hint">Link a tu video-set (YouTube) o audio-set (SoundCloud, Mixcloud, etc.)</span>
+                    </div>
+
+                    <!-- Campo oculto para redirección y subject personalizado -->
+                    <input type="hidden" name="_subject" value="Nueva Postulación Birongo Live 3.0">
+                    <input type="hidden" name="_replyto" value="correo">
+                    
+                    <!-- Para redirigir después del envío (opcional, si quieres mantener en la misma página con JS manejamos mejor) -->
+                    <!-- Usamos AJAX para no recargar y mostrar mensajes bonitos -->
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN
+                    </button>
+                </form>
+
+                <div class="mensaje-info" style="margin-top: 1.5rem;">
+                    <i class="fas fa-shield-alt"></i> Tus datos están seguros. Solo serán usados para procesos de selección de Birongo.
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
+            <div class="footer-tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span>DJs · PRODUCTORES · EVENTOS · MÚSICA ELECTRONICA · CARACAS · VENEZUELA</span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </footer>
+    </div>
+
+    <!-- FLOATING BURGER MENU -->
+    <div class="burger-float" id="burgerFloat">
+        <div class="burger-button" id="burgerBtn"><i class="fas fa-bars"></i></div>
+        <div class="burger-menu-panel" id="burgerPanel">
+            <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
+            <a href="djs-productores.html"><i class="fas fa-users"></i> DJs & PROD</a>
+            <a href="diario.html"><i class="fas fa-newspaper"></i> DIARIO</a>
+            <a href="eventos.html"><i class="fas fa-calendar-alt"></i> EVENTOS</a>
+            <a href="entradas.html"><i class="fas fa-ticket-alt"></i> ENTRADAS</a>
+            <a href="contacto.html"><i class="fas fa-envelope"></i> CONTACTO</a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Burger float scroll
+            const burgerFloat = document.getElementById('burgerFloat');
+            const burgerBtn = document.getElementById('burgerBtn');
+            const burgerPanel = document.getElementById('burgerPanel');
+            
+            function handleScrollVisibility() {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                if (currentScroll > 80) burgerFloat.classList.add('active');
+                else burgerFloat.classList.remove('active');
+            }
+            window.addEventListener('scroll', handleScrollVisibility);
+            handleScrollVisibility();
+
+            burgerBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                burgerPanel.classList.toggle('open');
+            });
+            document.addEventListener('click', (e) => {
+                if (!burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) burgerPanel.classList.remove('open');
+            });
+
+            // ===== MANEJO DEL FORMULARIO CON AJAX (Formspree) =====
+            const form = document.getElementById('postulacionForm');
+            const alertSuccess = document.getElementById('alertSuccess');
+            const alertError = document.getElementById('alertError');
+            const alertLoading = document.getElementById('alertLoading');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Ocultar todas las alertas al inicio
+            alertSuccess.style.display = 'none';
+            alertError.style.display = 'none';
+            alertLoading.style.display = 'none';
+
+            // Si el formulario tiene action correcto (con ID real de formspree)
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Validar campos manualmente (además del required HTML5)
+                const nombreArtistico = form.querySelector('[name="nombre_artistico"]').value.trim();
+                const instagram = form.querySelector('[name="instagram"]').value.trim();
+                const correo = form.querySelector('[name="correo"]').value.trim();
+                const generos = form.querySelector('[name="generos_musicales"]').value.trim();
+                const setMuestra = form.querySelector('[name="set_muestra"]').value.trim();
+                
+                if (!nombreArtistico || !instagram || !correo || !generos || !setMuestra) {
+                    alertError.style.display = 'block';
+                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Por favor completa todos los campos.';
+                    alertSuccess.style.display = 'none';
+                    alertLoading.style.display = 'none';
+                    setTimeout(() => { alertError.style.display = 'none'; }, 3000);
+                    return;
+                }
+                
+                // Validar email básico
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(correo)) {
+                    alertError.style.display = 'block';
+                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ingresa un correo electrónico válido.';
+                    alertSuccess.style.display = 'none';
+                    alertLoading.style.display = 'none';
+                    setTimeout(() => { alertError.style.display = 'none'; }, 3000);
+                    return;
+                }
+                
+                // Validar URLs básicas
+                try {
+                    new URL(instagram);
+                    new URL(setMuestra);
+                } catch(e) {
+                    alertError.style.display = 'block';
+                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ingresa URLs válidas para Instagram y Set de Muestra.';
+                    alertSuccess.style.display = 'none';
+                    alertLoading.style.display = 'none';
+                    setTimeout(() => { alertError.style.display = 'none'; }, 3000);
+                    return;
+                }
+                
+                // Mostrar loading
+                alertLoading.style.display = 'block';
+                alertSuccess.style.display = 'none';
+                alertError.style.display = 'none';
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ENVIANDO...';
+                
+                // Preparar datos para Formspree
+                const formData = new FormData(form);
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Éxito
+                        alertLoading.style.display = 'none';
+                        alertSuccess.style.display = 'block';
+                        form.reset();
+                        setTimeout(() => {
+                            alertSuccess.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        // Error del servidor
+                        throw new Error('Error en el envío');
+                    }
+                } catch (error) {
+                    alertLoading.style.display = 'none';
+                    alertError.style.display = 'block';
+                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error al enviar. Verifica tu conexión o intenta más tarde.';
+                    setTimeout(() => {
+                        alertError.style.display = 'none';
+                    }, 5000);
+                    console.error('Formspree error:', error);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
+                }
+            });
+            
+            // Agregar target blank seguro a enlaces externos
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                if (!link.href.includes(window.location.hostname)) {
+                    link.setAttribute('rel', 'noopener noreferrer');
+                    link.setAttribute('target', '_blank');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
