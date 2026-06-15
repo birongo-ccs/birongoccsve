@@ -90,7 +90,6 @@
             font-weight: 700;
         }
 
-        /* HEADER */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
@@ -124,7 +123,6 @@
             }
         }
 
-        /* MENÚ DE NAVEGACIÓN */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -204,7 +202,6 @@
             }
         }
 
-        /* FORMULARIO POSTULACIÓN */
         .postulacion-section {
             max-width: 800px;
             margin: 2rem auto;
@@ -293,13 +290,7 @@
             background: #222;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
+        .form-group input::placeholder {
             color: #ffffff50;
             font-size: 0.9rem;
         }
@@ -351,7 +342,6 @@
             margin-right: 0.5rem;
         }
 
-        /* POPUP MODAL */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -433,7 +423,6 @@
             transform: scale(0.95);
         }
 
-        /* FOOTER */
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -456,7 +445,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* BURGER MENU */
         .burger-float {
             position: fixed;
             bottom: 24px;
@@ -585,7 +573,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER -->
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager" width="800" height="300">
             
@@ -600,7 +587,6 @@
             </div>
         </div>
 
-        <!-- FORMULARIO POSTULACIÓN -->
         <div class="postulacion-section">
             <div class="postulacion-card">
                 <div class="postulacion-header">
@@ -613,36 +599,32 @@
                     <i class="fas fa-info-circle"></i> Completa todos los campos. Tu postulación será revisada por nuestro equipo.
                 </div>
 
+                <!-- Formulario con Formspree -->
                 <form id="postulacionForm" action="https://formspree.io/f/mjgdpvlk" method="POST">
-                    <!-- Nombre Artístico -->
                     <div class="form-group">
                         <label><i class="fas fa-star"></i> NOMBRE ARTÍSTICO <span class="required">*</span></label>
                         <input type="text" name="Nombre Artístico" placeholder="Ej: DJ BIRONGO, PROD VIBE" required>
                     </div>
 
-                    <!-- Instagram -->
                     <div class="form-group">
                         <label><i class="fab fa-instagram"></i> INSTAGRAM <span class="required">*</span></label>
                         <input type="url" name="Instagram" placeholder="https://instagram.com/tuusuario" required>
                     </div>
 
-                    <!-- Correo -->
                     <div class="form-group">
                         <label><i class="fas fa-envelope"></i> CORREO ELECTRÓNICO <span class="required">*</span></label>
                         <input type="email" name="Correo" placeholder="tunombre@ejemplo.com" required>
                     </div>
 
-                    <!-- Géneros Musicales -->
                     <div class="form-group">
                         <label><i class="fas fa-music"></i> GÉNEROS MUSICALES <span class="required">*</span></label>
                         <input type="text" name="Generos Musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
                         <span class="generos-hint">Ej: Techno / House / Drum & Bass / Trance / Deep House</span>
                     </div>
 
-                    <!-- Set de Muestra -->
                     <div class="form-group">
                         <label><i class="fas fa-link"></i> SET DE MUESTRA <span class="required">*</span></label>
-                        <input type="url" name="Set de Muestra" placeholder="https://soundcloud.com/... o https://youtube.com/... o https://mixcloud.com/..." required>
+                        <input type="url" name="Set de Muestra" placeholder="https://soundcloud.com/... o https://youtube.com/..." required>
                         <span class="generos-hint">Link a tu video-set (YouTube) o audio-set (SoundCloud, Mixcloud, etc.)</span>
                     </div>
 
@@ -660,7 +642,6 @@
             </div>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
             <div class="footer-tagline">
@@ -671,7 +652,6 @@
         </footer>
     </div>
 
-    <!-- POPUP MODAL -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-content">
             <i class="fas fa-check-circle"></i>
@@ -681,7 +661,6 @@
         </div>
     </div>
 
-    <!-- FLOATING BURGER MENU -->
     <div class="burger-float" id="burgerFloat">
         <div class="burger-button" id="burgerBtn"><i class="fas fa-bars"></i></div>
         <div class="burger-menu-panel" id="burgerPanel">
@@ -697,7 +676,6 @@
 
     <script>
         (function() {
-            // Burger float scroll
             const burgerFloat = document.getElementById('burgerFloat');
             const burgerBtn = document.getElementById('burgerBtn');
             const burgerPanel = document.getElementById('burgerPanel');
@@ -718,89 +696,10 @@
                 if (!burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) burgerPanel.classList.remove('open');
             });
 
-            // ===== MANEJO DEL FORMULARIO =====
             const form = document.getElementById('postulacionForm');
             const submitBtn = document.getElementById('submitBtn');
             const popupOverlay = document.getElementById('popupOverlay');
             const closePopup = document.getElementById('closePopup');
-
-            // Función para guardar en GitHub CSV
-            async function saveToGitHubCSV(formData) {
-                const GITHUB_TOKEN = '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';
-                const REPO_OWNER = 'birongo-ccs';
-                const REPO_NAME = 'birongoccsve';
-                const FILE_PATH = 'db/Postulacion.csv';
-                
-                const nombreArtistico = formData.get('Nombre Artístico');
-                const instagram = formData.get('Instagram');
-                const correo = formData.get('Correo');
-                const generos = formData.get('Generos Musicales');
-                const setMuestra = formData.get('Set de Muestra');
-                const fecha = new Date().toISOString();
-                
-                // Escapar caracteres para CSV
-                const escapeCSV = (str) => {
-                    if (!str) return '';
-                    return '"' + String(str).replace(/"/g, '""') + '"';
-                };
-                
-                const newRow = `${escapeCSV(fecha)},${escapeCSV(nombreArtistico)},${escapeCSV(instagram)},${escapeCSV(correo)},${escapeCSV(generos)},${escapeCSV(setMuestra)}\n`;
-                
-                try {
-                    // Obtener archivo actual
-                    const getFileResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
-                        method: 'GET',
-                        headers: {
-                            'Authorization': `token ${GITHUB_TOKEN}`,
-                            'Accept': 'application/vnd.github.v3+json'
-                        }
-                    });
-                    
-                    let currentContent = '';
-                    let sha = '';
-                    
-                    if (getFileResponse.ok) {
-                        const fileData = await getFileResponse.json();
-                        sha = fileData.sha;
-                        currentContent = decodeURIComponent(escape(atob(fileData.content)));
-                    } else if (getFileResponse.status === 404) {
-                        currentContent = '"Fecha","Nombre Artístico","Instagram","Correo","Generos Musicales","Set de Muestra"\n';
-                    } else {
-                        throw new Error(`Error ${getFileResponse.status}`);
-                    }
-                    
-                    const newContent = currentContent + newRow;
-                    const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
-                    
-                    const updateResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `token ${GITHUB_TOKEN}`,
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/vnd.github.v3+json'
-                        },
-                        body: JSON.stringify({
-                            message: `Nueva postulación: ${nombreArtistico}`,
-                            content: encodedContent,
-                            sha: sha || undefined,
-                            committer: {
-                                name: 'Birongo Bot',
-                                email: 'bot@birongo.live'
-                            }
-                        })
-                    });
-                    
-                    if (!updateResponse.ok) {
-                        throw new Error('Error al guardar');
-                    }
-                    
-                    console.log('✅ Guardado en GitHub CSV');
-                    return true;
-                } catch (error) {
-                    console.error('❌ Error en GitHub:', error);
-                    return false;
-                }
-            }
 
             function showPopup() {
                 popupOverlay.classList.add('active');
@@ -815,7 +714,6 @@
                 if (e.target === popupOverlay) hidePopup();
             });
 
-            // Envío del formulario
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
@@ -849,29 +747,27 @@
                 
                 const formData = new FormData(form);
                 
-                // Enviar a Formspree
                 try {
-                    await fetch(form.action, {
+                    const response = await fetch(form.action, {
                         method: 'POST',
                         body: formData,
                         headers: { 'Accept': 'application/json' }
                     });
-                    console.log('✅ Enviado a Formspree');
+                    
+                    if (response.ok) {
+                        showPopup();
+                        form.reset();
+                    } else {
+                        alert('Error al enviar. Por favor intenta nuevamente.');
+                    }
                 } catch (error) {
-                    console.error('❌ Error en Formspree:', error);
+                    alert('Error de conexión. Verifica tu internet e intenta de nuevo.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
                 }
-                
-                // Guardar en GitHub (respaldo)
-                await saveToGitHubCSV(formData);
-                
-                showPopup();
-                form.reset();
-                
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
             });
             
-            // Enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 if (!link.href.includes(window.location.hostname)) {
                     link.setAttribute('rel', 'noopener noreferrer');
