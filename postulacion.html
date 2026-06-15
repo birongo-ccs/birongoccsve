@@ -617,32 +617,32 @@
                     <!-- Nombre Artístico -->
                     <div class="form-group">
                         <label><i class="fas fa-star"></i> NOMBRE ARTÍSTICO <span class="required">*</span></label>
-                        <input type="text" name="nombre_artistico" placeholder="Ej: DJ BIRONGO, PROD VIBE" required>
+                        <input type="text" name="Nombre Artístico" placeholder="Ej: DJ BIRONGO, PROD VIBE" required>
                     </div>
 
                     <!-- Instagram -->
                     <div class="form-group">
                         <label><i class="fab fa-instagram"></i> INSTAGRAM <span class="required">*</span></label>
-                        <input type="url" name="instagram" placeholder="https://instagram.com/tuusuario" required>
+                        <input type="url" name="Instagram" placeholder="https://instagram.com/tuusuario" required>
                     </div>
 
                     <!-- Correo -->
                     <div class="form-group">
                         <label><i class="fas fa-envelope"></i> CORREO ELECTRÓNICO <span class="required">*</span></label>
-                        <input type="email" name="correo" placeholder="tunombre@ejemplo.com" required>
+                        <input type="email" name="Correo" placeholder="tunombre@ejemplo.com" required>
                     </div>
 
                     <!-- Géneros Musicales -->
                     <div class="form-group">
                         <label><i class="fas fa-music"></i> GÉNEROS MUSICALES <span class="required">*</span></label>
-                        <input type="text" name="generos_musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
+                        <input type="text" name="Generos Musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
                         <span class="generos-hint">Ej: Techno / House / Drum & Bass / Trance / Deep House</span>
                     </div>
 
                     <!-- Set de Muestra -->
                     <div class="form-group">
                         <label><i class="fas fa-link"></i> SET DE MUESTRA <span class="required">*</span></label>
-                        <input type="url" name="set_muestra" placeholder="https://soundcloud.com/... o https://youtube.com/... o https://mixcloud.com/..." required>
+                        <input type="url" name="Set de Muestra" placeholder="https://soundcloud.com/... o https://youtube.com/... o https://mixcloud.com/..." required>
                         <span class="generos-hint">Link a tu video-set (YouTube) o audio-set (SoundCloud, Mixcloud, etc.)</span>
                     </div>
 
@@ -725,25 +725,26 @@
 
             // Función para guardar en GitHub CSV (vía API)
             async function saveToGitHubCSV(formData) {
-                // Esta es la configuración que necesitas para GitHub API
-                // IMPORTANTE: Necesitas un token de acceso personal de GitHub
-                const GITHUB_TOKEN = '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'; // Reemplaza con tu token
-                const REPO_OWNER = 'birongo-ccs'; // Reemplaza con tu usuario de GitHub
-                const REPO_NAME = 'birongoccsve'; // Reemplaza con el nombre de tu repo
+                // Configuración de GitHub
+                const GITHUB_TOKEN = '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';
+                const REPO_OWNER = 'birongo-ccs';
+                const REPO_NAME = 'birongoccsve';
                 const FILE_PATH = 'db/Postulacion.csv';
                 
-                const nombreArtistico = formData.get('nombre_artistico');
-                const instagram = formData.get('instagram');
-                const correo = formData.get('correo');
-                const generos = formData.get('generos_musicales');
-                const setMuestra = formData.get('set_muestra');
+                // Obtener datos del formulario (coinciden con las columnas de tu CSV)
+                const nombreArtistico = formData.get('Nombre Artístico');
+                const instagram = formData.get('Instagram');
+                const correo = formData.get('Correo');
+                const generos = formData.get('Generos Musicales');
+                const setMuestra = formData.get('Set de Muestra');
                 const fecha = new Date().toISOString();
                 
-                // Formato CSV: fecha,nombre_artistico,instagram,correo,generos,set_muestra
+                // Formato CSV: las columnas deben coincibir EXACTAMENTE con tu CSV
+                // Tu CSV tiene: Nombre Artístico | Instagram | Correo | Generos Musicales | Set de Muestra
                 const newRow = `"${fecha}","${nombreArtistico}","${instagram}","${correo}","${generos}","${setMuestra}"\n`;
                 
                 try {
-                    // Primero obtener el archivo actual y su SHA
+                    // Obtener el archivo actual y su SHA
                     const getFileResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
                         headers: {
                             'Authorization': `token ${GITHUB_TOKEN}`,
@@ -759,8 +760,8 @@
                         sha = fileData.sha;
                         currentContent = atob(fileData.content);
                     } else if (getFileResponse.status === 404) {
-                        // El archivo no existe, lo crearemos
-                        currentContent = '"fecha","nombre_artistico","instagram","correo","generos_musicales","set_muestra"\n';
+                        // Si el archivo no existe, crear con encabezados
+                        currentContent = '"Fecha","Nombre Artístico","Instagram","Correo","Generos Musicales","Set de Muestra"\n';
                     } else {
                         throw new Error('Error al obtener el archivo CSV');
                     }
@@ -785,7 +786,8 @@
                     });
                     
                     if (!updateResponse.ok) {
-                        throw new Error('Error al guardar en GitHub');
+                        const errorData = await updateResponse.json();
+                        throw new Error(errorData.message || 'Error al guardar en GitHub');
                     }
                     
                     console.log('✅ Datos guardados en GitHub CSV');
@@ -815,11 +817,11 @@
                 e.preventDefault();
                 
                 // Validar campos
-                const nombreArtistico = form.querySelector('[name="nombre_artistico"]').value.trim();
-                const instagram = form.querySelector('[name="instagram"]').value.trim();
-                const correo = form.querySelector('[name="correo"]').value.trim();
-                const generos = form.querySelector('[name="generos_musicales"]').value.trim();
-                const setMuestra = form.querySelector('[name="set_muestra"]').value.trim();
+                const nombreArtistico = form.querySelector('[name="Nombre Artístico"]').value.trim();
+                const instagram = form.querySelector('[name="Instagram"]').value.trim();
+                const correo = form.querySelector('[name="Correo"]').value.trim();
+                const generos = form.querySelector('[name="Generos Musicales"]').value.trim();
+                const setMuestra = form.querySelector('[name="Set de Muestra"]').value.trim();
                 
                 if (!nombreArtistico || !instagram || !correo || !generos || !setMuestra) {
                     alert('Por favor completa todos los campos.');
@@ -850,7 +852,6 @@
                 const formData = new FormData(form);
                 
                 let formspreeSuccess = false;
-                let githubSuccess = false;
                 
                 // Enviar a Formspree (correo)
                 try {
@@ -871,15 +872,13 @@
                 }
                 
                 // Guardar en GitHub CSV (respaldo)
-                // NOTA: Necesitas configurar el token de GitHub para que funcione
-                // Por ahora lo dejamos como opcional, no bloquea el envío
                 try {
-                    githubSuccess = await saveToGitHubCSV(formData);
+                    await saveToGitHubCSV(formData);
                 } catch (error) {
                     console.error('Error guardando en GitHub:', error);
                 }
                 
-                // Siempre mostrar popup de éxito (aunque falle GitHub, Formspree funciona)
+                // Mostrar popup de éxito
                 showPopup();
                 
                 // Limpiar formulario
@@ -889,10 +888,11 @@
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
                 
-                // Log para debugging
-                if (formspreeSuccess) console.log('📧 Postulación enviada al correo');
-                if (githubSuccess) console.log('💾 Postulación guardada en GitHub CSV');
-                if (!formspreeSuccess) console.warn('⚠️ No se pudo enviar al correo, pero el popup se mostró igual');
+                if (formspreeSuccess) {
+                    console.log('📧 Postulación enviada exitosamente');
+                } else {
+                    console.warn('⚠️ No se pudo enviar al correo, pero los datos se guardaron en CSV');
+                }
             });
             
             // Enlaces externos
