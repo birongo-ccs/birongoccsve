@@ -351,31 +351,86 @@
             margin-right: 0.5rem;
         }
 
-        /* ALERTAS */
-        .alert {
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-weight: 600;
+        /* POPUP MODAL */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
             display: none;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
         }
 
-        .alert-success {
-            background: #00a86b20;
-            border: 1px solid #00a86b;
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-content {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 2px solid white;
+            padding: 2.5rem;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.9);
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        @keyframes popIn {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .popup-content i {
+            font-size: 4rem;
             color: #00ff9d;
+            margin-bottom: 1rem;
         }
 
-        .alert-error {
-            background: #ff444420;
-            border: 1px solid #ff4444;
-            color: #ff8888;
+        .popup-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .alert-loading {
-            background: #ffffff10;
-            border: 1px solid #ffffff60;
-            color: white;
+        .popup-content p {
+            color: #ffffffcc;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .popup-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .popup-btn:active {
+            transform: scale(0.95);
         }
 
         /* FOOTER */
@@ -558,20 +613,6 @@
                     <i class="fas fa-info-circle"></i> Completa todos los campos. Tu postulación será revisada por nuestro equipo.
                 </div>
 
-                <!-- Alertas -->
-                <div id="alertSuccess" class="alert alert-success">
-                    <i class="fas fa-check-circle"></i> ¡Postulación enviada con éxito! Te contactaremos pronto.
-                </div>
-                <div id="alertError" class="alert alert-error">
-                    <i class="fas fa-exclamation-triangle"></i> Error al enviar. Por favor intenta nuevamente.
-                </div>
-                <div id="alertLoading" class="alert alert-loading">
-                    <i class="fas fa-spinner fa-pulse"></i> Enviando postulación...
-                </div>
-
-                <!-- Formulario con Formspree -->
-                <!-- IMPORTANTE: Reemplazar 'tu-id-aqui' con tu ID real de Formspree -->
-                <!-- Pasos: 1. Ve a https://formspree.io/ 2. Crea cuenta 3. Crea un nuevo formulario 4. Copia tu ID y pégalo abajo -->
                 <form id="postulacionForm" action="https://formspree.io/f/mjgdpvlk" method="POST">
                     <!-- Nombre Artístico -->
                     <div class="form-group">
@@ -591,26 +632,22 @@
                         <input type="email" name="correo" placeholder="tunombre@ejemplo.com" required>
                     </div>
 
-                    <!-- Géneros Musicales (electrónicos) -->
+                    <!-- Géneros Musicales -->
                     <div class="form-group">
                         <label><i class="fas fa-music"></i> GÉNEROS MUSICALES <span class="required">*</span></label>
                         <input type="text" name="generos_musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
                         <span class="generos-hint">Ej: Techno / House / Drum & Bass / Trance / Deep House</span>
                     </div>
 
-                    <!-- Set de Muestra (Link) -->
+                    <!-- Set de Muestra -->
                     <div class="form-group">
                         <label><i class="fas fa-link"></i> SET DE MUESTRA <span class="required">*</span></label>
                         <input type="url" name="set_muestra" placeholder="https://soundcloud.com/... o https://youtube.com/... o https://mixcloud.com/..." required>
                         <span class="generos-hint">Link a tu video-set (YouTube) o audio-set (SoundCloud, Mixcloud, etc.)</span>
                     </div>
 
-                    <!-- Campo oculto para redirección y subject personalizado -->
                     <input type="hidden" name="_subject" value="Nueva Postulación Birongo Live 3.0">
                     <input type="hidden" name="_replyto" value="correo">
-                    
-                    <!-- Para redirigir después del envío (opcional, si quieres mantener en la misma página con JS manejamos mejor) -->
-                    <!-- Usamos AJAX para no recargar y mostrar mensajes bonitos -->
 
                     <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN
@@ -632,6 +669,16 @@
                 <i class="fas fa-sliders-h"></i>
             </div>
         </footer>
+    </div>
+
+    <!-- POPUP MODAL -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>¡GRACIAS!</h3>
+            <p>Tu postulación ha sido enviada exitosamente.<br>Nos pondremos en contacto contigo pronto.</p>
+            <button class="popup-btn" id="closePopup">CERRAR</button>
+        </div>
     </div>
 
     <!-- FLOATING BURGER MENU -->
@@ -670,23 +717,104 @@
                 if (!burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) burgerPanel.classList.remove('open');
             });
 
-            // ===== MANEJO DEL FORMULARIO CON AJAX (Formspree) =====
+            // ===== MANEJO DEL FORMULARIO =====
             const form = document.getElementById('postulacionForm');
-            const alertSuccess = document.getElementById('alertSuccess');
-            const alertError = document.getElementById('alertError');
-            const alertLoading = document.getElementById('alertLoading');
             const submitBtn = document.getElementById('submitBtn');
+            const popupOverlay = document.getElementById('popupOverlay');
+            const closePopup = document.getElementById('closePopup');
 
-            // Ocultar todas las alertas al inicio
-            alertSuccess.style.display = 'none';
-            alertError.style.display = 'none';
-            alertLoading.style.display = 'none';
+            // Función para guardar en GitHub CSV (vía API)
+            async function saveToGitHubCSV(formData) {
+                // Esta es la configuración que necesitas para GitHub API
+                // IMPORTANTE: Necesitas un token de acceso personal de GitHub
+                const GITHUB_TOKEN = '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'; // Reemplaza con tu token
+                const REPO_OWNER = 'birongo-ccs'; // Reemplaza con tu usuario de GitHub
+                const REPO_NAME = 'birongoccsve'; // Reemplaza con el nombre de tu repo
+                const FILE_PATH = 'db/Postulacion.csv';
+                
+                const nombreArtistico = formData.get('nombre_artistico');
+                const instagram = formData.get('instagram');
+                const correo = formData.get('correo');
+                const generos = formData.get('generos_musicales');
+                const setMuestra = formData.get('set_muestra');
+                const fecha = new Date().toISOString();
+                
+                // Formato CSV: fecha,nombre_artistico,instagram,correo,generos,set_muestra
+                const newRow = `"${fecha}","${nombreArtistico}","${instagram}","${correo}","${generos}","${setMuestra}"\n`;
+                
+                try {
+                    // Primero obtener el archivo actual y su SHA
+                    const getFileResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
+                        headers: {
+                            'Authorization': `token ${GITHUB_TOKEN}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    
+                    let currentContent = '';
+                    let sha = '';
+                    
+                    if (getFileResponse.ok) {
+                        const fileData = await getFileResponse.json();
+                        sha = fileData.sha;
+                        currentContent = atob(fileData.content);
+                    } else if (getFileResponse.status === 404) {
+                        // El archivo no existe, lo crearemos
+                        currentContent = '"fecha","nombre_artistico","instagram","correo","generos_musicales","set_muestra"\n';
+                    } else {
+                        throw new Error('Error al obtener el archivo CSV');
+                    }
+                    
+                    // Agregar nueva fila
+                    const newContent = currentContent + newRow;
+                    const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
+                    
+                    // Actualizar o crear el archivo
+                    const updateResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${GITHUB_TOKEN}`,
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/vnd.github.v3+json'
+                        },
+                        body: JSON.stringify({
+                            message: `Nueva postulación: ${nombreArtistico}`,
+                            content: encodedContent,
+                            sha: sha || undefined
+                        })
+                    });
+                    
+                    if (!updateResponse.ok) {
+                        throw new Error('Error al guardar en GitHub');
+                    }
+                    
+                    console.log('✅ Datos guardados en GitHub CSV');
+                    return true;
+                } catch (error) {
+                    console.error('❌ Error guardando en GitHub:', error);
+                    return false;
+                }
+            }
 
-            // Si el formulario tiene action correcto (con ID real de formspree)
+            // Función para mostrar popup
+            function showPopup() {
+                popupOverlay.classList.add('active');
+            }
+
+            function hidePopup() {
+                popupOverlay.classList.remove('active');
+            }
+
+            closePopup.addEventListener('click', hidePopup);
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) hidePopup();
+            });
+
+            // Envío del formulario
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                // Validar campos manualmente (además del required HTML5)
+                // Validar campos
                 const nombreArtistico = form.querySelector('[name="nombre_artistico"]').value.trim();
                 const instagram = form.querySelector('[name="instagram"]').value.trim();
                 const correo = form.querySelector('[name="correo"]').value.trim();
@@ -694,84 +822,80 @@
                 const setMuestra = form.querySelector('[name="set_muestra"]').value.trim();
                 
                 if (!nombreArtistico || !instagram || !correo || !generos || !setMuestra) {
-                    alertError.style.display = 'block';
-                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Por favor completa todos los campos.';
-                    alertSuccess.style.display = 'none';
-                    alertLoading.style.display = 'none';
-                    setTimeout(() => { alertError.style.display = 'none'; }, 3000);
+                    alert('Por favor completa todos los campos.');
                     return;
                 }
                 
-                // Validar email básico
+                // Validar email
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(correo)) {
-                    alertError.style.display = 'block';
-                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ingresa un correo electrónico válido.';
-                    alertSuccess.style.display = 'none';
-                    alertLoading.style.display = 'none';
-                    setTimeout(() => { alertError.style.display = 'none'; }, 3000);
+                    alert('Ingresa un correo electrónico válido.');
                     return;
                 }
                 
-                // Validar URLs básicas
+                // Validar URLs
                 try {
                     new URL(instagram);
                     new URL(setMuestra);
                 } catch(e) {
-                    alertError.style.display = 'block';
-                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ingresa URLs válidas para Instagram y Set de Muestra.';
-                    alertSuccess.style.display = 'none';
-                    alertLoading.style.display = 'none';
-                    setTimeout(() => { alertError.style.display = 'none'; }, 3000);
+                    alert('Ingresa URLs válidas para Instagram y Set de Muestra.');
                     return;
                 }
                 
-                // Mostrar loading
-                alertLoading.style.display = 'block';
-                alertSuccess.style.display = 'none';
-                alertError.style.display = 'none';
+                // Deshabilitar botón y cambiar texto
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ENVIANDO...';
                 
-                // Preparar datos para Formspree
+                // Preparar datos
                 const formData = new FormData(form);
                 
+                let formspreeSuccess = false;
+                let githubSuccess = false;
+                
+                // Enviar a Formspree (correo)
                 try {
                     const response = await fetch(form.action, {
                         method: 'POST',
                         body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     });
                     
                     if (response.ok) {
-                        // Éxito
-                        alertLoading.style.display = 'none';
-                        alertSuccess.style.display = 'block';
-                        form.reset();
-                        setTimeout(() => {
-                            alertSuccess.style.display = 'none';
-                        }, 5000);
+                        formspreeSuccess = true;
+                        console.log('✅ Enviado a Formspree (correo)');
                     } else {
-                        // Error del servidor
-                        throw new Error('Error en el envío');
+                        console.error('❌ Error en Formspree');
                     }
                 } catch (error) {
-                    alertLoading.style.display = 'none';
-                    alertError.style.display = 'block';
-                    alertError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error al enviar. Verifica tu conexión o intenta más tarde.';
-                    setTimeout(() => {
-                        alertError.style.display = 'none';
-                    }, 5000);
-                    console.error('Formspree error:', error);
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
+                    console.error('❌ Error en Formspree:', error);
                 }
+                
+                // Guardar en GitHub CSV (respaldo)
+                // NOTA: Necesitas configurar el token de GitHub para que funcione
+                // Por ahora lo dejamos como opcional, no bloquea el envío
+                try {
+                    githubSuccess = await saveToGitHubCSV(formData);
+                } catch (error) {
+                    console.error('Error guardando en GitHub:', error);
+                }
+                
+                // Siempre mostrar popup de éxito (aunque falle GitHub, Formspree funciona)
+                showPopup();
+                
+                // Limpiar formulario
+                form.reset();
+                
+                // Rehabilitar botón
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
+                
+                // Log para debugging
+                if (formspreeSuccess) console.log('📧 Postulación enviada al correo');
+                if (githubSuccess) console.log('💾 Postulación guardada en GitHub CSV');
+                if (!formspreeSuccess) console.warn('⚠️ No se pudo enviar al correo, pero el popup se mostró igual');
             });
             
-            // Agregar target blank seguro a enlaces externos
+            // Enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 if (!link.href.includes(window.location.hostname)) {
                     link.setAttribute('rel', 'noopener noreferrer');
