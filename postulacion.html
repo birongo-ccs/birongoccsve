@@ -38,13 +38,6 @@
     <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
 
-    <!-- Cronitor RUM -->
-    <script>
-        window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
-        cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
-    </script>
-    <script async src="https://rum.cronitor.io/script.js" defer></script>
-
     <style>
         * {
             margin: 0;
@@ -610,10 +603,13 @@
                 </div>
 
                 <div class="mensaje-info">
-                    <i class="fas fa-info-circle"></i> Completa todos los campos. Tu postulación será revisada por nuestro equipo.
+                    <i class="fas fa-info-circle"></i> Completa todos los campos. Recibirás un correo de confirmación.
                 </div>
 
                 <form id="postulacionForm" action="https://formspree.io/f/mjgdpvlk" method="POST">
+                    <input type="hidden" name="_subject" value="NUEVA POSTULACIÓN - Birongo Live 3.0">
+                    <input type="hidden" name="_replyto" value="email">
+                    
                     <!-- Nombre Artístico -->
                     <div class="form-group">
                         <label><i class="fas fa-star"></i> NOMBRE ARTÍSTICO <span class="required">*</span></label>
@@ -629,13 +625,13 @@
                     <!-- Correo -->
                     <div class="form-group">
                         <label><i class="fas fa-envelope"></i> CORREO ELECTRÓNICO <span class="required">*</span></label>
-                        <input type="email" name="Correo" placeholder="tunombre@ejemplo.com" required>
+                        <input type="email" name="email" placeholder="tunombre@ejemplo.com" required>
                     </div>
 
                     <!-- Géneros Musicales -->
                     <div class="form-group">
                         <label><i class="fas fa-music"></i> GÉNEROS MUSICALES <span class="required">*</span></label>
-                        <input type="text" name="Generos Musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
+                        <input type="text" name="Géneros Musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
                         <span class="generos-hint">Ej: Techno / House / Drum & Bass / Trance / Deep House</span>
                     </div>
 
@@ -645,9 +641,6 @@
                         <input type="url" name="Set de Muestra" placeholder="https://soundcloud.com/... o https://youtube.com/... o https://mixcloud.com/..." required>
                         <span class="generos-hint">Link a tu video-set (YouTube) o audio-set (SoundCloud, Mixcloud, etc.)</span>
                     </div>
-
-                    <input type="hidden" name="_subject" value="Nueva Postulación Birongo Live 3.0">
-                    <input type="hidden" name="_replyto" value="correo">
 
                     <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN
@@ -681,19 +674,19 @@
         </div>
     </div>
 
-<!-- FLOATING BURGER MENU -->
-<div class="burger-float" id="burgerFloat">
-    <div class="burger-button" id="burgerBtn"><i class="fas fa-bars"></i></div>
-    <div class="burger-menu-panel" id="burgerPanel">
-        <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
-        <a href="djs-productores.html"><i class="fas fa-users"></i> DJs & PROD</a>
-        <a href="diario.html"><i class="fas fa-newspaper"></i> DIARIO</a>
-        <a href="eventos.html"><i class="fas fa-calendar-alt"></i> EVENTOS</a>
-        <a href="entradas.html"><i class="fas fa-ticket-alt"></i> ENTRADAS</a>
-        <a href="contacto.html"><i class="fas fa-envelope"></i> CONTACTO</a>
-        <a href="postulacion.html"><i class="fas fa-paper-plane"></i> POSTULACIÓN</a>
+    <!-- FLOATING BURGER MENU -->
+    <div class="burger-float" id="burgerFloat">
+        <div class="burger-button" id="burgerBtn"><i class="fas fa-bars"></i></div>
+        <div class="burger-menu-panel" id="burgerPanel">
+            <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
+            <a href="djs-productores.html"><i class="fas fa-users"></i> DJs & PROD</a>
+            <a href="diario.html"><i class="fas fa-newspaper"></i> DIARIO</a>
+            <a href="eventos.html"><i class="fas fa-calendar-alt"></i> EVENTOS</a>
+            <a href="entradas.html"><i class="fas fa-ticket-alt"></i> ENTRADAS</a>
+            <a href="contacto.html"><i class="fas fa-envelope"></i> CONTACTO</a>
+            <a href="postulacion.html"><i class="fas fa-paper-plane"></i> POSTULACIÓN</a>
+        </div>
     </div>
-</div>
 
     <script>
         (function() {
@@ -724,82 +717,6 @@
             const popupOverlay = document.getElementById('popupOverlay');
             const closePopup = document.getElementById('closePopup');
 
-            // Función para guardar en GitHub CSV (vía API)
-            async function saveToGitHubCSV(formData) {
-                // Configuración de GitHub
-                const GITHUB_TOKEN = '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';
-                const REPO_OWNER = 'birongo-ccs';
-                const REPO_NAME = 'birongoccsve';
-                const FILE_PATH = 'db/Postulacion.csv';
-                
-                // Obtener datos del formulario (coinciden con las columnas de tu CSV)
-                const nombreArtistico = formData.get('Nombre Artístico');
-                const instagram = formData.get('Instagram');
-                const correo = formData.get('Correo');
-                const generos = formData.get('Generos Musicales');
-                const setMuestra = formData.get('Set de Muestra');
-                const fecha = new Date().toISOString();
-                
-                // Formato CSV: las columnas deben coincibir EXACTAMENTE con tu CSV
-                // Tu CSV tiene: Nombre Artístico | Instagram | Correo | Generos Musicales | Set de Muestra
-                const newRow = `"${fecha}","${nombreArtistico}","${instagram}","${correo}","${generos}","${setMuestra}"\n`;
-                
-                try {
-                    // Obtener el archivo actual y su SHA
-                    const getFileResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
-                        headers: {
-                            'Authorization': `token ${GITHUB_TOKEN}`,
-                            'Accept': 'application/vnd.github.v3+json'
-                        }
-                    });
-                    
-                    let currentContent = '';
-                    let sha = '';
-                    
-                    if (getFileResponse.ok) {
-                        const fileData = await getFileResponse.json();
-                        sha = fileData.sha;
-                        currentContent = atob(fileData.content);
-                    } else if (getFileResponse.status === 404) {
-                        // Si el archivo no existe, crear con encabezados
-                        currentContent = '"Fecha","Nombre Artístico","Instagram","Correo","Generos Musicales","Set de Muestra"\n';
-                    } else {
-                        throw new Error('Error al obtener el archivo CSV');
-                    }
-                    
-                    // Agregar nueva fila
-                    const newContent = currentContent + newRow;
-                    const encodedContent = btoa(unescape(encodeURIComponent(newContent)));
-                    
-                    // Actualizar o crear el archivo
-                    const updateResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `token ${GITHUB_TOKEN}`,
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/vnd.github.v3+json'
-                        },
-                        body: JSON.stringify({
-                            message: `Nueva postulación: ${nombreArtistico}`,
-                            content: encodedContent,
-                            sha: sha || undefined
-                        })
-                    });
-                    
-                    if (!updateResponse.ok) {
-                        const errorData = await updateResponse.json();
-                        throw new Error(errorData.message || 'Error al guardar en GitHub');
-                    }
-                    
-                    console.log('✅ Datos guardados en GitHub CSV');
-                    return true;
-                } catch (error) {
-                    console.error('❌ Error guardando en GitHub:', error);
-                    return false;
-                }
-            }
-
-            // Función para mostrar popup
             function showPopup() {
                 popupOverlay.classList.add('active');
             }
@@ -820,18 +737,18 @@
                 // Validar campos
                 const nombreArtistico = form.querySelector('[name="Nombre Artístico"]').value.trim();
                 const instagram = form.querySelector('[name="Instagram"]').value.trim();
-                const correo = form.querySelector('[name="Correo"]').value.trim();
-                const generos = form.querySelector('[name="Generos Musicales"]').value.trim();
+                const email = form.querySelector('[name="email"]').value.trim();
+                const generos = form.querySelector('[name="Géneros Musicales"]').value.trim();
                 const setMuestra = form.querySelector('[name="Set de Muestra"]').value.trim();
                 
-                if (!nombreArtistico || !instagram || !correo || !generos || !setMuestra) {
+                if (!nombreArtistico || !instagram || !email || !generos || !setMuestra) {
                     alert('Por favor completa todos los campos.');
                     return;
                 }
                 
                 // Validar email
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(correo)) {
+                if (!emailRegex.test(email)) {
                     alert('Ingresa un correo electrónico válido.');
                     return;
                 }
@@ -849,13 +766,9 @@
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ENVIANDO...';
                 
-                // Preparar datos
-                const formData = new FormData(form);
-                
-                let formspreeSuccess = false;
-                
-                // Enviar a Formspree (correo)
+                // Enviar a Formspree
                 try {
+                    const formData = new FormData(form);
                     const response = await fetch(form.action, {
                         method: 'POST',
                         body: formData,
@@ -863,36 +776,25 @@
                     });
                     
                     if (response.ok) {
-                        formspreeSuccess = true;
-                        console.log('✅ Enviado a Formspree (correo)');
+                        // Mostrar popup de éxito
+                        showPopup();
+                        
+                        // Limpiar formulario
+                        form.reset();
+                        
+                        console.log('✅ Postulación enviada exitosamente');
                     } else {
-                        console.error('❌ Error en Formspree');
+                        const errorData = await response.json();
+                        console.error('Error en Formspree:', errorData);
+                        alert('Hubo un error al enviar la postulación. Por favor intenta nuevamente.');
                     }
                 } catch (error) {
-                    console.error('❌ Error en Formspree:', error);
-                }
-                
-                // Guardar en GitHub CSV (respaldo)
-                try {
-                    await saveToGitHubCSV(formData);
-                } catch (error) {
-                    console.error('Error guardando en GitHub:', error);
-                }
-                
-                // Mostrar popup de éxito
-                showPopup();
-                
-                // Limpiar formulario
-                form.reset();
-                
-                // Rehabilitar botón
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
-                
-                if (formspreeSuccess) {
-                    console.log('📧 Postulación enviada exitosamente');
-                } else {
-                    console.warn('⚠️ No se pudo enviar al correo, pero los datos se guardaron en CSV');
+                    console.error('Error de red:', error);
+                    alert('Error de conexión. Por favor verifica tu internet e intenta nuevamente.');
+                } finally {
+                    // Rehabilitar botón
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
                 }
             });
             
