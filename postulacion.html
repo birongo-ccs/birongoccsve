@@ -578,9 +578,8 @@
                     <i class="fas fa-info-circle"></i> Completa todos los campos. Tu postulación será revisada por nuestro equipo.
                 </div>
 
-                <!-- FORMULARIO CON FORMSPREE (CORREO ACTUALIZADO) -->
                 <form id="postulacionForm" action="https://formspree.io/f/mjgdpvlk" method="POST">
-                    <!-- Campos ocultos con el correo destino CORRECTO -->
+                    <!-- Campos ocultos Formspree -->
                     <input type="hidden" name="_subject" value="🎧 NUEVA POSTULACIÓN BIRONGO LIVE 3.0">
                     <input type="hidden" name="_to" value="birongocaracas@gmail.com">
                     <input type="hidden" name="_replyto" value="birongocaracas@gmail.com">
@@ -657,6 +656,7 @@
 
     <script>
         (function() {
+            // ===== BURGER MENU =====
             const burgerFloat = document.getElementById('burgerFloat');
             const burgerBtn = document.getElementById('burgerBtn');
             const burgerPanel = document.getElementById('burgerPanel');
@@ -679,11 +679,42 @@
                 }
             });
 
+            // ===== FORMULARIO =====
             const form = document.getElementById('postulacionForm');
             const submitBtn = document.getElementById('submitBtn');
             const popupOverlay = document.getElementById('popupOverlay');
             const closePopup = document.getElementById('closePopup');
 
+            // ===== CONFIGURACIÓN GOOGLE SHEETS =====
+            // TU URL DE GOOGLE APPS SCRIPT
+            const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwDPrUNXu9bv3h7nBtuabZ4viFaIcV9nFAeutzURNCjH7Pcv4TKsSiplf_46a4gNS6yGA/exec';
+
+            // Función para guardar en Google Sheets
+            async function saveToGoogleSheets(formData) {
+                const data = {
+                    nombre_artistico: formData.get('Nombre Artístico'),
+                    instagram: formData.get('Instagram'),
+                    correo: formData.get('Correo'),
+                    generos_musicales: formData.get('Generos Musicales'),
+                    set_muestra: formData.get('Set de Muestra')
+                };
+                
+                try {
+                    const response = await fetch(GOOGLE_SHEETS_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    console.log('✅ Datos enviados a Google Sheets');
+                    return true;
+                } catch (error) {
+                    console.error('❌ Error en Google Sheets:', error);
+                    return false;
+                }
+            }
+
+            // ===== POPUP =====
             function showPopup() {
                 popupOverlay.classList.add('active');
             }
@@ -697,6 +728,7 @@
                 if (e.target === popupOverlay) hidePopup();
             });
 
+            // ===== ENVÍO DEL FORMULARIO =====
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
@@ -726,36 +758,44 @@
                     return;
                 }
                 
-                // Deshabilitar botón y mostrar carga
+                // Deshabilitar botón
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ENVIANDO...';
                 
+                const formData = new FormData(form);
+                
                 try {
+                    // 1. Enviar a Formspree (correo)
                     const response = await fetch(form.action, {
                         method: 'POST',
-                        body: new FormData(form),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
                     });
                     
-                    if (response.ok) {
-                        showPopup();
-                        form.reset();
-                    } else {
-                        const errorData = await response.json();
-                        console.error('Error Formspree:', errorData);
-                        alert('❌ Error al enviar. Verifica que tu correo esté confirmado en Formspree.');
+                    if (!response.ok) {
+                        throw new Error('Error en Formspree');
                     }
+                    console.log('✅ Enviado a Formspree');
+                    
+                    // 2. Guardar en Google Sheets (respaldo)
+                    await saveToGoogleSheets(formData);
+                    
+                    // Mostrar popup de éxito
+                    showPopup();
+                    
+                    // Limpiar formulario
+                    form.reset();
+                    
                 } catch (error) {
-                    console.error('Error de conexión:', error);
-                    alert('❌ Error de conexión. Verifica tu internet e intenta de nuevo.');
+                    console.error('Error:', error);
+                    alert('❌ Error al enviar. Por favor intenta nuevamente.');
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
                 }
             });
             
+            // Enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 if (!link.href.includes(window.location.hostname)) {
                     link.setAttribute('rel', 'noopener noreferrer');
