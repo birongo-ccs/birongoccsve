@@ -38,13 +38,6 @@
     <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
 
-    <!-- Cronitor RUM -->
-    <script>
-        window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
-        cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
-    </script>
-    <script async src="https://rum.cronitor.io/script.js" defer></script>
-
     <style>
         * {
             margin: 0;
@@ -269,9 +262,7 @@
             margin-left: 0.2rem;
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group input {
             width: 100%;
             padding: 1rem;
             background: #1a1a1a;
@@ -282,9 +273,7 @@
             transition: all 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-group input:focus {
             outline: none;
             border-color: white;
             background: #222;
@@ -354,7 +343,6 @@
             display: none;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.3s ease;
         }
 
         .popup-overlay.active {
@@ -368,21 +356,16 @@
             max-width: 450px;
             width: 90%;
             text-align: center;
-            transform: scale(0.9);
-            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            animation: popIn 0.4s ease;
         }
 
         @keyframes popIn {
-            to {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes fadeIn {
             from {
+                transform: scale(0.8);
                 opacity: 0;
             }
             to {
+                transform: scale(1);
                 opacity: 1;
             }
         }
@@ -415,7 +398,6 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             cursor: pointer;
-            transition: all 0.2s ease;
             font-family: 'Space Grotesk', sans-serif;
         }
 
@@ -453,7 +435,7 @@
             opacity: 0;
             visibility: hidden;
             transform: scale(0.8);
-            transition: opacity 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.3s, transform 0.2s ease;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
         }
         
         .burger-float.active {
@@ -472,8 +454,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
-            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
             backdrop-filter: blur(8px);
             background-color: rgba(0,0,0,0.85);
         }
@@ -481,7 +462,6 @@
         .burger-button i {
             font-size: 1.8rem;
             color: white;
-            transition: transform 0.2s;
         }
         
         .burger-button:active {
@@ -503,11 +483,10 @@
             padding: 1rem 0.8rem;
             min-width: 200px;
             border: 1px solid rgba(255,255,255,0.3);
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8);
             transform: scale(0.9);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.25s ease;
+            transition: all 0.25s;
             transform-origin: bottom right;
             z-index: 999;
         }
@@ -574,7 +553,7 @@
 <body>
     <div class="container">
         <div class="hero">
-            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager" width="800" height="300">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager">
             
             <div class="nav-menu">
                 <a href="index.html" class="nav-item">INICIO</a>
@@ -599,8 +578,13 @@
                     <i class="fas fa-info-circle"></i> Completa todos los campos. Tu postulación será revisada por nuestro equipo.
                 </div>
 
-                <!-- Formulario con Formspree -->
+                <!-- FORMULARIO CON FORMSPREE (CORREO ACTUALIZADO) -->
                 <form id="postulacionForm" action="https://formspree.io/f/mjgdpvlk" method="POST">
+                    <!-- Campos ocultos con el correo destino CORRECTO -->
+                    <input type="hidden" name="_subject" value="🎧 NUEVA POSTULACIÓN BIRONGO LIVE 3.0">
+                    <input type="hidden" name="_to" value="birongocaracas@gmail.com">
+                    <input type="hidden" name="_replyto" value="birongocaracas@gmail.com">
+                    
                     <div class="form-group">
                         <label><i class="fas fa-star"></i> NOMBRE ARTÍSTICO <span class="required">*</span></label>
                         <input type="text" name="Nombre Artístico" placeholder="Ej: DJ BIRONGO, PROD VIBE" required>
@@ -627,9 +611,6 @@
                         <input type="url" name="Set de Muestra" placeholder="https://soundcloud.com/... o https://youtube.com/..." required>
                         <span class="generos-hint">Link a tu video-set (YouTube) o audio-set (SoundCloud, Mixcloud, etc.)</span>
                     </div>
-
-                    <input type="hidden" name="_subject" value="Nueva Postulación Birongo Live 3.0">
-                    <input type="hidden" name="_replyto" value="correo">
 
                     <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN
@@ -693,7 +674,9 @@
                 burgerPanel.classList.toggle('open');
             });
             document.addEventListener('click', (e) => {
-                if (!burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) burgerPanel.classList.remove('open');
+                if (!burgerFloat.contains(e.target) && burgerPanel.classList.contains('open')) {
+                    burgerPanel.classList.remove('open');
+                }
             });
 
             const form = document.getElementById('postulacionForm');
@@ -717,6 +700,7 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
+                // Validaciones
                 const nombreArtistico = form.querySelector('[name="Nombre Artístico"]').value.trim();
                 const instagram = form.querySelector('[name="Instagram"]').value.trim();
                 const correo = form.querySelector('[name="Correo"]').value.trim();
@@ -724,13 +708,13 @@
                 const setMuestra = form.querySelector('[name="Set de Muestra"]').value.trim();
                 
                 if (!nombreArtistico || !instagram || !correo || !generos || !setMuestra) {
-                    alert('Por favor completa todos los campos.');
+                    alert('❌ Por favor completa todos los campos.');
                     return;
                 }
                 
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(correo)) {
-                    alert('Ingresa un correo electrónico válido.');
+                    alert('❌ Ingresa un correo electrónico válido.');
                     return;
                 }
                 
@@ -738,30 +722,34 @@
                     new URL(instagram);
                     new URL(setMuestra);
                 } catch(e) {
-                    alert('Ingresa URLs válidas para Instagram y Set de Muestra.');
+                    alert('❌ Ingresa URLs válidas para Instagram y Set de Muestra.');
                     return;
                 }
                 
+                // Deshabilitar botón y mostrar carga
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ENVIANDO...';
-                
-                const formData = new FormData(form);
                 
                 try {
                     const response = await fetch(form.action, {
                         method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
                     });
                     
                     if (response.ok) {
                         showPopup();
                         form.reset();
                     } else {
-                        alert('Error al enviar. Por favor intenta nuevamente.');
+                        const errorData = await response.json();
+                        console.error('Error Formspree:', errorData);
+                        alert('❌ Error al enviar. Verifica que tu correo esté confirmado en Formspree.');
                     }
                 } catch (error) {
-                    alert('Error de conexión. Verifica tu internet e intenta de nuevo.');
+                    console.error('Error de conexión:', error);
+                    alert('❌ Error de conexión. Verifica tu internet e intenta de nuevo.');
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
