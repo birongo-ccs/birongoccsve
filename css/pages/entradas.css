@@ -548,48 +548,53 @@
             margin-bottom: 2rem;
         }
 
-/* ===== BOTÓN WHATSAPP ===== */
+/* ===== BOTÓN WHATSAPP - ESTILO BIRONGO ===== */
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: #25D366;
-    color: #fff;
-    padding: 14px 40px;
-    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffffdd;
+    padding: 12px 32px;
+    border-radius: 40px;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
 }
 
 .whatsapp-btn i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: #25D366;
+    transition: all 0.3s ease;
 }
 
 .whatsapp-btn:hover {
-    background: #1da85c;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.whatsapp-btn:hover i {
+    color: #ffffff;
 }
 
 .whatsapp-btn:active {
     transform: scale(0.96);
 }
 
-/* Responsive para el botón */
+/* Responsive */
 @media (max-width: 600px) {
     .whatsapp-btn {
-        padding: 12px 28px;
-        font-size: 0.8rem;
+        padding: 10px 24px;
+        font-size: 0.7rem;
         gap: 10px;
     }
     .whatsapp-btn i {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
