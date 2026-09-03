@@ -547,3 +547,49 @@
         .youtube-card {
             margin-bottom: 2rem;
         }
+
+/* ===== BOTÓN WHATSAPP ===== */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: #fff;
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+}
+
+.whatsapp-btn i {
+    font-size: 1.5rem;
+}
+
+.whatsapp-btn:hover {
+    background: #1da85c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+    color: #fff;
+}
+
+.whatsapp-btn:active {
+    transform: scale(0.96);
+}
+
+/* Responsive para el botón */
+@media (max-width: 600px) {
+    .whatsapp-btn {
+        padding: 12px 28px;
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+    .whatsapp-btn i {
+        font-size: 1.2rem;
+    }
+}
