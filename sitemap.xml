@@ -179,7 +179,35 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
+  <url>
+    <loc>https://www.birongo.live/dj-productores/sebasmove.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.birongo.live/dj-productores/djyirvin.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.birongo.live/dj-productores/extintorbass.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.birongo.live/dj-productores/okubo.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+      
   <!-- ===== IMÁGENES DE ARTISTAS ===== -->
   
   <url>
