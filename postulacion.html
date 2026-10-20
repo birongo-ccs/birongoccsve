@@ -29,7 +29,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://formspree.io">
 
     <!-- ===== FONTS & ICONS ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -66,49 +65,20 @@
                 </div>
 
                 <div class="mensaje-info">
-                    <i class="fas fa-info-circle"></i> Completa todos los campos. Tu postulación será revisada por nuestro equipo.
+                    <i class="fas fa-info-circle"></i> ¿Quieres ser parte de Birongo Records? Envía tu demo y nuestro equipo la revisará.
                 </div>
 
-                <form id="postulacionForm" action="https://formspree.io/f/mjgdpvlk" method="POST">
-                    <!-- Campos ocultos Formspree -->
-                    <input type="hidden" name="_subject" value="NUEVA POSTULACIONES DE ARTITA">
-                    <input type="hidden" name="_to" value="birongocaracas@gmail.com">
-                    <input type="hidden" name="_replyto" value="birongocaracas@gmail.com">
-                    
-                    <div class="form-group">
-                        <label><i class="fas fa-star"></i> NOMBRE ARTÍSTICO <span class="required">*</span></label>
-                        <input type="text" name="Nombre Artístico" placeholder="Ej: DJ BIRONGO, PROD VIBE" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fab fa-instagram"></i> INSTAGRAM <span class="required">*</span></label>
-                        <input type="url" name="Instagram" placeholder="https://instagram.com/tuusuario" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> CORREO ELECTRÓNICO <span class="required">*</span></label>
-                        <input type="email" name="Correo" placeholder="tunombre@ejemplo.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-music"></i> GÉNEROS MUSICALES <span class="required">*</span></label>
-                        <input type="text" name="Generos Musicales" placeholder="Techno, House, Drum & Bass, Trance, Tech House, Melodic, Deep, etc." required>
-                        <span class="generos-hint">Ej: Techno / House / Drum & Bass / Trance / Deep House</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-link"></i> LINK DEL DEMO <span class="required">*</span></label>
-                        <input type="url" name="Set de Muestra" placeholder="https://soundcloud.com/... o https://youtube.com/..." required>
-                        <span class="generos-hint">Link a tu video-set (YouTube) o audio-set (SoundCloud, Mixcloud, etc.)</span>
-                    </div>
-
-                    <button type="submit" class="btn-submit" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> ENVIAR DEMO
-                    </button>
-                </form>
+                <div class="postulacion-cta" style="text-align: center; padding: 1rem 0;">
+                    <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.6;">
+                        Si quieres ser parte de <strong>Birongo Records</strong> o del colectivo, envía tu demo directamente en el siguiente botón.
+                    </p>
+                    <a href="https://birongo.triplepointdistro.com/demos" target="_blank" rel="noopener noreferrer" class="btn-submit" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; text-decoration: none;">
+                        <i class="fas fa-paper-plane"></i> ENVIAR MI DEMO
+                    </a>
+                </div>
 
                 <div class="mensaje-info" style="margin-top: 1.5rem;">
-                    <i class="fas fa-shield-alt"></i> Tus datos están seguros. Solo serán usados para procesos de selección de Birongo.
+                    <i class="fas fa-shield-alt"></i> Serás redirigido a la plataforma de Triple Point Distro para completar tu envío.
                 </div>
             </div>
         </div>
@@ -121,15 +91,6 @@
                 <i class="fas fa-sliders-h"></i>
             </div>
         </footer>
-    </div>
-
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-            <i class="fas fa-check-circle"></i>
-            <h3>¡GRACIAS!</h3>
-            <p>Tu postulación ha sido enviada exitosamente.<br>Nos pondremos en contacto contigo pronto.</p>
-            <button class="popup-btn" id="closePopup">CERRAR</button>
-        </div>
     </div>
 
     <div class="burger-float" id="burgerFloat">
@@ -172,122 +133,6 @@
                 }
             });
 
-            // ===== FORMULARIO =====
-            const form = document.getElementById('postulacionForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const popupOverlay = document.getElementById('popupOverlay');
-            const closePopup = document.getElementById('closePopup');
-
-            // ===== CONFIGURACIÓN GOOGLE SHEETS =====
-            // TU URL DE GOOGLE APPS SCRIPT
-            const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwDPrUNXu9bv3h7nBtuabZ4viFaIcV9nFAeutzURNCjH7Pcv4TKsSiplf_46a4gNS6yGA/exec';
-
-            // Función para guardar en Google Sheets
-            async function saveToGoogleSheets(formData) {
-                const data = {
-                    nombre_artistico: formData.get('Nombre Artístico'),
-                    instagram: formData.get('Instagram'),
-                    correo: formData.get('Correo'),
-                    generos_musicales: formData.get('Generos Musicales'),
-                    set_muestra: formData.get('Set de Muestra')
-                };
-                
-                try {
-                    const response = await fetch(GOOGLE_SHEETS_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
-                    console.log('✅ Datos enviados a Google Sheets');
-                    return true;
-                } catch (error) {
-                    console.error('❌ Error en Google Sheets:', error);
-                    return false;
-                }
-            }
-
-            // ===== POPUP =====
-            function showPopup() {
-                popupOverlay.classList.add('active');
-            }
-
-            function hidePopup() {
-                popupOverlay.classList.remove('active');
-            }
-
-            closePopup.addEventListener('click', hidePopup);
-            popupOverlay.addEventListener('click', (e) => {
-                if (e.target === popupOverlay) hidePopup();
-            });
-
-            // ===== ENVÍO DEL FORMULARIO =====
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                // Validaciones
-                const nombreArtistico = form.querySelector('[name="Nombre Artístico"]').value.trim();
-                const instagram = form.querySelector('[name="Instagram"]').value.trim();
-                const correo = form.querySelector('[name="Correo"]').value.trim();
-                const generos = form.querySelector('[name="Generos Musicales"]').value.trim();
-                const setMuestra = form.querySelector('[name="Set de Muestra"]').value.trim();
-                
-                if (!nombreArtistico || !instagram || !correo || !generos || !setMuestra) {
-                    alert('❌ Por favor completa todos los campos.');
-                    return;
-                }
-                
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(correo)) {
-                    alert('❌ Ingresa un correo electrónico válido.');
-                    return;
-                }
-                
-                try {
-                    new URL(instagram);
-                    new URL(setMuestra);
-                } catch(e) {
-                    alert('❌ Ingresa URLs válidas para Instagram y Set de Muestra.');
-                    return;
-                }
-                
-                // Deshabilitar botón
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ENVIANDO...';
-                
-                const formData = new FormData(form);
-                
-                try {
-                    // 1. Enviar a Formspree (correo)
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    
-                    if (!response.ok) {
-                        throw new Error('Error en Formspree');
-                    }
-                    console.log('✅ Enviado a Formspree');
-                    
-                    // 2. Guardar en Google Sheets (respaldo)
-                    await saveToGoogleSheets(formData);
-                    
-                    // Mostrar popup de éxito
-                    showPopup();
-                    
-                    // Limpiar formulario
-                    form.reset();
-                    
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('❌ Error al enviar. Por favor intenta nuevamente.');
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR POSTULACIÓN';
-                }
-            });
-            
             // Enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 if (!link.href.includes(window.location.hostname)) {
