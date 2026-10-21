@@ -141,6 +141,11 @@
             width: 100%;
         }
 
+        .nav-menu a[href$="entradas.html"],
+        .burger-menu-panel a[href$="entradas.html"] {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1rem;
